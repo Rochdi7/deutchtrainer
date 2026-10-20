@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        -webkit-tap-highlight-color: transparent;
+        overscroll-behavior-y: none;
+    }
+    /* 16px prevents iOS Safari from zooming into inputs */
+    @media (max-width: 639px) {
+        input,
+        select,
+        textarea {
+            font-size: 16px !important;
+        }
+    }
+    @supports (padding: env(safe-area-inset-left)) {
+        body {
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+    }
+    [dir='rtl'],
+    .font-arabic {
+        font-family: 'Noto Naskh Arabic', serif;
+    }
+}
+
+@layer components {
+    .ar {
+        @apply font-arabic text-right leading-relaxed;
+        direction: rtl;
+        unicode-bidi: isolate;
+    }
+    .card {
+        @apply rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800;
+    }
+    .btn {
+        @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+    .btn-primary {
+        @apply btn bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800;
+    }
+    .btn-secondary {
+        @apply btn bg-white text-gray-800 ring-1 ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:ring-gray-700 dark:hover:bg-gray-700;
+    }
+    .btn-danger {
+        @apply btn bg-red-600 text-white hover:bg-red-700;
+    }
+    .input {
+        @apply block w-full rounded-xl border-gray-300 bg-white text-gray-900 shadow-sm focus:border-brand-500 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100;
+    }
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    }
+}
+
+/* Flashcard flip */
+.flip-card {
+    perspective: 1200px;
+}
+.flip-inner {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+.flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.flip-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    inset: 0;
+}
+
+.prose-md table {
+    @apply my-3 w-full border-collapse text-sm;
+}
+.prose-md th,
+.prose-md td {
+    @apply border border-gray-200 px-2 py-1 text-left align-top dark:border-gray-700;
+}
+.prose-md th {
+    @apply bg-gray-100 font-semibold dark:bg-gray-800;
+}
+.prose-md h2,
+.prose-md h3 {
+    @apply mb-2 mt-4 font-semibold;
+}
+.prose-md p {
+    @apply my-2;
+}
+.prose-md ul {
+    @apply my-2 list-disc ps-5;
+}
+.prose-md code {
+    @apply rounded bg-gray-100 px-1 py-0.5 text-[0.9em] dark:bg-gray-800;
+}

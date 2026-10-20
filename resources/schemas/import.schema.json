@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeutschTrainer Lektion import payload",
+  "type": "object",
+  "required": ["words"],
+  "additionalProperties": false,
+  "properties": {
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["german", "arabic", "type", "category"],
+        "additionalProperties": false,
+        "properties": {
+          "german": { "type": "string", "minLength": 1, "maxLength": 255 },
+          "article": { "type": ["string", "null"], "maxLength": 16 },
+          "plural": { "type": ["string", "null"], "maxLength": 255 },
+          "plural_suffix": { "type": ["string", "null"], "maxLength": 32 },
+          "arabic": { "type": "string", "minLength": 1, "maxLength": 255 },
+          "type": {
+            "type": "string",
+            "enum": ["noun", "verb", "adjective", "adverb", "question_word", "preposition", "particle", "expression", "country", "language", "nationality"]
+          },
+          "category": { "type": "string", "minLength": 1, "maxLength": 100 },
+          "example_de": { "type": ["string", "null"], "maxLength": 255 },
+          "example_ar": { "type": ["string", "null"], "maxLength": 255 },
+          "note": { "type": ["string", "null"], "maxLength": 1000 },
+          "meta": { "type": ["object", "null"] }
+        }
+      }
+    },
+    "conjugations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["german", "ich", "du", "er_sie_es", "wir", "ihr", "sie_Sie"],
+        "additionalProperties": false,
+        "properties": {
+          "german": { "type": "string", "minLength": 1 },
+          "ich": { "type": "string", "minLength": 1 },
+          "du": { "type": "string", "minLength": 1 },
+          "er_sie_es": { "type": "string", "minLength": 1 },
+          "wir": { "type": "string", "minLength": 1 },
+          "ihr": { "type": "string", "minLength": 1 },
+          "sie_Sie": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "dialog_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topic", "answer", "arabic"],
+        "additionalProperties": false,
+        "properties": {
+          "topic": { "type": "string", "minLength": 1 },
+          "question_formal": { "type": ["string", "null"] },
+          "question_informal": { "type": ["string", "null"] },
+          "answer": { "type": "string", "minLength": 1 },
+          "arabic": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "grammar_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "body_md"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "minLength": 1 },
+          "body_md": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
