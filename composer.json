@@ -12,7 +12,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "opis/json-schema": "^2.6",
-        "spatie/pdf-to-text": "^1.54",
+        "smalot/pdfparser": "^2.13",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {

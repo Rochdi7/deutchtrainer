@@ -11,8 +11,10 @@ return [
     ],
 
     'import' => [
-        // pdftotext binary; leave empty to rely on PATH.
-        'pdftotext_path' => env('PDFTOTEXT_PATH', ''),
+        // rules  = built-in layout reader + rule-based parser (no API key, no external binary)
+        // claude = send the extracted layout text to the Anthropic API (needs ANTHROPIC_API_KEY)
+        // auto   = claude when a key is configured, rules otherwise
+        'engine' => env('IMPORT_ENGINE', 'rules'),
         'chunk_lines' => (int) env('IMPORT_CHUNK_LINES', 120),
         'disk' => 'pdfs',
         'pdf_dir' => '',

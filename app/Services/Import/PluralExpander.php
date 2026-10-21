@@ -53,10 +53,13 @@ class PluralExpander
         return $word;
     }
 
-    /** Map a free-form category label from the model to one of the canonical names. */
-    public static function mapCategory(string $label, string $type): string
+    /** Canonical category for a free-form label when a known topic keyword matches, else null. */
+    public static function matchCategory(string $label): ?string
     {
-        $l = mb_strtolower($label);
+        $l = mb_strtolower(trim($label));
+        if ($l === '') {
+            return null;
+        }
 
         foreach (Category::CANONICAL as $canon) {
             if (mb_strtolower($canon) === $l) {
@@ -79,17 +82,24 @@ class PluralExpander
             str_contains($l, 'adjektiv') => 'Adjektive',
             str_contains($l, 'verb') => 'Verben',
             str_contains($l, 'gramm') => 'Grammatik',
-            default => match ($type) {
-                'verb' => 'Verben',
-                'adjective' => 'Adjektive',
-                'adverb' => 'Adverbien',
-                'question_word' => 'Fragewörter',
-                'preposition' => 'Präpositionen',
-                'particle' => 'Partikeln',
-                'expression' => 'Redemittel',
-                'country', 'language', 'nationality' => 'Länder-Sprachen-Nationalitäten',
-                default => 'Nomen',
-            },
+            str_contains($l, 'nomen') || str_contains($l, 'substantiv') => 'Nomen',
+            default => null,
+        };
+    }
+
+    /** Map a free-form category label to a canonical name, falling back to the word type. */
+    public static function mapCategory(string $label, string $type): string
+    {
+        return self::matchCategory($label) ?? match ($type) {
+            'verb' => 'Verben',
+            'adjective' => 'Adjektive',
+            'adverb' => 'Adverbien',
+            'question_word' => 'Fragewörter',
+            'preposition' => 'Präpositionen',
+            'particle' => 'Partikeln',
+            'expression' => 'Redemittel',
+            'country', 'language', 'nationality' => 'Länder-Sprachen-Nationalitäten',
+            default => 'Nomen',
         };
     }
 }

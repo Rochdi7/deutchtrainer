@@ -9,6 +9,7 @@ use App\Models\Lektion;
 use App\Models\Word;
 use App\Services\Import\AnthropicClient;
 use App\Services\Import\ImportPersister;
+use App\Services\Import\ImportPipeline;
 use App\Services\Import\ImportSchemaValidator;
 use App\Services\Import\LektionParser;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +20,7 @@ use Inertia\Response;
 
 class ImportController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request, ImportPipeline $pipeline): Response
     {
         return Inertia::render('Import/Index', [
             'previews' => $request->user()->importPreviews()->latest()->limit(20)->get()
@@ -27,6 +28,7 @@ class ImportController extends Controller
                     + ['words' => count($p->payload['words'] ?? [])]),
             'lektionen' => Lektion::orderBy('number')->get(['id', 'number', 'title']),
             'anthropicConfigured' => AnthropicClient::fromConfig()->isConfigured(),
+            'engine' => $pipeline->engine(),
             'model' => config('trainer.anthropic.model'),
         ]);
     }

@@ -4,9 +4,9 @@ namespace App\Console\Commands;
 
 use App\Models\Category;
 use App\Services\Import\ImportPersister;
+use App\Services\Import\ImportPipeline;
 use App\Services\Import\ImportSchemaValidator;
 use App\Services\Import\LektionParser;
-use App\Services\Import\PdfTextExtractor;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,12 +18,13 @@ class ImportLektion extends Command
         {--title= : Lektion title}
         {--json : Treat the first argument as an already-parsed JSON payload instead of a PDF}
         {--dump= : Write the parsed JSON payload to this file before saving}
+        {--text= : Write the extracted layout text to this file}
         {--dry-run : Parse only, do not write to the database}';
 
-    protected $description = 'Import a DaF kompakt Lektion PDF (pdftotext → Claude → DB) without the web UI';
+    protected $description = 'Import a DaF kompakt Lektion PDF (layout reader → rule-based parser → DB) without the web UI';
 
     public function handle(
-        PdfTextExtractor $extractor,
+        ImportPipeline $pipeline,
         LektionParser $parser,
         ImportSchemaValidator $validator,
         ImportPersister $persister,
@@ -48,27 +49,39 @@ class ImportLektion extends Command
             $payload = $parser->postProcess($payload);
             $pdfPath = null;
         } else {
-            $this->info('Extracting text with pdftotext …');
-            $text = $extractor->extract($source);
-            $this->line(sprintf('  %d lines of text', substr_count($text, "\n") + 1));
-
-            $this->info('Sending chunks to Claude …');
+            $this->info(sprintf('Reading PDF layout (engine: %s) …', $pipeline->engine()));
             $bar = null;
-            $payload = $parser->parse($text, $number, function (int $done, int $total) use (&$bar) {
-                $bar ??= $this->output->createProgressBar($total);
-                $bar->setProgress($done);
+            $result = $pipeline->run($source, $number, function (int $done, int $total) use (&$bar) {
+                if ($total > 1) {
+                    $bar ??= $this->output->createProgressBar($total);
+                    $bar->setProgress($done);
+                }
             });
             $bar?->finish();
-            $this->newLine();
+            if ($bar) {
+                $this->newLine();
+            }
+            $payload = $result['payload'];
+
+            $this->line(sprintf('  %d lines of layout text', substr_count($result['text'], "\n") + 1));
+            foreach ($result['warnings'] as $w) {
+                $this->warn('  ! '.$w);
+            }
+            if ($textFile = $this->option('text')) {
+                file_put_contents($textFile, $result['text']);
+                $this->info("Layout text written to {$textFile}");
+            }
 
             $pdfPath = 'lektion-'.$number.'-'.basename($source);
-            Storage::disk(config('trainer.import.disk'))->put($pdfPath, file_get_contents($source));
+            if (! $this->option('dry-run')) {
+                Storage::disk(config('trainer.import.disk'))->put($pdfPath, file_get_contents($source));
+            }
         }
 
-        $result = $validator->validate($payload);
-        if (! $result['valid']) {
+        $check = $validator->validate($payload);
+        if (! $check['valid']) {
             $this->error('Payload failed schema validation:');
-            foreach (array_slice($result['errors'], 0, 20) as $e) {
+            foreach (array_slice($check['errors'], 0, 20) as $e) {
                 $this->line('  - '.$e);
             }
 
@@ -84,6 +97,12 @@ class ImportLektion extends Command
             count($payload['words']), count($payload['conjugations']), count($payload['dialog_lines']), count($payload['grammar_notes'])));
 
         if ($this->option('dry-run')) {
+            $byCategory = [];
+            foreach ($payload['words'] as $w) {
+                $byCategory[$w['category']] = ($byCategory[$w['category']] ?? 0) + 1;
+            }
+            $this->table(['Category', 'Words'], array_map(fn ($c, $n) => [$c, $n], array_keys($byCategory), $byCategory));
+
             return self::SUCCESS;
         }
 

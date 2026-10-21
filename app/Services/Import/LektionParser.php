@@ -8,8 +8,8 @@ use Closure;
 use RuntimeException;
 
 /**
- * Turns normalized pdftotext output into the structured import payload by sending
- * ~120-line chunks to Claude and merging the validated JSON replies.
+ * Optional Claude engine (IMPORT_ENGINE=claude): sends ~120-line chunks of the layout text
+ * to the Anthropic API and merges the validated JSON replies.
  */
 class LektionParser
 {
@@ -17,6 +17,7 @@ class LektionParser
         private readonly AnthropicClient $client,
         private readonly ImportSchemaValidator $validator,
         private readonly TextNormalizer $normalizer,
+        private readonly PayloadPostProcessor $post,
     ) {}
 
     /**
@@ -44,7 +45,7 @@ class LektionParser
     {
         $messages = [[
             'role' => 'user',
-            'content' => "Lektion {$lektionNumber}, Textabschnitt {$index}/{$total}.\n\n<pdftotext>\n{$chunk}\n</pdftotext>",
+            'content' => "Lektion {$lektionNumber}, Textabschnitt {$index}/{$total}.\n\n<layout>\n{$chunk}\n</layout>",
         ]];
 
         $lastErrors = [];
@@ -56,8 +57,7 @@ class LektionParser
             if ($json === null) {
                 $lastErrors = ['Response was not a JSON object.'];
             } else {
-                $json += ['conjugations' => [], 'dialog_lines' => [], 'grammar_notes' => []];
-                $json = $this->coerce($json);
+                $json = $this->post->coerce($json);
                 $result = $this->validator->validate($json);
                 if ($result['valid']) {
                     return $json;
@@ -77,92 +77,10 @@ class LektionParser
         throw new RuntimeException('Chunk '.$index.' could not be parsed into valid JSON after retry: '.implode('; ', array_slice($lastErrors, 0, 5)));
     }
 
-    /** Light normalisation so near-misses (null strings, missing keys) pass the schema. */
-    private function coerce(array $json): array
-    {
-        $json['words'] = array_values(array_filter(array_map(function ($w) {
-            if (! is_array($w)) {
-                return null;
-            }
-            $w += ['article' => null, 'plural' => null, 'plural_suffix' => null, 'example_de' => null, 'example_ar' => null, 'note' => null, 'meta' => null, 'category' => 'Nomen'];
-            foreach (['german', 'arabic', 'article', 'plural', 'plural_suffix', 'example_de', 'example_ar', 'note', 'category'] as $k) {
-                if (isset($w[$k]) && ! is_string($w[$k])) {
-                    $w[$k] = is_scalar($w[$k]) ? (string) $w[$k] : null;
-                }
-                if (isset($w[$k]) && $w[$k] !== null) {
-                    $w[$k] = trim($w[$k]);
-                    if ($w[$k] === '' && ! in_array($k, ['german', 'arabic', 'category'])) {
-                        $w[$k] = null;
-                    }
-                }
-            }
-            if (isset($w['type']) && ! in_array($w['type'], Word::TYPES, true)) {
-                $w['type'] = match (strtolower((string) $w['type'])) {
-                    'nomen', 'substantiv' => 'noun',
-                    'verb', 'verben' => 'verb',
-                    'adjektiv', 'adj' => 'adjective',
-                    'adverb' => 'adverb',
-                    'fragewort' => 'question_word',
-                    'präposition' => 'preposition',
-                    'partikel' => 'particle',
-                    'redemittel', 'ausdruck', 'phrase' => 'expression',
-                    'land' => 'country',
-                    'sprache' => 'language',
-                    'nationalität' => 'nationality',
-                    default => 'expression',
-                };
-            }
-            if (array_key_exists('meta', $w) && $w['meta'] !== null && ! is_array($w['meta'])) {
-                $w['meta'] = null;
-            }
-
-            return $w;
-        }, $json['words'] ?? [])));
-
-        foreach (['conjugations', 'dialog_lines', 'grammar_notes'] as $k) {
-            $json[$k] = array_values(array_filter($json[$k] ?? [], 'is_array'));
-        }
-
-        return array_intersect_key($json, array_flip(['words', 'conjugations', 'dialog_lines', 'grammar_notes']));
-    }
-
     /** Dedupe across chunks and derive plural forms where only the suffix was given. */
     public function postProcess(array $merged): array
     {
-        $seen = [];
-        $merged['words'] = array_values(array_filter($merged['words'], function (array $w) use (&$seen) {
-            $key = mb_strtolower(trim($w['german'])).'|'.$w['type'];
-            if (isset($seen[$key])) {
-                return false;
-            }
-            $seen[$key] = true;
-
-            return true;
-        }));
-
-        $merged['words'] = array_map(function (array $w) {
-            if ($w['type'] === 'noun' && empty($w['plural']) && ! empty($w['plural_suffix'])) {
-                $w['plural'] = PluralExpander::expand($w['german'], $w['plural_suffix']);
-            }
-            if (! in_array($w['category'], Category::CANONICAL, true)) {
-                $w['category'] = PluralExpander::mapCategory($w['category'], $w['type']);
-            }
-
-            return $w;
-        }, $merged['words']);
-
-        $seenC = [];
-        $merged['conjugations'] = array_values(array_filter($merged['conjugations'], function (array $c) use (&$seenC) {
-            $key = mb_strtolower(trim($c['german']));
-            if (isset($seenC[$key])) {
-                return false;
-            }
-            $seenC[$key] = true;
-
-            return true;
-        }));
-
-        return $merged;
+        return $this->post->process($merged);
     }
 
     public function systemPrompt(): string
@@ -172,11 +90,11 @@ class LektionParser
 
         return <<<PROMPT
 Du bist ein präziser Parser für Wortschatzlisten des Lehrwerks "DaF kompakt A1" (Deutsch–Arabisch).
-Du bekommst die rohe Ausgabe von `pdftotext -layout` eines Lektions-PDFs. Du gibst AUSSCHLIESSLICH ein JSON-Objekt zurück.
+Du bekommst den Layout-Text eines Lektions-PDFs (eine Zeile pro PDF-Zeile, Tabellenzellen durch ` | ` getrennt). Du gibst AUSSCHLIESSLICH ein JSON-Objekt zurück.
 
 ## Format der Quelle
 - Zeilen der Wortliste haben die Form `Artikel Nomen, Pluralendung   Arabisch` (z. B. `die Handynummer, -n   رقم الهاتف المحمول`).
-- Die arabische Spalte steht rechts und ist oft um ein bis zwei Zeilen nach unten VERSCHOBEN oder in einzelne Tokens zerlegt (RTL-Problem von pdftotext). Ordne jedem deutschen Eintrag die arabische Übersetzung zu, die inhaltlich passt – die Reihenfolge der arabischen Einträge entspricht der Reihenfolge der deutschen Einträge im selben Abschnitt. Gib die arabische Übersetzung in korrekter Buchstabenfolge zurück; repariere zerrissene Wörter und abgetrennte Harakat.
+- Die arabische Übersetzung steht in derselben Zeile rechts vom ` | `. Gib sie in korrekter Buchstabenfolge zurück; repariere offensichtlich zerrissene Wörter.
 - Wenn ein Eintrag Tokens verdreht enthält (z. B. `رقم الهاتف المحمول n- ,Handynummer die`), bedeutet das `die Handynummer, -n` + Arabisch.
 - Abschnittsüberschriften wie `Formular – ...`, `Sprachen lernen – ...`, `Verben – ...`, `Adjektive – ...`, `Adverbien – ...`, `Fragewörter`, `Präpositionen`, `Partikeln`, `Redemittel / Ausdrücke`, `Länder – Sprachen – Nationalitäten`, `Redemittel: ...`, `Grammatik: ...`, `Wortstellung` bestimmen `category` und `type`.
 - `(Pl.)` heißt: nur Plural. `¨-er` / `¨-e` bedeutet Umlaut + Endung (Studienfach, ¨-er → Studienfächer; Buch, ¨-er → Bücher; Stuhl, ¨-e → Stühle). `-` allein bedeutet unveränderter Plural (Lehrer → Lehrer). Eine ausgeschriebene Form (`Praktikum, Praktika`) ist die volle Pluralform.

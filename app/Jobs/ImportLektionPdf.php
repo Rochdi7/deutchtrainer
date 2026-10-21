@@ -3,8 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\ImportPreview;
-use App\Services\Import\LektionParser;
-use App\Services\Import\PdfTextExtractor;
+use App\Services\Import\ImportPipeline;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -23,24 +22,29 @@ class ImportLektionPdf implements ShouldQueue
 
     public function __construct(public ImportPreview $preview) {}
 
-    public function handle(PdfTextExtractor $extractor, LektionParser $parser): void
+    public function handle(ImportPipeline $pipeline): void
     {
         $preview = $this->preview;
         $preview->update(['status' => 'processing', 'error' => null]);
 
         try {
             $absolute = Storage::disk(config('trainer.import.disk'))->path($preview->pdf_path);
-            $text = $extractor->extract($absolute);
-            $preview->update(['raw_text' => $text]);
 
-            $payload = $parser->parse($text, $preview->lektion_number, function (int $done, int $total) use ($preview) {
+            $result = $pipeline->run($absolute, $preview->lektion_number, function (int $done, int $total) use ($preview) {
                 $preview->update(['chunks_done' => $done, 'chunks_total' => $total]);
             });
 
-            $preview->update(['status' => 'ready', 'payload' => $payload]);
+            $rawText = $result['text'];
+            if ($result['warnings'] !== []) {
+                $rawText = "## Hinweise\n- ".implode("\n- ", $result['warnings'])."\n\n".$rawText;
+            }
+
+            $preview->update(['status' => 'ready', 'payload' => $result['payload'], 'raw_text' => $rawText]);
         } catch (Throwable $e) {
+            // The outcome is recorded on the preview; with the sync queue driver a rethrow would
+            // turn the upload request into a 500 page instead of the preview with its error.
             $preview->update(['status' => 'failed', 'error' => $e->getMessage()]);
-            throw $e;
+            report($e);
         }
     }
 

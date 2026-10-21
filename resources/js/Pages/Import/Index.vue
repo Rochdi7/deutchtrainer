@@ -4,7 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import { Head, Link, useForm, router } from '@inertiajs/vue3';
 import { useI18n } from '@/i18n';
 
-const props = defineProps({ previews: Array, lektionen: Array, anthropicConfigured: Boolean, model: String });
+const props = defineProps({ previews: Array, lektionen: Array, anthropicConfigured: Boolean, model: String, engine: { type: String, default: 'rules' } });
 const { t, dateLocale } = useI18n();
 
 const form = useForm({ pdf: null, number: (props.lektionen.at(-1)?.number || 0) + 1, title: '' });
@@ -35,7 +35,7 @@ function remove(p) {
         </template>
 
         <div class="mx-auto max-w-4xl space-y-6 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
-            <div v-if="!anthropicConfigured" class="rounded-xl bg-amber-50 p-4 text-sm text-amber-900 ring-1 ring-amber-200 dark:bg-amber-950/40 dark:text-amber-200 dark:ring-amber-900">
+            <div v-if="engine === 'claude' && !anthropicConfigured" class="rounded-xl bg-amber-50 p-4 text-sm text-amber-900 ring-1 ring-amber-200 dark:bg-amber-950/40 dark:text-amber-200 dark:ring-amber-900">
                 <strong>{{ t('imp.key_missing') }}</strong> {{ t('imp.key_missing_text') }}
             </div>
 
@@ -58,7 +58,7 @@ function remove(p) {
                     </div>
                 </div>
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p class="text-xs text-gray-500">{{ t('imp.pipeline', { model }) }}</p>
+                    <p class="text-xs text-gray-500">{{ engine === 'claude' ? t('imp.pipeline', { model }) : t('imp.pipeline_rules') }}</p>
                     <button type="submit" class="btn-primary" :disabled="form.processing || !form.pdf">{{ t('imp.upload_btn') }}</button>
                 </div>
                 <div v-if="form.progress" class="h-2 overflow-hidden rounded-full bg-gray-200"><div class="h-full bg-brand-500" :style="{ width: form.progress.percentage + '%' }"></div></div>
