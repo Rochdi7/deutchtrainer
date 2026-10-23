@@ -1,0 +1,27 @@
+{
+  "note": "Lektion 1 dialog lines (Begrüßung … Verabschiedung) are already seeded. Lines below add the 'Wie geht es?' exchange from KB p. 10 and classroom phrases from p. 16–17; English for the seeded lines is in 'english_for_existing'.",
+  "lines": [
+    {"topic": "Befinden", "question_formal": "Wie geht es Ihnen?", "question_informal": "Wie geht es dir?", "answer": "Sehr gut, danke. Und Ihnen?", "arabic": "كيف حالك؟ – جيد جداً، شكراً. وأنت؟", "english": "How are you? – Very well, thank you. And you?", "page": 10},
+    {"topic": "Befinden", "question_formal": "Wie geht's?", "question_informal": null, "answer": "Na ja, es geht. / Nicht so gut.", "arabic": "كيف الحال؟ – لا بأس. / ليس جيداً.", "english": "How's it going? – So-so. / Not so good.", "page": 10},
+    {"topic": "Studium", "question_formal": "Was studieren Sie?", "question_informal": "Was studierst du?", "answer": "Ich studiere Informatik. Und ich arbeite als Programmierer.", "arabic": "ماذا تدرس؟ – أدرس المعلوماتية. وأعمل مبرمجاً.", "english": "What do you study? – I study computer science. And I work as a programmer.", "page": 9},
+    {"topic": "Studium", "question_formal": "Studieren Sie schon?", "question_informal": "Studierst du schon?", "answer": "Nein, noch nicht. Ich lerne erst Deutsch.", "arabic": "هل تدرس بالفعل؟ – لا، ليس بعد. أتعلم الألمانية أولاً.", "english": "Are you already studying? – No, not yet. I'm learning German first.", "page": 9},
+    {"topic": "Alter", "question_formal": "Wie alt sind Sie?", "question_informal": "Wie alt bist du?", "answer": "Ich bin 21 Jahre alt.", "arabic": "كم عمرك؟ – عمري 21 سنة.", "english": "How old are you? – I am 21 years old.", "page": 13},
+    {"topic": "Im Kurs", "question_formal": "Wie heißt das auf Deutsch?", "question_informal": null, "answer": "Das ist ein Kugelschreiber. / Das weiß ich nicht.", "arabic": "ما اسم هذا بالألمانية؟ – هذا قلم جاف. / لا أعرف.", "english": "What is that called in German? – That is a ballpoint pen. / I don't know.", "page": 17}
+  ],
+  "english_for_existing": {
+    "Begrüßung": "Good morning! Good afternoon! Hello! Hi there!",
+    "Reaktion": "How are you? – Fine, thanks. And you?",
+    "Name": "What is your name? – My name is Tarik Amri.",
+    "Vorname": "What is your first name? – (My first name is) Tarik.",
+    "Nachname": "What is your surname? – (My surname is) Amri.",
+    "Buchstabieren": "How do you spell that? Please spell it! – A-M-R-I.",
+    "Land": "Where do you come from? – (I come) from Morocco.",
+    "Nationalität": "What is your nationality? – I am Moroccan.",
+    "Sprachen": "Which languages do you speak? – (I speak) Arabic and French.",
+    "Wohnort": "Where do you live? – (I live) in Tübingen.",
+    "Adresse": "What is your address? – (My address is) Fichtenweg 11, 72076 Tübingen.",
+    "Telefonnummer": "What is your phone / mobile number? – (My phone number is) 0172/98354.",
+    "E-Mail": "What is your e-mail address? – (My e-mail address is) t.amri@xmu.de",
+    "Verabschiedung": "Goodbye. / Bye."
+  }
+}

@@ -2,8 +2,10 @@ import { computed } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 import de from './de';
 import en from './en';
+import courseDe from './course.de';
+import courseEn from './course.en';
 
-const dictionaries = { de, en };
+const dictionaries = { de: { ...de, ...courseDe }, en: { ...en, ...courseEn } };
 
 export const LOCALE_NAMES = { de: 'Deutsch', en: 'English' };
 

@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\LektionController;
 use App\Http\Controllers\LocaleController;
@@ -23,6 +27,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/words/{word}', [WordController::class, 'show'])->name('words.show');
     Route::put('/words/{word}', [WordController::class, 'update'])->name('words.update');
     Route::delete('/words/{word}', [WordController::class, 'destroy'])->name('words.destroy');
+
+    // A1 course (level-aware: /kurs/a1)
+    Route::get('/kurs/{level?}', [CourseController::class, 'dashboard'])->name('course.dashboard');
+    Route::post('/lektionen/{lektion}/section/{section}', [CourseController::class, 'markSection'])->name('course.section');
+
+    Route::post('/uebungen/start', [ExerciseController::class, 'start'])->name('exercises.start');
+    Route::get('/uebungen/{session}', [ExerciseController::class, 'show'])->name('exercises.show');
+    Route::post('/uebungen/{session}/answer', [ExerciseController::class, 'answer'])->name('exercises.answer');
+    Route::post('/uebungen/{session}/finish', [ExerciseController::class, 'finish'])->name('exercises.finish');
+    Route::post('/uebungen/{session}/retry-wrong', [ExerciseController::class, 'retryWrong'])->name('exercises.retry');
+
+    Route::get('/ueben', [PracticeController::class, 'index'])->name('practice.index');
+    Route::get('/wiederholung', [RevisionController::class, 'index'])->name('revision.index');
+    Route::post('/words/{word}/difficult', [RevisionController::class, 'toggleDifficult'])->name('words.difficult');
 
     Route::get('/quiz/lektion/{lektion}', [QuizController::class, 'lektion'])->name('quiz.lektion');
     Route::get('/quiz/global', [QuizController::class, 'global'])->name('quiz.global');

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
     protected $fillable = ['name', 'email', 'password', 'is_admin', 'locale'];
@@ -28,6 +29,16 @@ class User extends Authenticatable
     public function quizSessions(): HasMany
     {
         return $this->hasMany(QuizSession::class);
+    }
+
+    public function exerciseSessions(): HasMany
+    {
+        return $this->hasMany(ExerciseSession::class);
+    }
+
+    public function lessonProgress(): HasMany
+    {
+        return $this->hasMany(LessonProgress::class);
     }
 
     public function wordProgress(): HasMany

@@ -1,0 +1,241 @@
+{
+  "source": "DaF kompakt neu A1, Alles auf einen Blick, Lektionswortschatz in Feldern, p. 32",
+  "groups": [
+    {"category": "Obst / Früchte", "page": 32, "items": [
+      ["der Apfel, ¨", "apple", "التفاحة", {"img": "1f34e", "ex": ["Ein Kilo Äpfel kostet 2 Euro.", "A kilo of apples costs 2 euros."]}],
+      ["die Weintraube, -n", "grape", "العنب", {"img": "1f347"}],
+      ["die Orange, -n", "orange", "البرتقالة", {"img": "1f34a", "note": "auch: die Apfelsine"}],
+      ["die Erdbeere, -n", "strawberry", "الفراولة", {"img": "1f353"}],
+      ["die Banane, -n", "banana", "الموزة", {"img": "1f34c"}]
+    ]},
+    {"category": "Gemüse", "page": 32, "items": [
+      ["die Bohne, -n", "bean", "الفاصولياء", {"img": "1fad8"}],
+      ["die Karotte, -n", "carrot", "الجزرة", {"img": "1f955"}],
+      ["der Champignon, -s", "mushroom", "الفطر", {"img": "1f344"}],
+      ["die Gurke, -n", "cucumber", "الخيارة", {"img": "1f952"}]
+    ]},
+    {"category": "Fleisch / Wurst", "page": 32, "items": [
+      ["das Fleisch (nur Sg.)", "meat", "اللحم", {"img": "1f969", "ex": ["Ich esse kein Fleisch.", "I don't eat meat."]}],
+      ["das Hackfleisch", "minced meat", "اللحم المفروم", {"img": "1f969"}],
+      ["das Bio-Fleisch", "organic meat", "اللحم العضوي", {"img": "1f969"}],
+      ["das Steak, -s", "steak", "الستيك", {"img": "1f969"}],
+      ["die Wurst, ¨e", "sausage", "النقانق", {"img": "1f32d"}],
+      ["die Geflügelfleischwurst", "poultry sausage", "نقانق الدواجن", {"img": "1f32d"}]
+    ]},
+    {"category": "Fisch", "page": 32, "items": [
+      ["der Thunfisch (hier nur Sg.)", "tuna", "التونة", {"img": "1f41f"}]
+    ]},
+    {"category": "Eier und Milchprodukte", "page": 32, "items": [
+      ["das Milchprodukt, -e", "dairy product", "منتج الألبان", {"img": "1f95b"}],
+      ["der/das Joghurt, -s", "yoghurt", "الزبادي", {"img": "1f963"}],
+      ["der Käse, -", "cheese", "الجبن", {"img": "1f9c0", "ex": ["Käse ist in Deutschland billig.", "Cheese is cheap in Germany."]}],
+      ["der Gouda, -s", "Gouda cheese", "جبن الغودا", {"img": "1f9c0"}],
+      ["die Milch (nur Sg.)", "milk", "الحليب", {"img": "1f95b"}],
+      ["die Butter (nur Sg.)", "butter", "الزبدة", {"img": "1f9c8"}],
+      ["das Ei, -er", "egg", "البيضة", {"img": "1f95a"}]
+    ]},
+    {"category": "Brot und Getreide", "page": 32, "items": [
+      ["das Brot, -e", "bread", "الخبز", {"img": "1f35e", "ex": ["Wir brauchen Brot und Brötchen.", "We need bread and rolls."]}],
+      ["das Vollkornbrot, -e", "wholemeal bread", "خبز الحبوب الكاملة", {"img": "1f35e"}],
+      ["das Schwarzbrot, -e", "dark rye bread", "الخبز الأسود", {"img": "1f35e"}],
+      ["das Brötchen, -", "bread roll", "الخبزة الصغيرة", {"img": "1f956"}],
+      ["die Teigwaren (nur Pl.)", "pasta", "المعكرونة", {"img": "1f35d"}],
+      ["das Mehl (hier nur Sg.)", "flour", "الدقيق", {"img": "1f33e"}],
+      ["der Reis (nur Sg.)", "rice", "الأرز", {"img": "1f35a"}]
+    ]},
+    {"category": "Süßigkeiten / Süßwaren", "page": 32, "items": [
+      ["der Zucker (nur Sg.)", "sugar", "السكر", {"img": "1f36c"}],
+      ["die Marmelade, -n", "jam", "المربى", {"img": "1f36f"}],
+      ["der Keks, -e", "biscuit, cookie", "البسكويت", {"img": "1f36a"}],
+      ["die Praline, -n", "chocolate (praline)", "حبة شوكولاتة محشوة", {"img": "1f36b"}],
+      ["die Schokolade, -n", "chocolate", "الشوكولاتة", {"img": "1f36b"}]
+    ]},
+    {"category": "Getränke", "page": 32, "items": [
+      ["der Tee (hier nur Sg.)", "tea", "الشاي", {"img": "1f375"}],
+      ["der Orangensaft, ¨e", "orange juice", "عصير البرتقال", {"img": "1f9c3"}]
+    ]},
+    {"category": "Gewürze", "page": 32, "items": [
+      ["das Salz (hier nur Sg.)", "salt", "الملح", {"img": "1f9c2"}],
+      ["der Pfeffer (nur Sg.)", "pepper", "الفلفل الأسود", {"img": "1f336"}]
+    ]},
+    {"category": "Lebensmittel – Sonstige", "page": 32, "items": [
+      ["die Konserve, -n", "tinned food", "المعلّبات", {"img": "1f96b"}],
+      ["das Müsli, -s", "muesli", "الموسلي", {"img": "1f963"}],
+      ["die Tiefkühlkost", "frozen food", "الأطعمة المجمّدة", {"img": "1f9ca"}],
+      ["die Mayonnaise (nur Sg.)", "mayonnaise", "المايونيز"],
+      ["das Öl, -e", "oil", "الزيت", {"img": "1fad2"}],
+      ["die Kartoffelchips (nur Pl.)", "crisps, potato chips", "رقائق البطاطا"],
+      ["der Senf (nur Sg.)", "mustard", "الخردل"]
+    ]},
+    {"category": "Verpackungen", "page": 32, "items": [
+      ["die Flasche, -n", "bottle", "الزجاجة", {"img": "1f37e", "ex": ["eine Flasche Wasser", "a bottle of water"]}],
+      ["das Glas, ¨er", "jar; glass", "البرطمان / الكأس", {"img": "1fad9", "ex": ["ein Glas Marmelade", "a jar of jam"]}],
+      ["der Becher, -", "cup, tub (yoghurt)", "العلبة الصغيرة (زبادي)", {"img": "1f963"}],
+      ["die Packung, -en", "packet, pack", "العبوة", {"img": "1f4e6"}],
+      ["das Päckchen, -", "small packet", "العبوة الصغيرة", {"img": "1f4e6"}],
+      ["die Schachtel, -n", "box", "العلبة", {"img": "1f4e6"}],
+      ["die Tafel, -n", "bar (of chocolate)", "لوح (شوكولاتة)", {"img": "1f36b"}],
+      ["der Beutel, -", "bag, pouch", "الكيس", {"img": "1f6cd"}],
+      ["die Tüte, -n", "bag (paper/plastic)", "الكيس", {"img": "1f6cd"}],
+      ["die Tube, -n", "tube", "الأنبوب"],
+      ["die Schale, -n", "tray, punnet; bowl", "الطبق الصغير / الصينية", {"img": "1f963"}],
+      ["das Stück, -e", "piece", "القطعة", {"ex": ["Am Stück oder geschnitten?", "In one piece or sliced?"]}]
+    ]},
+    {"category": "Mengenangaben", "page": 32, "items": [
+      ["das Kilo (kg)", "kilo", "الكيلوغرام", {"img": "2696", "ex": ["ein Kilo Äpfel", "a kilo of apples"]}],
+      ["das Gramm (g)", "gram", "الغرام", {"img": "2696"}],
+      ["das Pfund (= 500 g)", "pound (500 g)", "الرطل (500 غرام)", {"img": "2696"}],
+      ["der Liter (l)", "litre", "اللتر", {"img": "1f9f4"}]
+    ]},
+    {"category": "Einkaufen", "page": 32, "items": [
+      ["der Supermarkt, ¨e", "supermarket", "السوبرماركت", {"img": "1f6d2", "ex": ["Ich jobbe im Supermarkt.", "I have a job at the supermarket."]}],
+      ["das Lebensmittel, -", "food item, groceries", "المواد الغذائية", {"img": "1f6d2"}],
+      ["das Produkt, -e", "product", "المنتج"],
+      ["die Theke, -n", "counter", "الطاولة / المنضدة"],
+      ["die Frischetheke, -n", "fresh food counter", "قسم الطازج"],
+      ["die Käsetheke, -n", "cheese counter", "قسم الجبن"],
+      ["die Fleischtheke, -n", "meat counter", "قسم اللحوم"],
+      ["die Bäckerei, -en", "bakery", "المخبز", {"img": "1f956"}],
+      ["der Prospekt, -e", "leaflet, brochure", "المنشور الإعلاني"],
+      ["das Angebot, -e", "offer, special offer", "العرض", {"ex": ["Was ist heute im Angebot?", "What is on offer today?"]}],
+      ["der Einkaufszettel, -", "shopping list", "قائمة المشتريات", {"img": "1f4dd"}],
+      ["die Einkaufsliste, -n", "shopping list", "قائمة التسوق", {"img": "1f4dd"}],
+      ["der Kunde, -n", "customer (male)", "الزبون"],
+      ["die Kundin, -nen", "customer (female)", "الزبونة"]
+    ]},
+    {"category": "Sehenswürdigkeiten", "page": 32, "items": [
+      ["der Hafen, ¨", "harbour, port", "الميناء", {"img": "2693"}],
+      ["das Museum, Museen", "museum", "المتحف", {"img": "1f3db"}],
+      ["der Strand, ¨e", "beach", "الشاطئ", {"img": "1f3d6"}],
+      ["die Insel, -n", "island", "الجزيرة", {"img": "1f3dd", "ex": ["Rügen ist eine Insel.", "Rügen is an island."]}],
+      ["der Fluss, ¨e", "river", "النهر", {"img": "1f3de"}],
+      ["der Berg, -e", "mountain", "الجبل", {"img": "26f0"}],
+      ["die Kirche, -n", "church", "الكنيسة", {"img": "26ea"}],
+      ["das Denkmal, ¨er", "monument", "النصب التذكاري", {"img": "1f5ff"}],
+      ["der Ausflug, ¨e", "excursion, trip", "الرحلة", {"img": "1f392", "ex": ["Wir machen einen Ausflug nach Rügen.", "We are going on a trip to Rügen."]}],
+      ["die Landkarte, -n", "map", "الخريطة", {"img": "1f5fa"}],
+      ["besichtigen", "to visit (a sight), to view", "يزور (معلماً)", {"type": "verb"}]
+    ]},
+    {"category": "Tageszeiten", "type": "expression", "page": 32, "items": [
+      ["am Morgen / morgens", "in the morning (early)", "في الصباح", {"img": "1f305"}],
+      ["am Vormittag / vormittags", "in the (late) morning", "قبل الظهر", {"img": "1f305"}],
+      ["am Mittag / mittags", "at midday", "في الظهيرة", {"img": "2600"}],
+      ["am Nachmittag / nachmittags", "in the afternoon", "بعد الظهر", {"img": "1f324"}],
+      ["am Abend / abends", "in the evening", "في المساء", {"img": "1f307"}],
+      ["in der Nacht / nachts", "at night", "في الليل", {"img": "1f319"}]
+    ]},
+    {"category": "Wetter", "type": "expression", "page": 32, "items": [
+      ["Die Sonne scheint.", "The sun is shining.", "الشمس مشرقة.", {"img": "2600"}],
+      ["Es schneit.", "It is snowing.", "إنها تثلج.", {"img": "1f328"}],
+      ["Es regnet.", "It is raining.", "إنها تمطر.", {"img": "1f327"}],
+      ["Es ist bewölkt.", "It is cloudy.", "الجو غائم.", {"img": "2601"}],
+      ["Es ist windig.", "It is windy.", "الجو عاصف.", {"img": "1f32c"}],
+      ["Es ist sonnig.", "It is sunny.", "الجو مشمس.", {"img": "1f31e"}],
+      ["Es ist kalt.", "It is cold.", "الجو بارد.", {"img": "1f976"}],
+      ["Es ist warm.", "It is warm.", "الجو دافئ.", {"img": "1f975"}]
+    ]},
+    {"category": "An der Universität", "page": 32, "items": [
+      ["die Vorlesung, -en", "lecture", "المحاضرة", {"img": "1f3eb", "ex": ["Am Montag habe ich eine Vorlesung.", "On Monday I have a lecture."]}],
+      ["die Klausur, -en", "written exam", "الامتحان الكتابي", {"img": "1f4dd"}],
+      ["die Mensa, -en", "university canteen", "مطعم الجامعة", {"img": "1f37d"}],
+      ["die Sprechstunde, -n", "office hours", "ساعات الاستشارة"],
+      ["die Übung, -en", "tutorial, exercise class", "التمرين / الحصة التطبيقية"],
+      ["das Tutorium, Tutorien", "tutorial", "الدرس التطبيقي"],
+      ["das Referat, -e", "presentation, paper", "العرض التقديمي"],
+      ["das Semester, -", "semester", "الفصل الدراسي"],
+      ["der Termin, -e", "appointment", "الموعد", {"img": "1f4c5", "ex": ["Ich habe jeden Tag Termine.", "I have appointments every day."]}],
+      ["der Gesprächstermin, -e", "appointment for a meeting", "موعد المقابلة", {"img": "1f4c5"}],
+      ["der Kommilitone, -n", "fellow student (male)", "الزميل في الدراسة"],
+      ["die Kommilitonin, -nen", "fellow student (female)", "الزميلة في الدراسة"],
+      ["das Stipendium, -dien", "scholarship", "المنحة الدراسية"],
+      ["der Stundenplan, ¨e", "timetable", "الجدول الدراسي", {"img": "1f4c6"}],
+      ["jobben", "to have a side job", "يعمل عملاً جانبياً", {"type": "verb", "ex": ["Ich jobbe im Supermarkt.", "I have a side job at the supermarket."]}]
+    ]},
+    {"category": "Arbeit und Beruf", "page": 32, "items": [
+      ["der Verkäufer, -", "shop assistant (male)", "البائع"],
+      ["die Verkäuferin, -nen", "shop assistant (female)", "البائعة"],
+      ["der Kassierer, -", "cashier (male)", "أمين الصندوق"],
+      ["die Kassiererin, -nen", "cashier (female)", "أمينة الصندوق"],
+      ["die Bürokraft, ¨e", "office worker", "موظف المكتب"],
+      ["der Programmierer, -", "programmer (male)", "المبرمج"],
+      ["die Programmiererin, -nen", "programmer (female)", "المبرمجة"],
+      ["der Sänger, -", "singer (male)", "المغني", {"img": "1f3a4"}],
+      ["die Sängerin, -nen", "singer (female)", "المغنية", {"img": "1f3a4"}],
+      ["das Zeitmanagement (Sg.)", "time management", "إدارة الوقت"],
+      ["der Kalender, -", "calendar", "التقويم", {"img": "1f4c5"}],
+      ["der Terminkalender, -", "appointment diary", "مفكرة المواعيد", {"img": "1f4c5"}]
+    ]},
+    {"category": "Verben", "type": "verb", "page": 32, "items": [
+      ["treffen", "to meet", "يلتقي", {"ex": ["Ich treffe am Wochenende Freunde.", "I meet friends at the weekend."]}],
+      ["duschen", "to shower", "يستحم"],
+      ["frühstücken", "to have breakfast", "يفطر"],
+      ["schlafen", "to sleep", "ينام", {"ex": ["Ich schlafe immer bis sechs Uhr.", "I always sleep until six o'clock."]}],
+      ["besuchen", "to visit", "يزور", {"ex": ["Da besuche ich meine Oma.", "I am visiting my grandma then."]}],
+      ["planen", "to plan", "يخطط"],
+      ["halten", "to hold; to give (a presentation)", "يُلقي (عرضاً) / يمسك", {"ex": ["Ich halte ein Referat.", "I am giving a presentation."]}],
+      ["finden", "to find; to think (opinion)", "يجد / يرى أن", {"ex": ["Ich finde, Käse ist billig.", "I think cheese is cheap."]}],
+      ["dauern", "to last, to take (time)", "يستغرق", {"ex": ["Die Vorlesung dauert 90 Minuten.", "The lecture lasts 90 minutes."]}]
+    ]},
+    {"category": "Nomen", "page": 32, "items": [
+      ["die Zeit, -en", "time", "الوقت", {"img": "23f0", "ex": ["Hast du am Sonntag Zeit?", "Do you have time on Sunday?"]}],
+      ["die Freizeit, -en", "free time", "وقت الفراغ"],
+      ["das Gespräch, -e", "conversation", "المحادثة"],
+      ["der Stress (nur Sg.)", "stress", "الضغط / التوتر"],
+      ["die Grippe (nur Sg.)", "flu", "الإنفلونزا", {"img": "1f912"}],
+      ["das Pech (nur Sg.)", "bad luck", "سوء الحظ"],
+      ["das Glück (nur Sg.)", "luck, happiness", "الحظ / السعادة", {"img": "1f340"}],
+      ["der Pullover, -", "pullover, sweater", "الكنزة", {"img": "1f9f6"}],
+      ["die Mahlzeit, -en", "meal", "الوجبة", {"img": "1f37d"}],
+      ["das Frühstück, -e", "breakfast", "الفطور", {"img": "1f373"}],
+      ["das Mittagessen, -", "lunch", "الغداء", {"img": "1f37d"}],
+      ["das Abendessen, -", "dinner", "العشاء", {"img": "1f37d"}]
+    ]},
+    {"category": "Adjektive", "type": "adjective", "page": 32, "items": [
+      ["lecker", "tasty, delicious", "لذيذ"],
+      ["süß", "sweet", "حلو"],
+      ["natürlich", "natural; of course", "طبيعي"],
+      ["ausverkauft", "sold out", "نفد"],
+      ["billig", "cheap", "رخيص", {"note": "≠ teuer"}],
+      ["teuer", "expensive", "غالٍ"],
+      ["stressig", "stressful", "مرهق"],
+      ["langweilig", "boring", "ممل", {"note": "≠ interessant"}],
+      ["interessant", "interesting", "مثير للاهتمام"],
+      ["krank", "ill, sick", "مريض", {"note": "≠ gesund"}],
+      ["gesund", "healthy", "صحي / بصحة جيدة"],
+      ["toll (ugs.)", "great (colloquial)", "رائع"],
+      ["früh", "early", "مبكر", {"note": "≠ spät"}]
+    ]},
+    {"category": "Adverbien", "type": "adverb", "page": 32, "items": [
+      ["wirklich", "really", "حقاً"],
+      ["hoffentlich", "hopefully", "على أمل / آمل"],
+      ["leider", "unfortunately", "للأسف", {"ex": ["Leider hat Nina Grippe.", "Unfortunately Nina has the flu."]}],
+      ["zum Glück", "luckily", "لحسن الحظ"],
+      ["immer", "always", "دائماً"],
+      ["meistens", "mostly, usually", "غالباً"],
+      ["oft", "often", "كثيراً"],
+      ["manchmal", "sometimes", "أحياناً"],
+      ["selten", "rarely", "نادراً"],
+      ["nie", "never", "أبداً"],
+      ["morgen", "tomorrow", "غداً"]
+    ]},
+    {"category": "Fragewörter", "type": "question_word", "page": 32, "items": [
+      ["Wie viel?", "How much?", "كم؟ (كمية)", {"ex": ["Wie viel Mehl brauchen wir?", "How much flour do we need?"]}],
+      ["Wie viele?", "How many?", "كم؟ (عدد)", {"ex": ["Wie viele Äpfel?", "How many apples?"]}],
+      ["Wohin?", "Where to?", "إلى أين؟"]
+    ]},
+    {"category": "Präpositionen", "type": "preposition", "page": 32, "items": [
+      ["nach (Binz / Rügen)", "to (a place)", "إلى", {"ex": ["Wir fahren nach Rügen.", "We are going to Rügen."]}],
+      ["am (Montag)", "on (a day)", "في (يوم)"]
+    ]},
+    {"category": "Partikeln", "type": "particle", "page": 32, "items": [
+      ["wohl", "probably, I suppose", "على الأرجح"]
+    ]},
+    {"category": "Redemittel / Ausdrücke", "type": "expression", "page": 32, "items": [
+      ["Das ist schade.", "That's a pity.", "هذا مؤسف."],
+      ["Gute Besserung.", "Get well soon.", "شفاءً عاجلاً."],
+      ["Ich habe viel zu tun.", "I have a lot to do.", "لديّ الكثير من العمل."],
+      ["Tut mir leid.", "I'm sorry.", "أنا آسف."],
+      ["Ich habe … dabei.", "I have … with me.", "معي …"]
+    ]}
+  ]
+}

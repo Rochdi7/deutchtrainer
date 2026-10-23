@@ -1,0 +1,17 @@
+{
+  "level": "A1",
+  "number": 5,
+  "slug": "a1-lektion-05",
+  "title": "Spiel und Spaß",
+  "subtitle": "A Das macht Spaß! · B Hochschulsport · C Gut gelaufen",
+  "source_pages": {"kursbuch": [42, 47], "aaeb": [48, 49], "uebungsbuch": [108, 115]},
+  "objectives": [
+    {"de": "über Hobbys, Freizeit und Sport sprechen; sagen, was man gern, lieber oder nicht gern macht", "en": "Talk about hobbies, free time and sport; say what you like, prefer or don't like doing"},
+    {"de": "Verben mit Vokalwechsel konjugieren (lesen, sprechen, treffen, fahren, schlafen, laufen, wissen)", "en": "Conjugate verbs with a vowel change (lesen, sprechen, treffen, fahren, schlafen, laufen, wissen)"},
+    {"de": "trennbare Verben verwenden (anfangen, aufstehen, anrufen, mitkommen …), auch mit Modalverb", "en": "Use separable verbs (anfangen, aufstehen, anrufen, mitkommen …), also with a modal verb"},
+    {"de": "Anzeigen, Flyer und Kurznachrichten verstehen; SMS mit Abkürzungen schreiben", "en": "Understand ads, flyers and text messages; write texts with abbreviations"},
+    {"de": "über Vergangenes berichten: Perfekt mit haben und sein (regelmäßige Verben)", "en": "Report on the past: Perfekt with haben and sein (regular verbs)"},
+    {"de": "sagen, was man schon oft, manchmal, einmal oder noch nie gemacht hat", "en": "Say what you have done often, sometimes, once or never"}
+  ],
+  "revision_md": "## Das Wichtigste aus Lektion 5\n\n**gern – lieber – nicht so gern**: *Spielst du gern Fußball? – Ja, sehr gern. / Nein, nicht so gern. / Nein, überhaupt nicht gern. Ich lese lieber.*\n\n**Vokalwechsel** nur bei du und er/sie/es: e → ie (lesen: du liest), e → i (sprechen: du sprichst, treffen: er trifft), a → ä (fahren: du fährst, schlafen: er schläft), au → äu (laufen: du läufst). *wissen*: ich weiß, du weißt, er weiß, wir wissen, ihr wisst, sie wissen.\n\n**Trennbare Verben**: Die Vorsilbe steht am **Satzende**: *Das Training **fängt** um acht **an**. Ich **stehe** nicht gern früh **auf**. **Rufst** du mich **an**?* Mit Modalverb bleibt der Infinitiv zusammen: *Ich muss früh **aufstehen**.*\n\n**Perfekt** = haben/sein (Position 2) + Partizip Perfekt (Satzende): *Sie **hat** jeden Tag **trainiert**. Viele Leute **sind** beim Campus-Run **gestartet**.*\n- regelmäßig: **ge** + Stamm + **(e)t**: schaffen → geschafft, feiern → gefeiert, warten → gewartet\n- Verben auf **-ieren**: ohne ge-: trainieren → trainiert, passieren → passiert\n- **sein** bei Bewegung / Veränderung: ist gestartet, ist gestürzt, ist passiert – sonst **haben**\n\n**schon mal – noch nie**: *Bist du schon mal bei einem Campus-Run gestartet? – Nein, noch nie. / Ja, einmal. / Ja, schon oft.*\n\n**SMS-Abkürzungen**: LG = Liebe Grüße, WE = Wochenende, z. B. = zum Beispiel, u. = und, od. = oder, zz. = zurzeit, Do = Donnerstag.\n\n**Typische Fehler**\n- ~~Er lest ein Buch.~~ → Er **liest** ein Buch.\n- ~~Ich anrufe dich.~~ → Ich **rufe** dich **an**.\n- ~~Ich habe gestartet.~~ → Ich **bin** gestartet. (Bewegung → sein)\n- ~~Ich habe getrainiert.~~ → Ich habe **trainiert**. (-ieren ohne ge-)"
+}

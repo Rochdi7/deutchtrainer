@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
         );
 
         $this->call(LektionOneSeeder::class);
+        $this->call(A1CourseSeeder::class);
     }
 }

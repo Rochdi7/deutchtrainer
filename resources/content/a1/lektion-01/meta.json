@@ -1,0 +1,17 @@
+{
+  "level": "A1",
+  "number": 1,
+  "slug": "a1-lektion-01",
+  "title": "Ich und die anderen",
+  "subtitle": "A Guten Tag! · B Sprachen öffnen Türen · C Buchstaben und Zahlen",
+  "source_pages": {"kursbuch": [8, 13], "aaeb": [14, 17], "uebungsbuch": [76, 83]},
+  "objectives": [
+    {"de": "sich begrüßen, vorstellen und verabschieden – formell (Sie) und informell (du)", "en": "Greet people, introduce yourself and say goodbye – formally (Sie) and informally (du)"},
+    {"de": "nach Name, Herkunft, Wohnort, Studienfach und Sprachen fragen und antworten", "en": "Ask and answer about name, origin, place of residence, subject and languages"},
+    {"de": "regelmäßige Verben und „sein“ im Präsens konjugieren", "en": "Conjugate regular verbs and sein in the present tense"},
+    {"de": "W-Fragen, Ja/Nein-Fragen und Aussagesätze bilden (Verb auf Position 1 oder 2)", "en": "Form W-questions, yes/no questions and statements (verb in position 1 or 2)"},
+    {"de": "das Alphabet und die Zahlen bis 1 Million; buchstabieren, Telefonnummern und E-Mail-Adressen nennen", "en": "The alphabet and numbers up to 1 million; spell names, give phone numbers and e-mail addresses"},
+    {"de": "ein Formular mit persönlichen Daten ausfüllen", "en": "Fill in a form with personal data"}
+  ],
+  "revision_md": "## Das Wichtigste aus Lektion 1\n\n**Begrüßen und vorstellen**\n- formell: *Guten Tag. Ich heiße Christiane Brandt. Und Sie? – Mein Name ist Tarik Amri. Freut mich, Herr Amri. Woher kommen Sie? – Ich komme aus Marokko.*\n- informell: *Hallo, ich bin Leyla. Wie heißt du? – Ich heiße Tarik. Woher kommst du? – Aus Casablanca.*\n- Befinden: *Wie geht es Ihnen / dir? – Sehr gut, danke. / Danke, gut. / Na ja, es geht. / Nicht so gut.*\n\n**Verben im Präsens**: ich komm**e**, du komm**st**, er/sie/es komm**t**, wir komm**en**, ihr komm**t**, sie/Sie komm**en**. Stamm auf -t/-d: *du arbeit**est**, er arbeit**et***. Stamm auf -s/-ß/-z: *du heiß**t***. **sein**: bin, bist, ist, sind, seid, sind. **sprechen**: ich spreche, du spr**i**chst, er spr**i**cht.\n\n**Wortstellung**\n| Satztyp | Position 1 | Position 2 |\n|---|---|---|\n| W-Frage | Woher | **kommen** Sie? |\n| Ja/Nein-Frage | **Kommen** | Sie aus Tunesien? |\n| Aussage | Ich | **komme** aus Marokko. |\n\n**Zahlen**: null, eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf, dreizehn … zwanzig, einundzwanzig, dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig, (ein)hundert, (ein)tausend, eine Million. *21 = einundzwanzig* (Einer vor Zehner!).\n\n**Länder und Sprachen**: *Ich komme aus Marokko und spreche Arabisch. Er kommt aus der Türkei / aus der Schweiz / aus den USA.* Sprachen enden auf **-isch**.\n\n**Typische Fehler**\n- ~~Ich heiße Tarik und ich komme aus die Türkei.~~ → … aus **der** Türkei.\n- ~~Du arbeitst.~~ → Du arbeit**est**. (Stamm auf -t)\n- ~~Wie heißen du?~~ → Wie heiß**t** du? / Wie heiß**en** Sie?\n- ~~Ich bin 21 Jahre.~~ → Ich bin 21 Jahre **alt**."
+}

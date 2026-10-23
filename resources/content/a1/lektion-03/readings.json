@@ -1,0 +1,31 @@
+{
+  "note": "Original A1 texts in the style of KB p. 31 (E-Mail aus Binz), AB p. 93 (Stress im Studium) and AB p. 95 (Jobben und Studium).",
+  "readings": [
+    {
+      "key": "a1-l3-r1",
+      "title": "E-Mail aus Binz",
+      "page": 31,
+      "text_md": "Liebe Nina,\n\nviele Grüße aus Binz! Wir sind jetzt zwei Tage auf Rügen. Das Wetter ist super: Die Sonne scheint und es sind 24 Grad. Gestern waren wir am Strand und am Nachmittag haben wir den Hafen Sassnitz besichtigt. Heute machen wir einen Ausflug zu den Kreidefelsen. Am Abend gibt es ein Open-Air-Jazzkonzert – toll! Nur eins ist schade: Clara hatte Pech. Sie hat ihren Fotoapparat vergessen. Zum Glück hat mein Handy eine gute Kamera.\n\nUnd du? Bist du wieder gesund? Hoffentlich! Gute Besserung und bis Montag.\n\nLiebe Grüße\nFranziska",
+      "translation_md": "Dear Nina, greetings from Binz! We've now been on Rügen for two days. The weather is great: the sun is shining and it's 24 degrees. Yesterday we were at the beach and in the afternoon we visited the harbour of Sassnitz. Today we are going on a trip to the chalk cliffs. In the evening there's an open-air jazz concert – great! Only one thing is a pity: Clara had bad luck. She forgot her camera. Luckily my phone has a good camera. And you? Are you well again? Hopefully! Get well soon and see you on Monday. Best wishes, Franziska",
+      "questions": [
+        {"q": "Wo ist Franziska?", "options": ["in Binz auf Rügen", "in Sassnitz", "in Tübingen", "am Kreidefelsen"], "answer": "in Binz auf Rügen", "explanation": "„viele Grüße aus Binz! Wir sind jetzt zwei Tage auf Rügen.“"},
+        {"q": "Wie ist das Wetter?", "options": ["Es regnet.", "Es ist kalt.", "Die Sonne scheint.", "Es ist bewölkt."], "answer": "Die Sonne scheint.", "explanation": "„Die Sonne scheint und es sind 24 Grad.“"},
+        {"q": "Was war gestern?", "options": ["ein Jazzkonzert", "ein Ausflug zu den Kreidefelsen", "ein Tag am Strand und der Hafen Sassnitz", "ein Tag in Tübingen"], "answer": "ein Tag am Strand und der Hafen Sassnitz", "explanation": "„Gestern waren wir am Strand und am Nachmittag haben wir den Hafen Sassnitz besichtigt.“"},
+        {"q": "Was hat Clara vergessen?", "options": ["ihr Handy", "ihren Fotoapparat", "ihre Jacke", "ihre Fahrkarte"], "answer": "ihren Fotoapparat", "explanation": "„Sie hat ihren Fotoapparat vergessen.“"}
+      ]
+    },
+    {
+      "key": "a1-l3-r2",
+      "title": "Stress im Studium?",
+      "page": 93,
+      "text_md": "**Lisa (20), Geschichte:** „Viele Studenten finden das Studium sehr stressig. Das stimmt nicht immer. Zu Semesterbeginn habe ich nicht so viel zu tun. Stressig ist es erst im Januar und Februar – dann schreiben wir Klausuren. Für die Klausuren lerne ich sehr viel, oft auch nachts.“\n\n**Philipp (19), Anglistik:** „Ich lerne jeden Tag ein bisschen. Dann habe ich am Semesterende nicht so viel zu tun. Einmal pro Woche jobbe ich auch – ich gebe Englischkurse. Das mag ich sehr. Stress habe ich nie oder nur ganz selten.“\n\n**Lennard (21), Umweltwissenschaften:** „Stress habe ich immer: Vormittags und nachmittags bin ich an der Uni. Abends jobbe ich im Supermarkt, denn ich bekomme kein BAföG. Am Wochenende habe ich selten Freizeit und meine Freunde besuche ich nur manchmal.“",
+      "translation_md": "Lisa (20), history: “Many students find studying very stressful. That is not always true. At the beginning of the semester I don't have much to do. It only gets stressful in January and February – then we write exams. For the exams I study a lot, often at night, too.” Philipp (19), English studies: “I study a bit every day. Then I don't have so much to do at the end of the semester. Once a week I also have a job – I give English courses. I like that a lot. I never have stress, or only very rarely.” Lennard (21), environmental sciences: “I always have stress: in the mornings and afternoons I'm at university. In the evenings I work at the supermarket, because I don't get a student grant. At the weekend I rarely have free time and I only visit my friends sometimes.”",
+      "questions": [
+        {"q": "Wann ist das Studium für Lisa stressig?", "options": ["zu Semesterbeginn", "im Januar und Februar", "am Wochenende", "nie"], "answer": "im Januar und Februar", "explanation": "„Stressig ist es erst im Januar und Februar – dann schreiben wir Klausuren.“"},
+        {"q": "Wie oft jobbt Philipp?", "options": ["jeden Tag", "einmal pro Woche", "nie", "am Wochenende"], "answer": "einmal pro Woche", "explanation": "„Einmal pro Woche jobbe ich auch.“"},
+        {"q": "Wer hat immer Stress?", "options": ["Lisa", "Philipp", "Lennard", "niemand"], "answer": "Lennard", "explanation": "„Stress habe ich immer.“"},
+        {"q": "Warum jobbt Lennard abends?", "options": ["Er bekommt kein BAföG.", "Er mag den Supermarkt.", "Er hat viel Freizeit.", "Er gibt Englischkurse."], "answer": "Er bekommt kein BAföG.", "explanation": "„Abends jobbe ich im Supermarkt, denn ich bekomme kein BAföG.“"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "note": "Original A1 texts in the style of AB p. 119 (Leben in der Wohngemeinschaft), AB p. 121 (Mein Zimmer) and KB p. 53 (Chat).",
+  "readings": [
+    {
+      "key": "a1-l6-r1",
+      "title": "Leben in der Wohngemeinschaft",
+      "page": 119,
+      "text_md": "Viele junge Menschen in Deutschland bleiben auch nach dem Studium in einer WG. Warum? Julia (28) ist Grafikdesignerin und sagt: „Die Mieten in Hamburg sind zu hoch. In der WG teilen wir die Mietkosten. Und ich arbeite viel zu Hause – am Abend bin ich dann nicht allein, das finde ich schön.“ Manuel (31) ist Architekt. Für ihn ist das Leben mit Freunden praktisch: „Wir kochen zusammen, wir feiern Partys und wir machen viele Freizeitaktivitäten zusammen.“ Aber es gibt auch Probleme: Eine gute Organisation ist wichtig, denn manche müssen am Morgen früh zur Arbeit. Eine lange Party in der Nacht ist nur am Wochenende möglich. Und ein Putzplan muss sein!",
+      "translation_md": "Many young people in Germany stay in a shared flat even after their studies. Why? Julia (28) is a graphic designer and says: “The rents in Hamburg are too high. In the shared flat we share the rent. And I work a lot at home – in the evening I'm then not alone, I like that.” Manuel (31) is an architect. For him living with friends is practical: “We cook together, we have parties and we do many leisure activities together.” But there are also problems: good organisation is important, because some have to go to work early in the morning. A long party at night is only possible at the weekend. And there has to be a cleaning rota!",
+      "questions": [
+        {"q": "Warum wohnt Julia in einer WG?", "options": ["Die Mieten sind zu hoch und sie ist nicht allein.", "Sie mag Partys.", "Sie ist Architektin.", "Sie hat keine Freunde."], "answer": "Die Mieten sind zu hoch und sie ist nicht allein.", "explanation": "„Die Mieten … sind zu hoch … am Abend bin ich dann nicht allein“"},
+        {"q": "Was findet Manuel praktisch?", "options": ["allein wohnen", "das Leben mit Freunden", "früh aufstehen", "den Putzplan"], "answer": "das Leben mit Freunden", "explanation": "„Für ihn ist das Leben mit Freunden praktisch“"},
+        {"q": "Wann ist eine lange Party möglich?", "options": ["jeden Tag", "nur am Wochenende", "am Morgen", "nie"], "answer": "nur am Wochenende", "explanation": "„Eine lange Party in der Nacht ist nur am Wochenende möglich.“"},
+        {"q": "Was ist in der WG wichtig?", "options": ["eine gute Organisation", "ein großes Auto", "ein Hausmeister", "ein Fernseher"], "answer": "eine gute Organisation", "explanation": "„Eine gute Organisation ist wichtig“"}
+      ]
+    },
+    {
+      "key": "a1-l6-r2",
+      "title": "Mein Zimmer",
+      "page": 121,
+      "text_md": "Hallo Mama!\n\nMein neues Zimmer ist toll. Es ist groß und ich habe für alle Sachen einen Platz gefunden. Mein Bett steht in der Ecke rechts neben der Tür. Über dem Bett hängt eine Lampe. Der Schreibtisch steht vor dem Fenster. Mein Laptop steht rechts auf dem Schreibtisch und unter dem Schreibtisch ist ein Papierkorb. Der Kalender hängt an der Wand über dem Sofa. Links neben dem Kalender hängt das Foto von Borussia Dortmund. Zwischen der Tür und dem Sofa ist ein Bücherregal. Und? Gefällt dir das Zimmer?\n\nLiebe Grüße\nLeon",
+      "translation_md": "Hi Mum! My new room is great. It's big and I've found a place for all my things. My bed is in the corner on the right next to the door. Above the bed hangs a lamp. The desk is in front of the window. My laptop is on the right on the desk and under the desk there is a waste-paper basket. The calendar hangs on the wall above the sofa. To the left of the calendar hangs the Borussia Dortmund photo. Between the door and the sofa there is a bookshelf. So? Do you like the room? Best wishes, Leon",
+      "questions": [
+        {"q": "Wo steht das Bett?", "options": ["vor dem Fenster", "in der Ecke neben der Tür", "zwischen der Tür und dem Sofa", "unter der Lampe"], "answer": "in der Ecke neben der Tür", "explanation": "„Mein Bett steht in der Ecke rechts neben der Tür.“"},
+        {"q": "Wo ist der Papierkorb?", "options": ["auf dem Schreibtisch", "unter dem Schreibtisch", "neben dem Sofa", "an der Wand"], "answer": "unter dem Schreibtisch", "explanation": "„unter dem Schreibtisch ist ein Papierkorb“"},
+        {"q": "Was hängt über dem Sofa?", "options": ["der Kalender", "die Lampe", "das Foto", "das Regal"], "answer": "der Kalender", "explanation": "„Der Kalender hängt an der Wand über dem Sofa.“"},
+        {"q": "Wo ist das Bücherregal?", "options": ["zwischen der Tür und dem Sofa", "vor dem Fenster", "über dem Bett", "neben dem Laptop"], "answer": "zwischen der Tür und dem Sofa", "explanation": "„Zwischen der Tür und dem Sofa ist ein Bücherregal.“"}
+      ]
+    }
+  ]
+}

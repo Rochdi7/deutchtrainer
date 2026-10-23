@@ -10,7 +10,7 @@ class GrammarNote extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lektion_id', 'title', 'body_md', 'sort'];
+    protected $fillable = ['lektion_id', 'key', 'title', 'body_md', 'body_ar_md', 'source_page', 'sort'];
 
     public function lektion(): BelongsTo
     {

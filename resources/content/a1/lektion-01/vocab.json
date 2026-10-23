@@ -1,0 +1,48 @@
+{
+  "source": "DaF kompakt neu A1, Alles auf einen Blick, p. 14 (word list already seeded from database/seeders/data/lektion1.json) and p. 16–17 (Kurssprache, Im Kurs)",
+  "note": "Groups below ADD to the seeded Lektion 1 vocabulary. English translations and images for the seeded words are in extras.json.",
+  "groups": [
+    {"category": "Im Kurs", "page": 17, "items": [
+      ["das Tablet, -s", "tablet", "الجهاز اللوحي", {"img": "1f4f1"}],
+      ["der Laptop, -s", "laptop", "الحاسوب المحمول", {"img": "1f4bb"}],
+      ["das Buch, ¨er", "book", "الكتاب", {"img": "1f4d6", "ex": ["Das Buch ist neu.", "The book is new."]}],
+      ["das Smartphone, -s", "smartphone", "الهاتف الذكي", {"img": "1f4f1"}],
+      ["der USB-Stick, -s", "USB stick", "ذاكرة USB", {"img": "1f4be"}],
+      ["das Wörterbuch, ¨er", "dictionary", "القاموس", {"img": "1f4d5", "ex": ["Ich brauche ein Wörterbuch.", "I need a dictionary."]}],
+      ["der Ball, ¨e", "ball", "الكرة", {"img": "26bd"}],
+      ["der Kugelschreiber, -", "ballpoint pen", "القلم الجاف", {"img": "1f58a"}],
+      ["der Textmarker, -", "highlighter", "قلم التظليل", {"img": "1f58d"}],
+      ["der Apfel, ¨", "apple", "التفاحة", {"img": "1f34e"}],
+      ["das Heft, -e", "exercise book, notebook", "الدفتر", {"img": "1f4d3"}],
+      ["der Bleistift, -e", "pencil", "قلم الرصاص", {"img": "270f"}],
+      ["der Radiergummi, -s", "eraser", "الممحاة"],
+      ["die Tafel, -n", "board, blackboard", "السبورة", {"img": "1f3eb"}],
+      ["die Gruppe, -n", "group", "المجموعة", {"img": "1f465"}],
+      ["der Projektor, -en", "projector", "جهاز العرض", {"img": "1f4fd"}],
+      ["das Bild, -er", "picture", "الصورة", {"img": "1f5bc"}],
+      ["die Waschmaschine, -n", "washing machine", "الغسالة", {"img": "1f9fc"}],
+      ["das Regal, -e", "shelf", "الرف", {"img": "1f4da"}],
+      ["der Föhn, -e", "hairdryer", "مجفف الشعر"],
+      ["der Mülleimer, -", "rubbish bin", "سلة المهملات", {"img": "1f5d1"}],
+      ["die Lampe, -n", "lamp", "المصباح", {"img": "1f4a1"}],
+      ["das Fenster, -", "window", "النافذة", {"img": "1fa9f"}]
+    ]},
+    {"category": "Kurssprache", "type": "expression", "page": 16, "items": [
+      ["Hören Sie.", "Listen.", "استمعوا.", {"img": "1f442"}],
+      ["Lesen Sie.", "Read.", "اقرؤوا.", {"img": "1f4d6"}],
+      ["Sprechen Sie.", "Speak.", "تكلموا.", {"img": "1f5e3"}],
+      ["Schreiben Sie.", "Write.", "اكتبوا.", {"img": "270f"}],
+      ["Markieren Sie.", "Mark / highlight.", "ظلّلوا.", {"img": "1f58d"}],
+      ["Notieren Sie.", "Note down.", "دوّنوا.", {"img": "1f4dd"}],
+      ["Antworten Sie.", "Answer.", "أجيبوا."],
+      ["Ergänzen Sie.", "Complete / fill in.", "أكملوا."],
+      ["Fragen Sie.", "Ask.", "اسألوا."],
+      ["Kreuzen Sie an.", "Tick (the box).", "ضعوا علامة.", {"img": "2611"}],
+      ["Vergleichen Sie.", "Compare.", "قارنوا."],
+      ["Sortieren Sie.", "Sort.", "رتّبوا."],
+      ["Ordnen Sie zu.", "Match.", "طابقوا."],
+      ["Wie heißt das auf Deutsch?", "What is that called in German?", "ما اسم هذا بالألمانية؟"],
+      ["Das weiß ich nicht.", "I don't know (that).", "لا أعرف ذلك."]
+    ]}
+  ]
+}

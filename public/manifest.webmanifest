@@ -1,13 +1,13 @@
 {
   "name": "DeutschTrainer",
-  "short_name": "DeutschTr.",
-  "description": "DaF kompakt A1 Wortschatz-Trainer (Deutsch–Arabisch)",
-  "start_url": "/dashboard",
+  "short_name": "Deutsch",
+  "description": "Deutsch A1 lernen – Wortschatz mit Bildern, Grammatik, Dialoge, Übungen (Deutsch · Englisch · Arabisch)",
+  "start_url": "/kurs/A1",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#f9fafb",
-  "theme_color": "#1b57f5",
+  "background_color": "#ffffff",
+  "theme_color": "#7c5cff",
   "lang": "de",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },

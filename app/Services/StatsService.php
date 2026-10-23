@@ -2,13 +2,14 @@
 
 namespace App\Services;
 
+use App\Models\ExerciseAttempt;
+use App\Models\ExerciseSession;
 use App\Models\Lektion;
 use App\Models\QuizAnswer;
 use App\Models\QuizSession;
 use App\Models\User;
 use App\Models\UserWordProgress;
 use App\Models\Word;
-use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class StatsService
@@ -58,7 +59,7 @@ class StatsService
         $total = Word::count();
         $mastered = UserWordProgress::where('user_id', $user->id)->where('level', '>=', UserWordProgress::MASTERED_LEVEL)->count();
         $due = UserWordProgress::where('user_id', $user->id)->where('next_review_at', '<=', now()->endOfDay())->count();
-        $xp = QuizAnswer::whereHas('session', fn ($q) => $q->where('user_id', $user->id))->where('is_correct', true)->count();
+        $xp = $this->xp($user);
 
         return [
             'total_words' => $total,
@@ -70,13 +71,38 @@ class StatsService
         ];
     }
 
-    /** Consecutive days (ending today or yesterday) with at least one session. */
+    /** XP = every correct answer, in the classic quiz and in course exercises. */
+    public function xp(User $user): int
+    {
+        return QuizAnswer::whereHas('session', fn ($q) => $q->where('user_id', $user->id))->where('is_correct', true)->count()
+            + ExerciseAttempt::where('user_id', $user->id)->where('is_correct', true)->count();
+    }
+
+    /** Compact numbers for the stat bar shown on every page. */
+    public function headline(User $user): array
+    {
+        return [
+            'streak' => $this->dailyStreak($user),
+            'xp' => $this->xp($user),
+            'due' => UserWordProgress::where('user_id', $user->id)->where('next_review_at', '<=', now()->endOfDay())->count(),
+        ];
+    }
+
+    /** Consecutive days (ending today or yesterday) with at least one quiz or exercise session. */
     public function dailyStreak(User $user): int
     {
         $days = QuizSession::where('user_id', $user->id)
             ->where('started_at', '>=', now()->subDays(400))
             ->get(['started_at'])
+            ->toBase()
             ->map(fn ($s) => $s->started_at->toDateString())
+            ->merge(
+                ExerciseSession::where('user_id', $user->id)
+                    ->where('started_at', '>=', now()->subDays(400))
+                    ->get(['started_at'])
+                    ->toBase()
+                    ->map(fn ($s) => $s->started_at->toDateString())
+            )
             ->unique()->flip();
 
         if ($days->isEmpty()) {

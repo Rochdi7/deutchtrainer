@@ -1,0 +1,17 @@
+{
+  "level": "A1",
+  "number": 2,
+  "slug": "a1-lektion-02",
+  "title": "Menschen und Dinge",
+  "subtitle": "A Früher und heute · B Familiengeschichten · C Wir gehen essen",
+  "source_pages": {"kursbuch": [18, 23], "aaeb": [24, 25], "uebungsbuch": [84, 91]},
+  "objectives": [
+    {"de": "Dinge im Alltag benennen und sagen, was man früher hatte und heute hat", "en": "Name everyday objects and say what people had in the past and have today"},
+    {"de": "den bestimmten, unbestimmten und Negativartikel im Nominativ und Akkusativ verwenden", "en": "Use the definite, indefinite and negative article in the nominative and accusative"},
+    {"de": "die Familie vorstellen: Familienmitglieder, Familienstand, Possessivartikel", "en": "Present your family: family members, marital status, possessive articles"},
+    {"de": "Sätze mit „und“, „oder“ und „aber“ verbinden", "en": "Connect sentences with und, oder and aber"},
+    {"de": "im Restaurant bestellen und bezahlen", "en": "Order and pay in a restaurant"},
+    {"de": "Wochentage und Öffnungszeiten verstehen", "en": "Understand days of the week and opening hours"}
+  ],
+  "revision_md": "## Das Wichtigste aus Lektion 2\n\n**Artikel im Nominativ und Akkusativ**\n\n| | M | N | F | Pl. |\n|---|---|---|---|---|\n| Nominativ | der / ein / kein | das / ein / kein | die / eine / keine | die / – / keine |\n| Akkusativ | **den / einen / keinen** | das / ein / kein | die / eine / keine | die / – / keine |\n\nNur der Maskulin ändert sich im Akkusativ: *Ich habe **einen** Laptop.*\n\n**haben**: ich habe, du hast, er hat, wir haben, ihr habt, sie haben · Präteritum: ich hatte, du hattest, er hatte, wir hatten, ihr hattet, sie hatten\n\n**Possessivartikel** (Nominativ): mein/meine, dein/deine, sein/seine (er, es), ihr/ihre (sie), unser/unsere, euer/eure, ihr/ihre (sie Pl.), Ihr/Ihre (Sie). Feminin und Plural bekommen **-e**.\n\n**Konnektoren** stehen auf Position 0: *Ich studiere Chemie **und** ich jobbe im Café. Er ist 45, **aber** er ist nicht verheiratet.* Vor **aber** steht ein Komma.\n\n**Im Restaurant**: *Wir möchten gern bestellen. – Was bekommen Sie? – Ich nehme einen Salat. – Und was möchten Sie trinken? – Ein Wasser mit Kohlensäure, bitte. – Zahlen, bitte!*\n\n**möchte-** ist höflich: *Ich möchte ein Bier.* (+ Nomen) / *Wir möchten bezahlen.* (+ Infinitiv). **mögen**: *Ich mag Fisch, aber ich mag keinen Käse.*\n\n**Wochentage**: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag (Sonnabend), Sonntag – *am Montag*, *um 19 Uhr*.\n\n**Typische Fehler**\n- ~~Ich habe ein Bruder.~~ → Ich habe **einen** Bruder. (Akkusativ, maskulin)\n- ~~Das ist sein Mutter.~~ → Das ist **seine** Mutter. (feminin → -e)\n- ~~Ich mag nicht Fisch.~~ → Ich mag **keinen** Fisch. (kein- verneint ein Nomen)\n- ~~Am Samstag ist das Restaurant geschlossen aber am Sonntag …~~ → …, **aber** am Sonntag … (Komma vor aber)"
+}

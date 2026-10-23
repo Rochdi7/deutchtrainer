@@ -88,6 +88,7 @@ class WordController extends Controller
         return $request->validate([
             'german' => ['required', 'string', 'max:255'],
             'arabic' => ['required', 'string', 'max:255'],
+            'english' => ['nullable', 'string', 'max:255'],
             'type' => ['required', Rule::in(Word::TYPES)],
             'category' => ['required', 'string', 'max:100'],
             'article' => ['nullable', 'string', 'max:16'],
@@ -117,6 +118,7 @@ class WordController extends Controller
         return [
             'german' => trim($data['german']),
             'arabic' => trim($data['arabic']),
+            'english' => isset($data['english']) ? trim($data['english']) : null,
             'type' => $data['type'],
             'article' => $data['article'] ?: null,
             'plural' => $plural ?: null,

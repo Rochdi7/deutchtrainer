@@ -4,21 +4,26 @@ defineProps({
     value: [String, Number],
     sub: { type: String, default: '' },
     accent: { type: String, default: 'brand' },
+    icon: { type: String, default: '' },
 });
 
 const colors = {
-    brand: 'text-brand-600 dark:text-brand-400',
-    emerald: 'text-emerald-600 dark:text-emerald-400',
-    amber: 'text-amber-600 dark:text-amber-400',
-    rose: 'text-rose-600 dark:text-rose-400',
-    purple: 'text-purple-600 dark:text-purple-400',
+    brand: 'text-pop-primary',
+    emerald: 'text-pop-green',
+    amber: 'text-pop-orange',
+    rose: 'text-pop-red',
+    purple: 'text-pop-purple',
+    blue: 'text-pop-blue',
 };
 </script>
 
 <template>
-    <div class="card p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ label }}</div>
-        <div class="mt-1 text-3xl font-extrabold tabular-nums" :class="colors[accent] || colors.brand">{{ value }}</div>
-        <div v-if="sub" class="mt-1 text-xs text-gray-500 dark:text-gray-400">{{ sub }}</div>
+    <div class="card flex items-center gap-3 p-4">
+        <div v-if="icon" class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gray-100 text-2xl dark:bg-gray-800">{{ icon }}</div>
+        <div class="min-w-0">
+            <div class="truncate text-[11px] font-extrabold uppercase tracking-wide text-gray-400">{{ label }}</div>
+            <div class="text-2xl font-black tabular-nums" :class="colors[accent] || colors.brand">{{ value }}</div>
+            <div v-if="sub" class="truncate text-xs font-bold text-gray-400">{{ sub }}</div>
+        </div>
     </div>
 </template>

@@ -20,10 +20,10 @@ class UserWordProgress extends Model
     public const INTERVALS = [1 => 1, 2 => 3, 3 => 7, 4 => 14, 5 => 30];
 
     protected $fillable = [
-        'user_id', 'word_id', 'level', 'correct_count', 'wrong_count', 'streak', 'last_seen_at', 'next_review_at',
+        'user_id', 'word_id', 'level', 'correct_count', 'wrong_count', 'streak', 'is_difficult', 'last_seen_at', 'next_review_at',
     ];
 
-    protected $casts = ['last_seen_at' => 'datetime', 'next_review_at' => 'datetime'];
+    protected $casts = ['last_seen_at' => 'datetime', 'next_review_at' => 'datetime', 'is_difficult' => 'boolean'];
 
     public function user(): BelongsTo
     {

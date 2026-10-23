@@ -1,0 +1,50 @@
+{
+  "notes": [
+    {
+      "key": "a1-l5-vokalwechsel",
+      "title": "Verben mit Vokalwechsel",
+      "page": 49,
+      "body_md": "| | lesen | sprechen | treffen | fahren | schlafen | laufen | wissen |\n|---|---|---|---|---|---|---|---|\n| ich | lese | spreche | treffe | fahre | schlafe | laufe | **weiß** |\n| du | l**ie**st | spr**i**chst | tr**i**ffst | f**ä**hrst | schl**ä**fst | l**äu**fst | **weißt** |\n| er / sie / es | l**ie**st | spr**i**cht | tr**i**fft | f**ä**hrt | schl**ä**ft | l**äu**ft | **weiß** |\n| wir | lesen | sprechen | treffen | fahren | schlafen | laufen | wissen |\n| ihr | lest | sprecht | trefft | fahrt | schlaft | lauft | wisst |\n| sie / Sie | lesen | sprechen | treffen | fahren | schlafen | laufen | wissen |\n\nDer Vokal wechselt nur bei **du** und **er/sie/es**: e → ie, e → i, a → ä, au → äu. Bei *wissen* auch in der 1. Person Singular (ich weiß). Der Vokal ändert sich, aber die Vokallänge bleibt gleich (lesen – er liest: beide lang).\n\nAuch mit Vokalwechsel: *sehen* (du siehst, er sieht), *essen* (du isst), *nehmen* (du nimmst), *geben* (du gibst), *helfen* (du hilfst), *vergessen* (du vergisst), *halten* (du hältst)."
+    },
+    {
+      "key": "a1-l5-trennbar",
+      "title": "Trennbare Verben",
+      "page": 45,
+      "body_md": "Bei trennbaren Verben steht die **Vorsilbe am Satzende**: *anfangen, aufstehen, anrufen, ausprobieren, stattfinden, mitkommen, mitmachen, mitnehmen, abholen*.\n\n| Pos. 1 | Pos. 2 | | Satzende |\n|---|---|---|---|\n| Das Training | **fängt** | um 20 Uhr | **an**. |\n| Ich | **stehe** | nicht gern früh | **auf**. |\n| **Rufst** | du | mich später | **an**? |\n| Wann | **findet** | das Training | **statt**? |\n\n**Mit Modalverb**: Das Modalverb steht auf Position 2, der Infinitiv (zusammengeschrieben) am Satzende: *Ich **muss** morgen früh **aufstehen**. Tim **kann** uns im Auto **mitnehmen**. **Willst** du **mitmachen**?*\n\nTrennbare Vorsilben: an-, auf-, aus-, mit-, statt-, weg-, zurück-, ab-, ein-, vor-, zu-. Die Vorsilbe ist betont: **AN**rufen."
+    },
+    {
+      "key": "a1-l5-perfekt",
+      "title": "Perfekt: regelmäßige Verben",
+      "page": 46,
+      "body_md": "Das Perfekt bildet man mit **haben** oder **sein** (Position 2) + **Partizip Perfekt** (Satzende).\n\n| | Pos. 2 | | Satzende |\n|---|---|---|---|\n| Beate | **hat** | jeden Tag | **trainiert**. |\n| Sie | **hat** | die Strecke in 39 Minuten | **geschafft**. |\n| Viele Leute | **sind** | beim Campus-Run | **gestartet**. |\n| Was | **ist** | denn | **passiert**? |\n\n**Partizip Perfekt** regelmäßiger Verben: **ge** + Verbstamm + **(e)t**: machen → ge**mach**t, schaffen → geschafft, feiern → gefeiert, klappen → geklappt, jobben → gejobbt. Verbstamm auf -t/-d/-m/-n: + **et**: warten → gewart**et**, arbeiten → gearbeit**et**.\n\n**Verben auf -ieren** haben **kein ge-**: trainieren → trainiert, motivieren → motiviert, organisieren → organisiert, passieren → passiert.\n\n**sein** oder **haben**? Verben mit Wechsel von Ort oder Zustand bilden das Perfekt mit **sein**: *ist gestartet, ist gestürzt, ist passiert*. Alle anderen mit **haben**.\n\n*sein* und *haben* selbst benutzt man meist im Präteritum: *Das Wetter **war** optimal. Tobias **hatte** Pech.*"
+    },
+    {
+      "key": "a1-l5-gern",
+      "title": "Vorlieben: gern, lieber, nicht so gern",
+      "page": 43,
+      "body_md": "*Spielst du gern Fußball? – Ja, sehr gern.* · *Liest du gern? – Nein, nicht so gern. / Nein, überhaupt nicht gern.* · *Tanzt du gern? – Nein, ich lese lieber.* · *Fährst du gern Fahrrad? – Nein, ich laufe lieber.*\n\n**gern** steht nach dem Verb: *Ich lese gern.* **lieber** = Komparativ: *Ich lese lieber (als ich tanze).*\n\n**schon mal / noch nie**: *Hast du schon mal Klavier gespielt? – Ja, in der Schule. / Nein, noch nie.* – *Ich habe schon oft eine Reise gemacht. Manchmal koche ich. Einmal bin ich bei einem Lauf gestartet. Noch nie habe ich ein Auto gekauft.*\n\n**Nomen + Verb lernen**: ein Buch lesen, Spaß haben, Freunde treffen, Fernsehen schauen, Fahrrad fahren, Musik hören/machen, Sport treiben/machen, Gitarre spielen/lernen."
+    },
+    {
+      "key": "a1-l5-sms",
+      "title": "SMS und Anzeigen: Abkürzungen",
+      "page": 108,
+      "body_md": "| Abkürzung | Bedeutung |\n|---|---|\n| LG | Liebe Grüße |\n| Do | Donnerstag |\n| z. B. | zum Beispiel |\n| od. | oder |\n| su. | sucht |\n| WE | Wochenende |\n| Tel. | Telefon |\n| u. | und |\n| zz. | zurzeit |\n\n*Hallo Handballspieler, ich möchte gerne mitspielen. Wo trainiert ihr? Fred* · *Hörst du gern Musik? Gehst du gern ins Konzert? Treffen z. B. am WE. Mobil: 0177-155646*"
+    }
+  ],
+  "conjugations": [
+    {"german": "laufen", "ich": "laufe", "du": "läufst", "er_sie_es": "läuft", "wir": "laufen", "ihr": "lauft", "sie_Sie": "laufen"},
+    {"german": "fahren", "ich": "fahre", "du": "fährst", "er_sie_es": "fährt", "wir": "fahren", "ihr": "fahrt", "sie_Sie": "fahren"},
+    {"german": "schlafen", "ich": "schlafe", "du": "schläfst", "er_sie_es": "schläft", "wir": "schlafen", "ihr": "schlaft", "sie_Sie": "schlafen"},
+    {"german": "sehen", "ich": "sehe", "du": "siehst", "er_sie_es": "sieht", "wir": "sehen", "ihr": "seht", "sie_Sie": "sehen"},
+    {"german": "treffen", "ich": "treffe", "du": "triffst", "er_sie_es": "trifft", "wir": "treffen", "ihr": "trefft", "sie_Sie": "treffen"},
+    {"german": "wissen", "ich": "weiß", "du": "weißt", "er_sie_es": "weiß", "wir": "wissen", "ihr": "wisst", "sie_Sie": "wissen"},
+    {"german": "anfangen", "ich": "fange an", "du": "fängst an", "er_sie_es": "fängt an", "wir": "fangen an", "ihr": "fangt an", "sie_Sie": "fangen an"},
+    {"german": "aufstehen", "ich": "stehe auf", "du": "stehst auf", "er_sie_es": "steht auf", "wir": "stehen auf", "ihr": "steht auf", "sie_Sie": "stehen auf"},
+    {"german": "anrufen", "ich": "rufe an", "du": "rufst an", "er_sie_es": "ruft an", "wir": "rufen an", "ihr": "ruft an", "sie_Sie": "rufen an"},
+    {"german": "mitkommen", "ich": "komme mit", "du": "kommst mit", "er_sie_es": "kommt mit", "wir": "kommen mit", "ihr": "kommt mit", "sie_Sie": "kommen mit"},
+    {"german": "stattfinden", "ich": "finde statt", "du": "findest statt", "er_sie_es": "findet statt", "wir": "finden statt", "ihr": "findet statt", "sie_Sie": "finden statt"},
+    {"german": "trainieren", "ich": "trainiere", "du": "trainierst", "er_sie_es": "trainiert", "wir": "trainieren", "ihr": "trainiert", "sie_Sie": "trainieren"},
+    {"german": "schwimmen", "ich": "schwimme", "du": "schwimmst", "er_sie_es": "schwimmt", "wir": "schwimmen", "ihr": "schwimmt", "sie_Sie": "schwimmen"},
+    {"german": "tanzen", "ich": "tanze", "du": "tanzt", "er_sie_es": "tanzt", "wir": "tanzen", "ihr": "tanzt", "sie_Sie": "tanzen"}
+  ]
+}

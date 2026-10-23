@@ -28,7 +28,13 @@ const { t } = useI18n();
                         </div>
                         <span v-if="l.completed" class="badge bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200">✓</span>
                     </div>
-                    <div class="mt-3 h-2 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-800">
+                    <div v-if="l.completion !== undefined" class="mt-3">
+                        <div class="mb-1 flex justify-between text-[11px] text-gray-500"><span>{{ t('course.completion') }}</span><span>{{ l.completion }} %</span></div>
+                        <div class="h-2 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-800">
+                            <div class="h-full rounded-full bg-brand-500" :style="{ width: l.completion + '%' }"></div>
+                        </div>
+                    </div>
+                    <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-800">
                         <div class="h-full rounded-full bg-emerald-500" :style="{ width: l.mastered_percent + '%' }"></div>
                     </div>
                     <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">

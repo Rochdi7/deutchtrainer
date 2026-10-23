@@ -1,0 +1,56 @@
+{
+  "notes": [
+    {
+      "key": "a1-l3-uhrzeit",
+      "title": "Uhrzeit und Tageszeiten",
+      "page": 27,
+      "body_md": "**Wie spät ist es? / Wie viel Uhr ist es?**\n\n| Uhr | informell |\n|---|---|\n| 12.00 | Es ist zwölf (Uhr). |\n| 12.15 | Es ist Viertel nach zwölf. |\n| 13.00 | Es ist ein Uhr. / Es ist eins. |\n| 13.10 | Es ist zehn nach eins. |\n| 13.20 | zwanzig nach eins |\n| 13.25 | fünf vor halb zwei |\n| 13.30 | halb zwei |\n| 13.35 | fünf nach halb zwei |\n| 9.45 | Viertel vor zehn |\n| 10.15 | Viertel nach zehn |\n\n**Achtung**: *halb zwei* = 13.30 (halb auf dem Weg zu zwei).\n\n**Wann?** – **am** Montag, **am** Vormittag, **am** Montagvormittag · **um** zehn (Uhr), **um** Viertel nach zwei · **von** drei **bis** sechs.\n\n**Tageszeiten**: am Morgen / morgens (5–9 Uhr), am Vormittag / vormittags (9–11.30), am Mittag / mittags, am Nachmittag / nachmittags, am Abend / abends, in der Nacht / nachts (22–5 Uhr). *vormittags* = jeden Vormittag.\n\n*Mahlzeiten*: das Frühstück → frühstücken, das Mittagessen → zu Mittag essen, das Abendessen → zu Abend essen."
+    },
+    {
+      "key": "a1-l3-kein-nicht",
+      "title": "kein- oder nicht?",
+      "page": 27,
+      "body_md": "**kein-** verneint ein Nomen (mit unbestimmtem Artikel oder ohne Artikel):\n- *Hast du **einen** Termin? – Nein, ich habe **keinen** Termin.*\n- *Hast du Zeit? – Nein, ich habe **keine** Zeit.*\n\n**nicht** verneint einen ganzen Satz oder ein Adjektiv / Verb:\n- *Ich komme heute **nicht**.* · *Das Wetter ist **nicht** gut.* · *Am Montag kann ich **nicht**.*\n\n*English: kein- = no / not a (before a noun), nicht = not (negates the verb, an adjective or the whole sentence).*"
+    },
+    {
+      "key": "a1-l3-mengen",
+      "title": "Mengenangaben: Wie viel? Wie viele?",
+      "page": 29,
+      "body_md": "Bei Mengenangaben steht das Nomen ohne Artikel (**Nullartikel**): *ein Kilo Äpfel, 500 g Hackfleisch, eine Flasche Wasser, drei Becher Joghurt, ein Glas Marmelade, eine Packung Müsli, ein Beutel Brötchen*.\n\n| Verpackung | Beispiele |\n|---|---|\n| die Flasche | Apfelsaft, Bier, Öl, Wein |\n| das Glas | Marmelade, Mayonnaise |\n| die Dose | Cola, Thunfisch |\n| der Becher | Joghurt, Sahne |\n| die Packung / das Päckchen | Butter, Müsli, Reis, Tee, Kekse |\n| die Schachtel | Pralinen |\n| die Tafel | Schokolade |\n| der Beutel / die Tüte | Bonbons, Kartoffelchips |\n| die Tube | Senf, Ketchup |\n| die Schale | Erdbeeren, Champignons |\n\n**Wie viel?** fragt nach einer Menge (nicht zählbar): *Wie viel Mehl brauchen wir? – 500 Gramm.*\n**Wie viele?** fragt nach einer Zahl (zählbar): *Wie viele Brötchen? – 5 Stück.*\n\n1 Euro = 100 Cent (CH: 1 Franken = 100 Rappen). *1,30 € = ein Euro dreißig.*"
+    },
+    {
+      "key": "a1-l3-pronomen-akk",
+      "title": "Personalpronomen im Akkusativ",
+      "page": 30,
+      "body_md": "| Nominativ | ich | du | er | es | sie | wir | ihr | sie / Sie |\n|---|---|---|---|---|---|---|---|---|\n| Akkusativ | **mich** | **dich** | **ihn** | **es** | **sie** | **uns** | **euch** | **sie / Sie** |\n\n- *Kennst du den Hafen Sassnitz? – Ja, ich kenne **ihn**.* (der Hafen → ihn)\n- *Kennst du die Insel Rügen? – Nein, ich kenne **sie** noch nicht.* (die Insel → sie)\n- *Wann besuchst du deine Eltern? – Ich besuche **sie** am Wochenende.*\n- *Ihr besucht **mich** morgen. Ich höre **dich** ganz schlecht.*\n\n**Wer? Was? Wen?** – *Wer ist das?* (Nominativ, Person) – *Was ist Rügen?* (Nominativ/Akkusativ, Sache) – *Wen besuchst du?* (Akkusativ, Person)."
+    },
+    {
+      "key": "a1-l3-praeteritum",
+      "title": "sein und haben im Präteritum",
+      "page": 31,
+      "body_md": "| | sein | haben |\n|---|---|---|\n| ich | **war** | **hatte** |\n| du | warst | hattest |\n| er / sie / es | war | hatte |\n| wir | waren | hatten |\n| ihr | wart | hattet |\n| sie / Sie | waren | hatten |\n\n*Wie war das Wochenende? – Es war super! Das Wetter war schön und wir hatten viel Spaß. Nur Nina hatte leider Grippe.*\n\n**leider ≠ zum Glück**: *Leider hat Nina Grippe. / Nina hat Grippe. Das ist schade. – Zum Glück scheint die Sonne.*\n\n*English: war = was/were, hatte = had. These are the only past forms you need at A1 (other verbs use the Perfekt, see Lektion 5 and 6).*"
+    },
+    {
+      "key": "a1-l3-wetter",
+      "title": "Wie ist das Wetter?",
+      "page": 31,
+      "body_md": "☀️ *Die Sonne scheint. Es ist sonnig.* · 🌧️ *Es regnet.* · ❄️ *Es schneit.* · ☁️ *Es ist bewölkt.* · 🌬️ *Es ist windig.* · ⛈️ *Es gewittert.* · 🥶 *Es ist kalt. Es sind minus 5 Grad.* · 🥵 *Es ist warm / heiß. Es sind 35 Grad.*\n\n*Wie findest du das Wetter? – Super / toll. Gut. Nicht besonders. Nicht gut. Schrecklich.*\n\n**Zeitangaben** (AB p. 93): immer (100 %) – meistens – oft – manchmal – selten – nie (0 %) · morgens – mittags – nachmittags – abends – nachts · am Samstag und Sonntag = am Wochenende."
+    },
+    {
+      "key": "a1-l3-subjekt",
+      "title": "Wortstellung: das Subjekt",
+      "page": 22,
+      "body_md": "Das Subjekt steht auf **Position 1** oder direkt **nach dem Verb**. Das Verb bleibt immer auf Position 2.\n\n| Position 1 | Position 2 (Verb) | |\n|---|---|---|\n| **Ich** | besuche | am Wochenende meine Oma. |\n| Am Wochenende | besuche | **ich** meine Oma. |\n| **Das Restaurant** | öffnet | am Samstag um 17 Uhr. |\n| Am Samstag | öffnet | **das Restaurant** um 17 Uhr. |\n\nTipp für Texte: Beginnen Sie Sätze nicht immer mit dem Subjekt – variieren Sie: *Am … / Heute … / Zum Glück … / Leider …*"
+    }
+  ],
+  "conjugations": [
+    {"german": "treffen", "ich": "treffe", "du": "triffst", "er_sie_es": "trifft", "wir": "treffen", "ihr": "trefft", "sie_Sie": "treffen"},
+    {"german": "schlafen", "ich": "schlafe", "du": "schläfst", "er_sie_es": "schläft", "wir": "schlafen", "ihr": "schlaft", "sie_Sie": "schlafen"},
+    {"german": "halten", "ich": "halte", "du": "hältst", "er_sie_es": "hält", "wir": "halten", "ihr": "haltet", "sie_Sie": "halten"},
+    {"german": "finden", "ich": "finde", "du": "findest", "er_sie_es": "findet", "wir": "finden", "ihr": "findet", "sie_Sie": "finden"},
+    {"german": "besuchen", "ich": "besuche", "du": "besuchst", "er_sie_es": "besucht", "wir": "besuchen", "ihr": "besucht", "sie_Sie": "besuchen"},
+    {"german": "frühstücken", "ich": "frühstücke", "du": "frühstückst", "er_sie_es": "frühstückt", "wir": "frühstücken", "ihr": "frühstückt", "sie_Sie": "frühstücken"},
+    {"german": "jobben", "ich": "jobbe", "du": "jobbst", "er_sie_es": "jobbt", "wir": "jobben", "ihr": "jobbt", "sie_Sie": "jobben"},
+    {"german": "besichtigen", "ich": "besichtige", "du": "besichtigst", "er_sie_es": "besichtigt", "wir": "besichtigen", "ihr": "besichtigt", "sie_Sie": "besichtigen"}
+  ]
+}

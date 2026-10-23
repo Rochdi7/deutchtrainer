@@ -1,89 +1,103 @@
 <script setup>
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
+import { computed } from 'vue';
 import DarkModeToggle from '@/Components/Trainer/DarkModeToggle.vue';
 import FlashMessage from '@/Components/Trainer/FlashMessage.vue';
 import LanguageSwitcher from '@/Components/Trainer/LanguageSwitcher.vue';
 import BottomNav from '@/Components/Trainer/BottomNav.vue';
-import { Link } from '@inertiajs/vue3';
+import NavIcon from '@/Components/Trainer/NavIcon.vue';
+import InstallBanner from '@/Components/Trainer/InstallBanner.vue';
+import { Link, usePage } from '@inertiajs/vue3';
 import { useI18n } from '@/i18n';
 
 defineProps({
-    /** Hide the mobile tab bar (used on the quiz screen so the answer panel can sit at the bottom). */
+    /** Hide navigation chrome (exercise player) so the answer bar can sit at the bottom. */
     focus: { type: Boolean, default: false },
 });
 
 const { t } = useI18n();
+const page = usePage();
+const stats = computed(() => page.props.stats || { streak: 0, xp: 0, due: 0 });
+const user = computed(() => page.props.auth.user);
 
-const nav = [
-    { label: 'nav.dashboard', route: 'dashboard', match: 'dashboard' },
-    { label: 'nav.lektionen', route: 'lektionen.index', match: 'lektionen.*' },
-    { label: 'nav.quiz', route: 'quiz.global', match: 'quiz.*' },
-];
+const nav = computed(() => [
+    { label: 'nav.learn', route: 'course.dashboard', match: 'course.*', icon: 'learn' },
+    { label: 'nav.lektionen', route: 'lektionen.index', match: 'lektionen.*', icon: 'book' },
+    { label: 'nav.practice', route: 'practice.index', match: 'practice.*', icon: 'target' },
+    { label: 'nav.revision', route: 'revision.index', match: 'revision.*', icon: 'repeat' },
+    { label: 'nav.quiz', route: 'quiz.global', match: 'quiz.*', icon: 'bolt' },
+    { label: 'nav.stats', route: 'dashboard', match: 'dashboard', icon: 'chart' },
+    { label: 'nav.profile', route: 'profile.edit', match: 'profile.*', icon: 'user' },
+    ...(user.value?.is_admin ? [{ label: 'nav.import', route: 'import.index', match: 'import.*', icon: 'upload' }] : []),
+]);
 </script>
 
 <template>
-    <div class="min-h-full">
-        <nav class="sticky top-0 z-30 border-b border-gray-200 bg-white/90 pt-[env(safe-area-inset-top)] backdrop-blur dark:border-gray-800 dark:bg-gray-900/90">
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <div class="flex h-14 items-center justify-between sm:h-16">
-                    <div class="flex items-center">
-                        <Link :href="route('dashboard')" class="flex items-center gap-2 font-extrabold tracking-tight">
-                            <span class="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 text-white">DT</span>
-                            <span>DeutschTrainer</span>
-                        </Link>
+    <div class="min-h-full lg:flex">
+        <!-- Desktop sidebar -->
+        <aside v-if="!focus" class="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-64 lg:shrink-0 lg:flex-col lg:border-r-2 lg:border-gray-200 lg:bg-white lg:px-4 lg:py-6 dark:lg:border-gray-800 dark:lg:bg-gray-900">
+            <Link :href="route('course.dashboard')" class="mb-6 flex items-center gap-2 px-2 text-2xl font-black tracking-tight text-pop-primary">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-pop-primary text-lg text-white" style="box-shadow: 0 4px 0 0 #6243d6">DT</span>
+                DeutschTrainer
+            </Link>
+            <nav class="flex flex-1 flex-col gap-1">
+                <Link
+                    v-for="n in nav"
+                    :key="n.route"
+                    :href="route(n.route)"
+                    class="flex min-h-[52px] items-center gap-3 rounded-2xl border-2 px-3 text-sm font-extrabold uppercase tracking-wide transition"
+                    :class="route().current(n.match) ? 'border-brand-200 bg-brand-50 text-pop-primary dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-200' : 'border-transparent text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'"
+                    :aria-current="route().current(n.match) ? 'page' : undefined"
+                >
+                    <NavIcon :name="n.icon" class="h-8 w-8" />
+                    {{ t(n.label) }}
+                </Link>
+            </nav>
+            <div class="mt-4 space-y-3 border-t-2 border-gray-100 pt-4 dark:border-gray-800">
+                <div class="flex items-center justify-between gap-2 px-1">
+                    <LanguageSwitcher />
+                    <DarkModeToggle />
+                </div>
+                <div class="truncate px-2 text-xs font-bold text-gray-500">{{ user?.name }}</div>
+                <Link :href="route('logout')" method="post" as="button" class="btn-ghost btn-sm w-full justify-start px-2 normal-case tracking-normal">{{ t('nav.logout') }}</Link>
+            </div>
+        </aside>
 
-                        <div class="hidden space-x-6 sm:-my-px sm:ms-8 sm:flex">
-                            <NavLink v-for="n in nav" :key="n.route" :href="route(n.route)" :active="route().current(n.match)">
-                                {{ t(n.label) }}
-                            </NavLink>
-                            <NavLink v-if="$page.props.auth.user?.is_admin" :href="route('import.index')" :active="route().current('import.*')">
-                                {{ t('nav.import') }}
-                            </NavLink>
-                        </div>
+        <div class="min-w-0 flex-1">
+            <!-- Mobile / tablet top bar: streak · XP · due -->
+            <header v-if="!focus" class="sticky top-0 z-30 border-b-2 border-gray-200 bg-white/95 pt-[env(safe-area-inset-top)] backdrop-blur dark:border-gray-800 dark:bg-gray-900/95 lg:hidden">
+                <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+                    <div class="flex items-center gap-3 text-sm font-extrabold">
+                        <span class="flex items-center gap-1 text-pop-orange" :title="t('dash.streak')"><span class="text-xl" :class="{ grayscale: !stats.streak }">🔥</span>{{ stats.streak }}</span>
+                        <span class="flex items-center gap-1 text-pop-yellow-dark" :title="t('dash.xp')"><span class="text-xl">⚡</span>{{ stats.xp }}</span>
+                        <Link :href="route('revision.index')" class="flex items-center gap-1 text-pop-blue" :title="t('dash.due_today')"><span class="text-xl">📚</span>{{ stats.due }}</Link>
                     </div>
-
-                    <div class="flex items-center gap-1.5 sm:gap-2">
+                    <div class="flex items-center gap-1.5">
                         <LanguageSwitcher />
                         <DarkModeToggle />
-
-                        <div class="hidden sm:flex sm:items-center">
-                            <Dropdown align="right" width="48">
-                                <template #trigger>
-                                    <button
-                                        type="button"
-                                        class="inline-flex min-h-[44px] items-center rounded-xl px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                                    >
-                                        {{ $page.props.auth.user.name }}
-                                        <svg class="-me-0.5 ms-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </template>
-                                <template #content>
-                                    <DropdownLink :href="route('profile.edit')">{{ t('nav.profile') }}</DropdownLink>
-                                    <DropdownLink v-if="$page.props.auth.user?.is_admin" :href="route('import.index')">{{ t('nav.import') }}</DropdownLink>
-                                    <DropdownLink :href="route('logout')" method="post" as="button">{{ t('nav.logout') }}</DropdownLink>
-                                </template>
-                            </Dropdown>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </header>
 
-        <header v-if="$slots.header" class="bg-white dark:bg-gray-900">
-            <div class="mx-auto max-w-6xl px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+            <!-- Desktop stat strip -->
+            <div v-if="!focus" class="hidden lg:block">
+                <div class="mx-auto flex max-w-6xl items-center justify-end gap-5 px-8 pt-5 text-sm font-extrabold">
+                    <span class="flex items-center gap-1.5 text-pop-orange"><span class="text-2xl" :class="{ grayscale: !stats.streak }">🔥</span>{{ stats.streak }} <span class="font-bold text-gray-400">{{ t('stats.streak') }}</span></span>
+                    <span class="flex items-center gap-1.5 text-pop-yellow-dark"><span class="text-2xl">⚡</span>{{ stats.xp }} <span class="font-bold text-gray-400">{{ t('stats.xp') }}</span></span>
+                    <Link :href="route('revision.index')" class="flex items-center gap-1.5 text-pop-blue"><span class="text-2xl">📚</span>{{ stats.due }} <span class="font-bold text-gray-400">{{ t('stats.due') }}</span></Link>
+                </div>
+            </div>
+
+            <header v-if="$slots.header" class="mx-auto max-w-6xl px-4 pt-5 sm:px-6 lg:px-8">
                 <slot name="header" />
-            </div>
-        </header>
+            </header>
 
-        <FlashMessage />
+            <FlashMessage />
+            <InstallBanner v-if="!focus" />
 
-        <main :class="focus ? 'pb-4' : 'pb-24 sm:pb-16'">
-            <slot />
-        </main>
+            <main :class="focus ? 'pb-4' : 'pb-24 lg:pb-10'">
+                <slot />
+            </main>
+        </div>
 
         <BottomNav v-if="!focus" />
     </div>

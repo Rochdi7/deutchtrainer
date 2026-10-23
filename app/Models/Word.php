@@ -19,10 +19,10 @@ class Word extends Model
 
     protected $fillable = [
         'lektion_id', 'category_id', 'type', 'german', 'article', 'plural', 'plural_suffix',
-        'arabic', 'example_de', 'example_ar', 'note', 'meta',
+        'arabic', 'english', 'example_de', 'example_ar', 'example_en', 'note', 'meta', 'image', 'source_page', 'tags',
     ];
 
-    protected $casts = ['meta' => 'array'];
+    protected $casts = ['meta' => 'array', 'tags' => 'array'];
 
     protected $appends = ['display'];
 
@@ -55,6 +55,11 @@ class Word extends Model
     public function getDisplayAttribute(): string
     {
         return trim(($this->article ? $this->article.' ' : '').$this->german);
+    }
+
+    public function imageUrl(): ?string
+    {
+        return $this->image ? asset($this->image) : null;
     }
 
     public function isIrregularVerb(): bool

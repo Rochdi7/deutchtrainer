@@ -22,3 +22,6 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# copyrighted textbook scan (132 MB) – local only
+/book/

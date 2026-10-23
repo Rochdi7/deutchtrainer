@@ -7,9 +7,15 @@
         "dev": "vite"
     },
     "devDependencies": {
+        "@iconify-json/fluent-emoji-flat": "^1.2.6",
+        "@iconify-json/game-icons": "^1.2.4",
+        "@iconify-json/noto": "^1.2.9",
+        "@iconify-json/openmoji": "^1.2.29",
+        "@iconify-json/tabler": "^1.2.42",
         "@inertiajs/vue3": "^2.0.0",
         "@tailwindcss/forms": "^0.5.3",
         "@tailwindcss/vite": "^4.0.0",
+        "@twemoji/svg": "^15.0.0",
         "@vitejs/plugin-vue": "^6.0.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.11.0",

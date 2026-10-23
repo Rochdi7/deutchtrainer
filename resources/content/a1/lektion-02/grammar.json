@@ -1,0 +1,57 @@
+{
+  "notes": [
+    {
+      "key": "a1-l2-artikel",
+      "title": "Bestimmter, unbestimmter und Negativartikel (Nominativ)",
+      "page": 19,
+      "body_md": "Mit dem **unbestimmten Artikel** (ein, eine) ist eine Information neu: *Das ist **ein** Telefon.* Mit dem **bestimmten Artikel** (der, das, die) ist sie bekannt: ***Das** Telefon ist schon sehr alt.*\n\n| | Maskulin | Neutrum | Feminin | Plural |\n|---|---|---|---|---|\n| bestimmt | **der** Computer | **das** Telefon | **die** Kamera | **die** Kassetten |\n| unbestimmt | **ein** Computer | **ein** Telefon | **eine** Kamera | **–** Kassetten |\n| negativ | **kein** Computer | **kein** Telefon | **keine** Kamera | **keine** Kassetten |\n\nIm Plural gibt es keinen unbestimmten Artikel (Nullartikel ø): *Das sind ø USB-Sticks.*\n\n**Komposita**: Das letzte Wort ist das Grundwort und bestimmt den Artikel: das Wörter**buch** ← das Buch, der Foto**apparat** ← der Apparat.\n\n*English: ein/eine = a/an (new information), der/das/die = the (known), kein/keine = no / not a. Plural has no indefinite article.*"
+    },
+    {
+      "key": "a1-l2-akkusativ",
+      "title": "Nominativ und Akkusativ",
+      "page": 19,
+      "body_md": "**Wer? / Was?** fragt nach dem Nominativ (Subjekt). **Wen? / Was?** fragt nach dem Akkusativ (Ergänzung).\n\n*Jan schreibt einen Artikel.* → Wer schreibt? **Jan** (Nominativ). Was schreibt Jan? **einen Artikel** (Akkusativ).\n\n| | Maskulin | Neutrum | Feminin | Plural |\n|---|---|---|---|---|\n| Nominativ | der / ein / kein Computer | das / ein / kein Telefon | die / eine / keine Kamera | die / – / keine Kassetten |\n| Akkusativ | **den / einen / keinen** Computer | das / ein / kein Telefon | die / eine / keine Kamera | die / – / keine Kassetten |\n\nNur der Maskulin ändert die Form: der → **den**, ein → **einen**, kein → **keinen**.\n\nVerben mit Akkusativergänzung: *haben, brauchen, kaufen, lesen, schreiben, hören, nehmen, essen, trinken, benutzen, kennen …* – *Ich habe **einen** Laptop. Hast du **ein** Tablet? Wir brauchen **keine** Tafel.*\n\n*English: only masculine words change in the accusative (the direct object): der → den, ein → einen, kein → keinen.*"
+    },
+    {
+      "key": "a1-l2-haben",
+      "title": "haben: Präsens und Präteritum",
+      "page": 19,
+      "body_md": "| | heute – Präsens | früher – Präteritum |\n|---|---|---|\n| ich | habe | hatte |\n| du | hast | hattest |\n| er / sie / es | hat | hatte |\n| wir | haben | hatten |\n| ihr | habt | hattet |\n| sie / Sie | haben | hatten |\n\n*Früher **hatte** man Telefone, heute **hat** man Handys.* – *Hattest du als Kind ein Handy? – Nein, ich hatte keins.*\n\nDas Verb steht im Aussagesatz immer auf **Position 2**: *Früher hatte man …* / *Man hatte früher …*\n\n*English: haben = to have; hatte = had. The verb stays in position 2 even when the sentence starts with „Früher“.*"
+    },
+    {
+      "key": "a1-l2-possessiv",
+      "title": "Possessivartikel im Nominativ",
+      "page": 21,
+      "body_md": "| Person | M / N | F / Pl. |\n|---|---|---|\n| ich | **mein** Bruder / Kind | **meine** Schwester / Eltern |\n| du | **dein** | **deine** |\n| er / es | **sein** | **seine** |\n| sie | **ihr** | **ihre** |\n| wir | **unser** | **unsere** |\n| ihr | **euer** | **eure** |\n| sie (Pl.) | **ihr** | **ihre** |\n| Sie | **Ihr** | **Ihre** |\n\nFeminin und Plural bekommen die Endung **-e**. Bei *euer* fällt das e weg: euer Haus → **eure** Eltern.\n\n*Jans Mutter* = *die Mutter von Jan* = ***seine** Mutter*. *Hanna und Fabian: **ihr** Hund.*\n\n*English: possessive articles agree with the noun that follows them (not with the owner): sein = his/its, ihr = her/their, Ihr = your (formal).*"
+    },
+    {
+      "key": "a1-l2-konnektoren",
+      "title": "Konnektoren: und, oder, aber",
+      "page": 21,
+      "body_md": "Die Konnektoren **und**, **oder** und **aber** verbinden zwei Hauptsätze. Sie stehen auf **Position 0**, das Verb bleibt auf Position 2.\n\n| 1. Hauptsatz | Konnektor (Pos. 0) | 2. Hauptsatz |\n|---|---|---|\n| Viele Paare haben Kinder, | aber | sie sind nicht verheiratet. |\n| Man heiratet | oder | man lebt unverheiratet zusammen. |\n| Sie ist Ingenieurin | und | sie arbeitet bei Mercedes. |\n\nVor **aber** steht immer ein **Komma**.\n\nBei gleichem Subjekt kann man den Satz verkürzen: *Ich bin 20 Jahre alt **und** (ich) studiere in Heidelberg.* – *Mein Mann arbeitet in Stuttgart, **aber** wir wohnen in Tübingen.*\n\n*English: und = and, oder = or, aber = but. They do not change the word order of the second clause.*"
+    },
+    {
+      "key": "a1-l2-restaurant-verben",
+      "title": "nehmen, essen, möchte-, mögen",
+      "page": 23,
+      "body_md": "| | nehmen | essen | möcht- | mögen |\n|---|---|---|---|---|\n| ich | nehme | esse | möchte | mag |\n| du | n**i**mmst | **i**sst | möchtest | magst |\n| er / sie / es | n**i**mmt | **i**sst | möchte | mag |\n| wir | nehmen | essen | möchten | mögen |\n| ihr | nehmt | esst | möchtet | mögt |\n| sie / Sie | nehmen | essen | möchten | mögen |\n\n*nehmen* und *essen* haben einen Vokalwechsel e → i bei du und er/sie/es.\n\n**möchte** + Nomen: *Ich möchte ein Bier.* / **möchte** + Infinitiv: *Wir möchten bezahlen.* (höflicher Wunsch)\n\n**mögen** + Akkusativergänzung: *Ich mag Fleisch, aber ich mag **keinen** Fisch.* = *Ich esse gern Fleisch.*\n\n*Ich nehme / esse / trinke* + Akkusativ: *Ich nehme **einen** Veggie-Burger und **einen** Tomatensalat.*"
+    },
+    {
+      "key": "a1-l2-wochentage",
+      "title": "Wochentage und Zeitangaben: am, um",
+      "page": 22,
+      "body_md": "**Die Wochentage**: der Montag (Mo), der Dienstag (Di), der Mittwoch (Mi), der Donnerstag (Do), der Freitag (Fr), der Samstag / Sonnabend (Sa), der Sonntag (So). Alle Wochentage sind **maskulin**.\n\n- Wochentag: **am** – *Am Montag ist das Restaurant geschlossen.*\n- Uhrzeit: **um** – *Das Restaurant öffnet um 17.30 Uhr.*\n\n**Subjekt auf Position 1 oder nach dem Verb**: *Das Restaurant öffnet am Samstag um 17 Uhr.* / *Am Samstag öffnet das Restaurant um 17 Uhr.* – Das Verb bleibt auf Position 2.\n\n*öffnen ≠ schließen*: *Das Restaurant **öffnet** um 19 Uhr. Am Montag **ist** das Restaurant **geöffnet**. Es **schließt** um 1 Uhr. Am Dienstag **ist** es **geschlossen**.*"
+    }
+  ],
+  "conjugations": [
+    {"german": "haben", "ich": "habe", "du": "hast", "er_sie_es": "hat", "wir": "haben", "ihr": "habt", "sie_Sie": "haben"},
+    {"german": "nehmen", "ich": "nehme", "du": "nimmst", "er_sie_es": "nimmt", "wir": "nehmen", "ihr": "nehmt", "sie_Sie": "nehmen"},
+    {"german": "essen", "ich": "esse", "du": "isst", "er_sie_es": "isst", "wir": "essen", "ihr": "esst", "sie_Sie": "essen"},
+    {"german": "möcht-", "ich": "möchte", "du": "möchtest", "er_sie_es": "möchte", "wir": "möchten", "ihr": "möchtet", "sie_Sie": "möchten"},
+    {"german": "lesen", "ich": "lese", "du": "liest", "er_sie_es": "liest", "wir": "lesen", "ihr": "lest", "sie_Sie": "lesen"},
+    {"german": "trinken", "ich": "trinke", "du": "trinkst", "er_sie_es": "trinkt", "wir": "trinken", "ihr": "trinkt", "sie_Sie": "trinken"},
+    {"german": "bestellen", "ich": "bestelle", "du": "bestellst", "er_sie_es": "bestellt", "wir": "bestellen", "ihr": "bestellt", "sie_Sie": "bestellen"},
+    {"german": "brauchen", "ich": "brauche", "du": "brauchst", "er_sie_es": "braucht", "wir": "brauchen", "ihr": "braucht", "sie_Sie": "brauchen"},
+    {"german": "öffnen", "ich": "öffne", "du": "öffnest", "er_sie_es": "öffnet", "wir": "öffnen", "ihr": "öffnet", "sie_Sie": "öffnen"}
+  ]
+}

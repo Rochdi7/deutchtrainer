@@ -1,0 +1,44 @@
+{
+  "note": "Original A1 texts in the style of KB p. 68 (Mail aus Bern), AB p. 132 (Reiseführer) and KB p. 71 (Biografie Paul Klee – facts are public knowledge).",
+  "readings": [
+    {
+      "key": "a1-l8-r1",
+      "title": "Mail aus Bern",
+      "page": 68,
+      "text_md": "Lieber Alex,\n\njetzt bin ich schon drei Wochen in Bern und die Stadt gefällt mir sehr gut. Bern ist nicht sehr groß (ca. 130.000 Einwohner), aber es gibt viele Sehenswürdigkeiten. Ich habe schon das Münster, den Bärenpark, die Zytglogge und das Bundeshaus besichtigt. Morgen gehe ich ins Zentrum Paul Klee. Meine neue Arbeit gefällt mir wirklich gut und meine Kollegen sind total nett.\n\nGestern war ich auf einer Grillparty. Oh, das war echt peinlich, denn ich hatte nichts zum Grillen dabei. Alle haben etwas mitgebracht – das macht man in der Schweiz so –, nur ich habe nur Blumen mitgebracht. Aber natürlich habe ich doch eine Wurst bekommen: eine original Schweizer Cervelat-Wurst. Die hat wirklich gut geschmeckt. Das nächste Mal bringe ich ganz bestimmt meine Wurst mit! Andere Länder – andere Sitten. Und wann kommst du nach Bern?\n\nViele liebe Grüße\nMelanie",
+      "translation_md": "Dear Alex, I've been in Bern for three weeks now and I like the city a lot. Bern is not very big (approx. 130,000 inhabitants), but there are many sights. I've already visited the minster, the bear park, the Zytglogge and the Federal Palace. Tomorrow I'm going to the Zentrum Paul Klee. I really like my new job and my colleagues are totally nice. Yesterday I was at a barbecue party. Oh, that was really embarrassing, because I had nothing to grill with me. Everyone brought something – that's what people do in Switzerland –, only I had just brought flowers. But of course I still got a sausage: an original Swiss cervelat sausage. It really tasted good. Next time I'll definitely bring my own sausage! Other countries, other customs. And when are you coming to Bern? Lots of love, Melanie",
+      "questions": [
+        {"q": "Richtig oder falsch? – Melanie bleibt nur drei Wochen in Bern.", "options": ["falsch", "richtig"], "answer": "falsch", "explanation": "Sie ist schon drei Wochen dort und arbeitet in Bern."},
+        {"q": "Was macht Melanie morgen?", "options": ["Sie geht ins Zentrum Paul Klee.", "Sie geht zur Grillparty.", "Sie besichtigt das Münster.", "Sie fährt nach Genf."], "answer": "Sie geht ins Zentrum Paul Klee.", "explanation": "„Morgen gehe ich ins Zentrum Paul Klee.“"},
+        {"q": "Warum war die Situation peinlich?", "options": ["Melanie hatte nichts zum Grillen dabei.", "Melanie hat keine Blumen gekauft.", "Die Kollegen waren nicht nett.", "Die Wurst hat nicht geschmeckt."], "answer": "Melanie hatte nichts zum Grillen dabei.", "explanation": "„denn ich hatte nichts zum Grillen dabei“"},
+        {"q": "Was bringt Melanie das nächste Mal mit?", "options": ["ihre Wurst", "Blumen", "einen Salat", "nichts"], "answer": "ihre Wurst", "explanation": "„Das nächste Mal bringe ich ganz bestimmt meine Wurst mit!“"}
+      ]
+    },
+    {
+      "key": "a1-l8-r2",
+      "title": "Reiseführer: Sehenswürdigkeiten in Bern",
+      "page": 132,
+      "text_md": "**Das Münster**: Das spätgotische Münster (1421–1893) ist sehr schön und sehr groß. Der Turm ist 100 m hoch. Von hier kann man die Altstadt und die Berner Alpen sehen.\n\n**Der Bärenpark** ist eine besondere Attraktion in Bern. Man kann den neuen Park seit Oktober 2009 besuchen. Hier leben die Braunbären – die Berner nennen sie „Mutzen“. Der Bär ist das Symbol von Bern.\n\n**Der Zeitglockenturm** – die Schweizer nennen ihn „Zytglogge“ – war ein Stadttor von Bern. Die astronomische Uhr und das Glockenspiel sind sehr berühmt. Das Glockenspiel beginnt immer ca. drei Minuten vor der vollen Stunde.\n\n**Das Bundeshaus** mit der großen Kuppel ist der Sitz vom Schweizer Parlament und von der Regierung.",
+      "translation_md": "The Minster: The late Gothic minster (1421–1893) is very beautiful and very big. The tower is 100 m high. From here you can see the old town and the Bernese Alps. The Bear Park is a special attraction in Bern. You can visit the new park since October 2009. The brown bears live here – the people of Bern call them “Mutzen”. The bear is the symbol of Bern. The Zeitglockenturm – the Swiss call it “Zytglogge” – was a city gate of Bern. The astronomical clock and the chimes are very famous. The chimes always start about three minutes before the full hour. The Federal Palace with its large dome is the seat of the Swiss parliament and of the government.",
+      "questions": [
+        {"q": "Richtig oder falsch? – Das Berner Münster ist nicht sehr hoch.", "options": ["falsch", "richtig"], "answer": "falsch", "explanation": "„Der Turm ist 100 m hoch.“"},
+        {"q": "Richtig oder falsch? – Im Bärenpark leben heute noch Braunbären.", "options": ["richtig", "falsch"], "answer": "richtig", "explanation": "„Hier leben die Braunbären“"},
+        {"q": "Wann beginnt das Glockenspiel?", "options": ["drei Minuten vor der vollen Stunde", "einmal am Tag", "um 12 Uhr", "jede halbe Stunde"], "answer": "drei Minuten vor der vollen Stunde", "explanation": "„Das Glockenspiel beginnt immer ca. drei Minuten vor der vollen Stunde.“"},
+        {"q": "Was ist das Bundeshaus?", "options": ["der Sitz von Parlament und Regierung", "ein Stadttor", "ein Museum", "ein Park"], "answer": "der Sitz von Parlament und Regierung", "explanation": "„der Sitz vom Schweizer Parlament und von der Regierung“"}
+      ]
+    },
+    {
+      "key": "a1-l8-r3",
+      "title": "Paul Klee – ein berühmter Berner",
+      "page": 71,
+      "text_md": "Paul Klee ist am 18. Dezember 1879 in Münchenbuchsee bei Bern geboren. 1898 beendet er in Bern die Schule und beginnt sein Kunststudium in München. 1901 reist er nach Italien und 1905 nach Paris. 1906 heiratet er die Pianistin Lili Stumpf. Das Ehepaar Klee wohnt ab 1906 in München. 1911 kommt er zur Künstlergruppe „Blauer Reiter“. Zur Gruppe gehören auch Wassily Kandinsky, Franz Marc, Gabriele Münter und August Macke. 1914 reist Paul Klee mit August Macke nach Tunesien. Von 1921 bis 1931 unterrichtet er an der Kunstschule „Bauhaus“ in Weimar und in Dessau. Von 1931 bis 1933 ist er Professor an der Kunstakademie in Düsseldorf. 1933 entlassen ihn die Nationalsozialisten, denn seine Kunst passt nicht in ihre Ideologie. Paul Klee geht in die Schweiz zurück. Am 29. Juni 1940 stirbt er in Muralto (Schweiz).",
+      "translation_md": "Paul Klee was born on 18 December 1879 in Münchenbuchsee near Bern. In 1898 he finishes school in Bern and begins his art studies in Munich. In 1901 he travels to Italy and in 1905 to Paris. In 1906 he marries the pianist Lili Stumpf. From 1906 the Klee couple lives in Munich. In 1911 he joins the artists' group “Der Blaue Reiter”. Wassily Kandinsky, Franz Marc, Gabriele Münter and August Macke also belong to the group. In 1914 Paul Klee travels to Tunisia with August Macke. From 1921 to 1931 he teaches at the “Bauhaus” art school in Weimar and in Dessau. From 1931 to 1933 he is a professor at the art academy in Düsseldorf. In 1933 the National Socialists dismiss him, because his art does not fit their ideology. Paul Klee returns to Switzerland. On 29 June 1940 he dies in Muralto (Switzerland).",
+      "questions": [
+        {"q": "Wo ist Paul Klee geboren?", "options": ["in Münchenbuchsee bei Bern", "in München", "in Weimar", "in Muralto"], "answer": "in Münchenbuchsee bei Bern", "explanation": "„… in Münchenbuchsee bei Bern geboren“"},
+        {"q": "Was macht er 1911?", "options": ["Er kommt zur Gruppe „Blauer Reiter“.", "Er heiratet.", "Er reist nach Tunesien.", "Er geht in die Schweiz zurück."], "answer": "Er kommt zur Gruppe „Blauer Reiter“.", "explanation": "„1911 kommt er zur Künstlergruppe „Blauer Reiter““"},
+        {"q": "Was macht Paul Klee am „Bauhaus“?", "options": ["Er unterrichtet.", "Er studiert.", "Er malt nur.", "Er wohnt dort."], "answer": "Er unterrichtet.", "explanation": "„Von 1921 bis 1931 unterrichtet er an der Kunstschule „Bauhaus““"},
+        {"q": "Warum geht er 1933 in die Schweiz zurück?", "options": ["Die Nationalsozialisten entlassen ihn.", "Er möchte Professor werden.", "Er heiratet in Bern.", "Er will nach Tunesien."], "answer": "Die Nationalsozialisten entlassen ihn.", "explanation": "„1933 entlassen ihn die Nationalsozialisten … Paul Klee geht in die Schweiz zurück.“"}
+      ]
+    }
+  ]
+}

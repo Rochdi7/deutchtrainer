@@ -17,6 +17,7 @@ const { t } = useI18n();
 const blank = () => ({
     german: '',
     arabic: '',
+    english: '',
     type: 'noun',
     category: props.defaultCategory,
     article: '',
@@ -39,6 +40,7 @@ watch(
             Object.assign(data, {
                 german: w.german,
                 arabic: w.arabic,
+                english: w.english || '',
                 type: w.type,
                 category: props.categories.find((c) => c.id === w.category_id)?.name || w.category || props.defaultCategory,
                 article: w.article || '',
@@ -81,6 +83,11 @@ function submit() {
                 <label class="mb-1 block text-xs font-medium text-gray-600 dark:text-gray-300">{{ t('wf.arabic') }}</label>
                 <input v-model="form.arabic" class="input ar" dir="rtl" required />
                 <InputError :message="form.errors.arabic" />
+            </div>
+            <div>
+                <label class="mb-1 block text-xs font-medium text-gray-600 dark:text-gray-300">English</label>
+                <input v-model="form.english" class="input" />
+                <InputError :message="form.errors.english" />
             </div>
             <div>
                 <label class="mb-1 block text-xs font-medium text-gray-600 dark:text-gray-300">{{ t('wf.type') }}</label>

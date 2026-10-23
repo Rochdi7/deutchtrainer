@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\StatsService;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -24,8 +25,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user()?->only(['id', 'name', 'email', 'is_admin', 'locale']),
             ],
+            // Streak / XP / due words for the top stat bar (cheap: four small queries).
+            'stats' => fn () => $request->user() ? app(StatsService::class)->headline($request->user()) : null,
             'locale' => app()->getLocale(),
-            'locales' => \App\Http\Middleware\SetLocale::SUPPORTED,
+            'locales' => SetLocale::SUPPORTED,
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
                 'error' => fn () => $request->session()->get('error'),

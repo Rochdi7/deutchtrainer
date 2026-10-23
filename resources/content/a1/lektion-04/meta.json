@@ -1,0 +1,17 @@
+{
+  "level": "A1",
+  "number": 4,
+  "slug": "a1-lektion-04",
+  "title": "Wirtschaft trifft Kultur",
+  "subtitle": "A Hier kann man gut leben und arbeiten · B Restaurant oder Picknick? · C Im Beruf",
+  "source_pages": {"kursbuch": [34, 39], "aaeb": [40, 41], "uebungsbuch": [100, 107]},
+  "objectives": [
+    {"de": "Berufe und berufliche Tätigkeiten nennen (männlich / weiblich / Plural)", "en": "Name professions and work activities (male / female / plural)"},
+    {"de": "sagen, was man kann, muss, darf, will und möchte (Modalverben + Satzklammer)", "en": "Say what you can, must, may, want to and would like to do (modal verbs + sentence bracket)"},
+    {"de": "Gründe nennen mit „denn“; Sätze mit und / oder / aber / denn verbinden", "en": "Give reasons with denn; connect sentences with und / oder / aber / denn"},
+    {"de": "Vorschläge für das Wochenende machen", "en": "Make suggestions for the weekend"},
+    {"de": "Monate, Jahreszeiten, Datum und Zeiträume nennen (im, am, um, vom … bis zum)", "en": "Name months, seasons, dates and periods (im, am, um, vom … bis zum)"},
+    {"de": "Termine und Urlaub vereinbaren; eine formelle E-Mail verstehen", "en": "Arrange appointments and holidays; understand a formal e-mail"}
+  ],
+  "revision_md": "## Das Wichtigste aus Lektion 4\n\n**Modalverben** (Position 2) + Infinitiv am Satzende (**Satzklammer**): *Leopold **muss** seinen Text **lernen**. **Kann** ich hier **grillen**? **Darf** man im Bus **essen**?*\n\n| | können | müssen | dürfen | wollen | möcht- | mögen |\n|---|---|---|---|---|---|---|\n| ich | kann | muss | darf | will | möchte | mag |\n| du | kannst | musst | darfst | willst | möchtest | magst |\n| er/sie/es | kann | muss | darf | will | möchte | mag |\n| wir | können | müssen | dürfen | wollen | möchten | mögen |\n| ihr | könnt | müsst | dürft | wollt | möchtet | mögt |\n| sie/Sie | können | müssen | dürfen | wollen | möchten | mögen |\n\nBedeutung: **können** = fähig sein / möglich · **müssen** = nötig, Pflicht · **dürfen** = erlaubt (*nicht dürfen* = Verbot) · **wollen** = Wunsch, Plan (direkt) · **möchte** = höflicher Wunsch · **mögen** = gern haben.\n\n**denn** nennt den Grund und steht auf Position 0 mit Komma: *Leopold ist Schauspieler, **denn** er liebt das Theater.* (Achtung: *denn* ist auch eine Modalpartikel: *Was macht ihr denn hier?*)\n\n**Zeitangaben**: **im** + Monat / Jahreszeit (im Juli, im Sommer), **am** + Wochentag / Datum (am Montag, am 17. April), **um** + Uhrzeit. Ordinalzahlen: 1.–19. → **-te** (der erste, zweite, dritte, siebte …), ab 20. → **-ste**. *Wann hast du Geburtstag? – Am 15. (fünfzehnten) Februar.* · *vom 3.9. bis zum 5.9.*\n\n**Jahreszeiten**: Frühling (März–Mai), Sommer (Juni–August), Herbst (September–November), Winter (Dezember–Februar). Monate, Tageszeiten und Jahreszeiten sind maskulin (Ausnahme: die Nacht).\n\n**Typische Fehler**\n- ~~Ich kann Deutsch sprechen gut.~~ → Ich kann gut Deutsch **sprechen**. (Infinitiv ganz am Ende)\n- ~~Ich muss gehen zur Probe.~~ → Ich muss zur Probe **gehen**.\n- ~~Er will ein Bier.~~ ist sehr direkt → *Er **möchte** ein Bier.*\n- ~~am Juli, in Montag~~ → **im** Juli, **am** Montag"
+}

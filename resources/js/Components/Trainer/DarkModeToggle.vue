@@ -8,7 +8,7 @@ const dark = ref(false);
 function apply(value) {
     dark.value = value;
     document.documentElement.classList.toggle('dark', value);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value ? '#111827' : '#1b57f5');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value ? '#111827' : '#1fb57a');
     try {
         localStorage.setItem('theme', value ? 'dark' : 'light');
     } catch (e) {}

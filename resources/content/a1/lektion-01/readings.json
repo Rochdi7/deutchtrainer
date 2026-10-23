@@ -1,0 +1,31 @@
+{
+  "note": "Original A1 texts in the style of KB p. 11 (Interview) and AB p. 78/81 (E-Mail aus Tübingen).",
+  "readings": [
+    {
+      "key": "a1-l1-r1",
+      "title": "E-Mail aus Tübingen",
+      "page": 78,
+      "text_md": "Lieber Daniel,\n\nich wohne jetzt in Tübingen und lerne Deutsch. Der Deutschkurs im Sprachenzentrum ist super. Die Deutschlehrerin heißt Christiane Brandt. Sie kommt aus Köln. Im Deutschkurs sind 15 Studenten. Sie kommen aus aller Welt: aus China, aus Spanien, aus der Schweiz, aus der Türkei. Rodrigo kommt aus Brasilien und studiert Medizin – er ist sehr sympathisch. Rodrigo ist ein Sprachgenie: Er spricht Portugiesisch, Englisch, Französisch, Spanisch und Russisch und er lernt jetzt Deutsch. Annabel kommt aus Spanien. Sie ist Ingenieurin und arbeitet schon. Sprachen sind ihr Hobby.\n\nViele Grüße\nTarik",
+      "translation_md": "Dear Daniel, I now live in Tübingen and I'm learning German. The German course at the language centre is great. The German teacher is called Christiane Brandt. She comes from Cologne. There are 15 students in the German course. They come from all over the world: from China, from Spain, from Switzerland, from Turkey. Rodrigo comes from Brazil and studies medicine – he is very nice. Rodrigo is a language genius: he speaks Portuguese, English, French, Spanish and Russian and he is now learning German. Annabel comes from Spain. She is an engineer and already works. Languages are her hobby. Best wishes, Tarik",
+      "questions": [
+        {"q": "Wo wohnt Tarik jetzt?", "options": ["in Köln", "in Tübingen", "in Brasilien", "in Spanien"], "answer": "in Tübingen", "explanation": "„ich wohne jetzt in Tübingen“"},
+        {"q": "Woher kommt die Lehrerin?", "options": ["aus Köln", "aus China", "aus der Schweiz", "aus Marokko"], "answer": "aus Köln", "explanation": "„Sie kommt aus Köln.“"},
+        {"q": "Was studiert Rodrigo?", "options": ["Deutsch", "Medizin", "Informatik", "Wirtschaft"], "answer": "Medizin", "explanation": "„Rodrigo kommt aus Brasilien und studiert Medizin.“"},
+        {"q": "Was ist Annabel von Beruf?", "options": ["Lehrerin", "Studentin", "Ingenieurin", "Deutschlehrerin"], "answer": "Ingenieurin", "explanation": "„Sie ist Ingenieurin und arbeitet schon.“"}
+      ]
+    },
+    {
+      "key": "a1-l1-r2",
+      "title": "Interview im Unimagazin: Mia Brunner",
+      "page": 11,
+      "text_md": "**Wie ist Ihr Familienname?** – Brunner.\n\n**Woher kommen Sie?** – Aus der Schweiz, aus Zürich.\n\n**Und wo wohnen Sie jetzt?** – In Tübingen, in der Goethestraße 28.\n\n**Was studieren Sie?** – Wirtschaftswissenschaften. Ich bin im ersten Semester.\n\n**Welche Sprachen sprechen Sie?** – Deutsch ist meine Muttersprache. Ich spreche auch Französisch, Italienisch und ein bisschen Chinesisch. Mein Vater kommt aus Italien.\n\n**Wie alt sind Sie?** – Ich bin 19 Jahre alt.\n\n**Wie ist Ihre Telefonnummer?** – 07071 / 43 49 08.\n\n**Und Ihre E-Mail-Adresse?** – mia.brunner@xmu.de",
+      "translation_md": "What is your surname? – Brunner. Where do you come from? – From Switzerland, from Zurich. And where do you live now? – In Tübingen, Goethestraße 28. What do you study? – Economics. I'm in my first semester. Which languages do you speak? – German is my mother tongue. I also speak French, Italian and a little Chinese. My father comes from Italy. How old are you? – I'm 19 years old. What is your phone number? – 07071 / 43 49 08. And your e-mail address? – mia.brunner@xmu.de",
+      "questions": [
+        {"q": "Woher kommt Mia?", "options": ["aus Italien", "aus der Schweiz", "aus Deutschland", "aus China"], "answer": "aus der Schweiz", "explanation": "„Aus der Schweiz, aus Zürich.“"},
+        {"q": "Was studiert Mia?", "options": ["Chemie", "Germanistik", "Wirtschaftswissenschaften", "Medizin"], "answer": "Wirtschaftswissenschaften", "explanation": "„Wirtschaftswissenschaften. Ich bin im ersten Semester.“"},
+        {"q": "Welche Sprache ist Mias Muttersprache?", "options": ["Französisch", "Italienisch", "Deutsch", "Chinesisch"], "answer": "Deutsch", "explanation": "„Deutsch ist meine Muttersprache.“"},
+        {"q": "Wie alt ist Mia?", "options": ["18", "19", "21", "28"], "answer": "19", "explanation": "„Ich bin 19 Jahre alt.“"}
+      ]
+    }
+  ]
+}

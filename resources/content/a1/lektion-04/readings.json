@@ -1,0 +1,31 @@
+{
+  "note": "Original A1 texts in the style of KB p. 38 (Interview), p. 38 (formelle Mail) and AB p. 105 (Firmenporträt).",
+  "readings": [
+    {
+      "key": "a1-l4-r1",
+      "title": "Interview: Leopold, Schauspieler",
+      "page": 38,
+      "text_md": "**Leopold, was sind Sie von Beruf?** – Ich bin Schauspieler. Aber ich habe auch eine Ausbildung als Koch gemacht und ich spiele Gitarre in einer Band.\n\n**Was müssen Sie als Schauspieler machen?** – Ich muss viele Texte lernen und jeden Tag zur Probe gehen. Am Abend muss ich oft arbeiten, denn die Vorstellungen sind abends. Dafür kann ich am Vormittag lange schlafen.\n\n**Welche Rollen spielen Sie?** – Im Moment spiele ich einen König. Letztes Jahr war ich ein Bauer. Ich kann auch singen, das ist ein Vorteil im Theater.\n\n**Was wollen Sie im Sommer machen?** – Im Juli haben wir Premiere bei den Freilichtspielen in Schwäbisch Hall. Im August möchte ich dann Urlaub machen – vielleicht eine Fahrradtour mit meiner Freundin Beatriz.",
+      "translation_md": "Leopold, what do you do for a living? – I'm an actor. But I've also trained as a cook and I play guitar in a band. What do you have to do as an actor? – I have to learn many texts and go to rehearsal every day. In the evening I often have to work, because the performances are in the evening. On the other hand I can sleep in in the morning. Which roles do you play? – At the moment I'm playing a king. Last year I was a farmer. I can also sing, that's an advantage in the theatre. What do you want to do in summer? – In July we have the premiere at the open-air theatre in Schwäbisch Hall. In August I'd like to take a holiday – maybe a bike tour with my girlfriend Beatriz.",
+      "questions": [
+        {"q": "Welche Ausbildung hat Leopold auch?", "options": ["als Koch", "als Arzt", "als Informatiker", "als Lehrer"], "answer": "als Koch", "explanation": "„ich habe auch eine Ausbildung als Koch gemacht“"},
+        {"q": "Warum muss Leopold oft am Abend arbeiten?", "options": ["Die Vorstellungen sind abends.", "Er kocht abends.", "Er spielt abends Gitarre.", "Er lernt abends Texte."], "answer": "Die Vorstellungen sind abends.", "explanation": "„denn die Vorstellungen sind abends“"},
+        {"q": "Welche Rolle spielt Leopold im Moment?", "options": ["einen Koch", "einen Bauern", "einen König", "einen Gitarristen"], "answer": "einen König", "explanation": "„Im Moment spiele ich einen König.“"},
+        {"q": "Was möchte Leopold im August machen?", "options": ["Premiere haben", "Urlaub machen", "zur Probe gehen", "Texte lernen"], "answer": "Urlaub machen", "explanation": "„Im August möchte ich dann Urlaub machen.“"}
+      ]
+    },
+    {
+      "key": "a1-l4-r2",
+      "title": "Formelle E-Mail: Jahresplanung",
+      "page": 38,
+      "text_md": "Sehr geehrte Frau Hoffmann,\n\nvielen Dank für die Ideenliste. Ich möchte gern an der Jahresplanung teilnehmen. Der Termin am 3. September passt gut. Vom 10. bis zum 21. August bin ich leider nicht im Büro, denn ich mache Urlaub. Im September kann ich dann die neue Website und den Webshop präsentieren. Können wir am 2.9. um 14 Uhr eine kurze Besprechung machen? Dann können wir zusammen die Ideen diskutieren.\n\nMit freundlichen Grüßen\nBeatriz Alves",
+      "translation_md": "Dear Ms Hoffmann, thank you very much for the list of ideas. I would like to take part in the annual planning. The appointment on 3 September suits me well. From 10 to 21 August I am unfortunately not in the office, because I am on holiday. In September I can then present the new website and the web shop. Could we have a short meeting on 2 September at 2 pm? Then we can discuss the ideas together. Kind regards, Beatriz Alves",
+      "questions": [
+        {"q": "Wann ist Beatriz nicht im Büro?", "options": ["vom 10. bis zum 21. August", "am 3. September", "am 2.9.", "im September"], "answer": "vom 10. bis zum 21. August", "explanation": "„Vom 10. bis zum 21. August bin ich leider nicht im Büro“"},
+        {"q": "Warum ist sie nicht im Büro?", "options": ["Sie ist krank.", "Sie macht Urlaub.", "Sie hat eine Besprechung.", "Sie präsentiert die Website."], "answer": "Sie macht Urlaub.", "explanation": "„denn ich mache Urlaub“"},
+        {"q": "Was möchte Beatriz am 2.9. machen?", "options": ["Urlaub machen", "eine kurze Besprechung", "die Jahresplanung", "den Webshop öffnen"], "answer": "eine kurze Besprechung", "explanation": "„Können wir am 2.9. um 14 Uhr eine kurze Besprechung machen?“"},
+        {"q": "Wie beginnt und endet eine formelle Mail?", "options": ["Sehr geehrte … / Mit freundlichen Grüßen", "Liebe … / Liebe Grüße", "Hallo … / Tschüss", "Hi … / Bis bald"], "answer": "Sehr geehrte … / Mit freundlichen Grüßen", "explanation": "Formell: Sehr geehrte Frau …, Sehr geehrter Herr … / Mit freundlichen Grüßen."}
+      ]
+    }
+  ]
+}

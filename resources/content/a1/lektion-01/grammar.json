@@ -1,0 +1,28 @@
+{
+  "note": "Lektion 1 grammar notes 'Regelmäßige Verben im Präsens', 'Wichtige Verben für A1', 'Modalverben', 'Wortstellung', 'Sie oder du?', 'Zeichen in der Wortliste' are already seeded from lektion1.json. The notes below are added.",
+  "notes": [
+    {
+      "key": "a1-l1-alphabet",
+      "title": "Das Alphabet und buchstabieren",
+      "page": 12,
+      "body_md": "A a [aː] · B b [beː] · C c [tseː] · D d [deː] · E e [eː] · F f [ɛf] · G g [geː] · H h [haː] · I i [iː] · J j [jɔt] · K k [kaː] · L l [ɛl] · M m [ɛm] · N n [ɛn] · O o [oː] · P p [peː] · Q q [kuː] · R r [ɛʁ] · S s [ɛs] · T t [teː] · U u [uː] · V v [faʊ] · W w [veː] · X x [ɪks] · Y y [ˈʏpsilɔn] · Z z [tsɛt]\n\nBesondere Buchstaben: **ß** (scharfes s / Eszett), **Ä ä, Ö ö, Ü ü** (Umlaut). Doppelte Buchstaben sagt man „Doppel-t“, „Doppel-s“.\n\n**Buchstabiertafel** (AB p. 80): A wie Anton, Ä wie Ärger, B wie Berta, C wie Cäsar, Ch wie Charlotte, D wie Dora, E wie Emil, F wie Friedrich, G wie Gustav, H wie Heinrich, I wie Ida, J wie Julius, K wie Kaufmann, L wie Ludwig, M wie Martha, N wie Nordpol, O wie Otto, Ö wie Ökonom, P wie Paula, Q wie Quelle, R wie Richard, S wie Siegfried/Samuel, Sch wie Schule, ß wie Eszett, T wie Theodor, U wie Ulrich, Ü wie Übermut, V wie Viktor, W wie Wilhelm, X wie Xanthippe, Y wie Ypsilon, Z wie Zeppelin.\n\n*Entschuldigung, wie ist Ihr Name bitte? – Alves. – Buchstabieren Sie bitte! – A – L – V – E – S.*\n\nE-Mail-Adressen: *t.amri@xmu.de* = „t Punkt amri at xmu Punkt de“; **-** = Minus, **_** = Unterstrich."
+    },
+    {
+      "key": "a1-l1-zahlen",
+      "title": "Zahlen von 0 bis 1 Milliarde",
+      "page": 13,
+      "body_md": "| | | | |\n|---|---|---|---|\n| 0 null | 10 zehn | 20 zwanzig | 100 (ein)hundert |\n| 1 eins | 11 elf | 21 einundzwanzig | 101 hunderteins |\n| 2 zwei | 12 zwölf | 30 dreißig | 193 hundertdreiundneunzig |\n| 3 drei | 13 dreizehn | 40 vierzig | 200 zweihundert |\n| 4 vier | 14 vierzehn | 50 fünfzig | 1.000 (ein)tausend |\n| 5 fünf | 15 fünfzehn | 60 sechzig | 10.000 zehntausend |\n| 6 sechs | 16 sechzehn | 70 siebzig | 100.000 hunderttausend |\n| 7 sieben | 17 siebzehn | 80 achtzig | 1.000.000 eine Million |\n| 8 acht | 18 achtzehn | 90 neunzig | 1.000.000.000 eine Milliarde |\n| 9 neun | 19 neunzehn | | |\n\nAb 21 sagt man **Einer + und + Zehner**: 45 = fünf**und**vierzig, 828 = achthundert**acht**undzwanzig. Achtung: sech**s** → sech**zehn**, sech**zig**; sieb**en** → sieb**zehn**, sieb**zig**.\n\nMan hört oft „zwo“ für zwei (am Telefon), „hundert“ für einhundert und „tausend“ für eintausend.\n\n*Wie alt bist du? – Ich bin 21 Jahre alt.* · *Wie ist deine Telefonnummer? – 0711 / 43 49 08.* · Vorwahl: Berlin 030, München 089, Stuttgart 0711."
+    },
+    {
+      "key": "a1-l1-pluralzeichen",
+      "title": "Pluralzeichen in der Wortliste",
+      "page": 17,
+      "body_md": "| Zeichen | Beispiel | Plural |\n|---|---|---|\n| -e | das Heft, -e | die Hefte |\n| ¨-e | der Ball, ¨-e | die Bälle |\n| -n | die Gruppe, -n | die Gruppen |\n| -en | der Projektor, -en | die Projektoren |\n| -nen | die Lehrerin, -nen | die Lehrerinnen |\n| - | der Kugelschreiber, - | die Kugelschreiber |\n| ¨ | der Apfel, ¨ | die Äpfel |\n| ¨-er | das Buch, ¨-er | die Bücher |\n| -er | das Bild, -er | die Bilder |\n| -s | das Tablet, -s | die Tablets |\n\n**¨** bedeutet Umlaut (a → ä, o → ö, u → ü, au → äu). **(Pl.)** = nur Plural, **(Sg.)** = nur Singular. Lernen Sie Nomen immer mit Artikel und Plural: *das Heft, -e*."
+    }
+  ],
+  "conjugations": [
+    {"german": "sprechen", "ich": "spreche", "du": "sprichst", "er_sie_es": "spricht", "wir": "sprechen", "ihr": "sprecht", "sie_Sie": "sprechen"},
+    {"german": "lernen", "ich": "lerne", "du": "lernst", "er_sie_es": "lernt", "wir": "lernen", "ihr": "lernt", "sie_Sie": "lernen"},
+    {"german": "studieren", "ich": "studiere", "du": "studierst", "er_sie_es": "studiert", "wir": "studieren", "ihr": "studiert", "sie_Sie": "studieren"}
+  ]
+}

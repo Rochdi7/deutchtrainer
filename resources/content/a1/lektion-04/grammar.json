@@ -1,0 +1,44 @@
+{
+  "notes": [
+    {
+      "key": "a1-l4-modalverben",
+      "title": "Modalverben im Präsens",
+      "page": 41,
+      "body_md": "| | müssen | können | dürfen | wollen | mögen | möcht- |\n|---|---|---|---|---|---|---|\n| ich | muss | kann | darf | will | mag | möchte |\n| du | musst | kannst | darfst | willst | magst | möchtest |\n| er / sie / es | muss | kann | darf | will | mag | möchte |\n| wir | müssen | können | dürfen | wollen | mögen | möchten |\n| ihr | müsst | könnt | dürft | wollt | mögt | möchtet |\n| sie / Sie | müssen | können | dürfen | wollen | mögen | möchten |\n\nIm Singular (ich, du, er/sie/es) wechselt der Vokal: ü → u (müssen → muss), ö → a (können → kann), ü → a (dürfen → darf), o → i (wollen → will), ö → a (mögen → mag). 1. und 3. Person Singular haben **keine Endung**: ich kann, er kann.\n\n**möchte** ist der Konjunktiv II von *mögen* – man drückt damit höflich einen Wunsch aus. *Ich will ein Bier!* ist sehr direkt, *Ich möchte ein Bier.* ist höflich.\n\n**Bedeutungen** (AB p. 103):\n- *Es ist (nicht) möglich / Man ist fähig* → **können**: *Er kann sein Buch nicht finden. Sie kann Spanisch sprechen.*\n- *Es ist (nicht) nötig / Pflicht* → **müssen**: *Du musst laut sprechen.*\n- *Es ist (nicht) erlaubt* → **dürfen**: *Hier darf man nicht rauchen.*\n- *Wunsch, Plan (direkt)* → **wollen**: *Wir wollen eine Radtour machen.*\n- *höflicher Wunsch* → **möchte**: *Ich möchte einen Kaffee.*\n- *etwas gern haben* → **mögen**: *Ich mag Schokolade. = Ich esse gern Schokolade.*"
+    },
+    {
+      "key": "a1-l4-satzklammer",
+      "title": "Satzklammer: Modalverb + Infinitiv",
+      "page": 35,
+      "body_md": "Das Modalverb steht auf **Position 2** (Aussagesatz, W-Frage) oder auf **Position 1** (Ja/Nein-Frage). Der **Infinitiv** steht am **Satzende**.\n\n| Pos. 1 | Pos. 2 | | Satzende |\n|---|---|---|---|\n| Leopold | **muss** | seinen Text | **lernen**. |\n| Beatriz | **kann** | am Wochenende lange | **schlafen**. |\n| Was | **willst** | du am Samstag | **machen**? |\n| **Darf** | man | hier | **rauchen**? |\n\nOhne Infinitiv, wenn der Kontext klar ist: *Leopold möchte ein Bier. Ich kann Deutsch.*\n\nDas Subjekt steht auf Position 1 oder nach dem Modalverb: *Sie muss oft lange Meetings besuchen. / Oft muss sie lange Meetings besuchen.*"
+    },
+    {
+      "key": "a1-l4-denn",
+      "title": "Konnektor denn (Grund)",
+      "page": 35,
+      "body_md": "**denn** verbindet zwei Hauptsätze und nennt den **Grund**. Es steht auf **Position 0**, davor steht ein **Komma**:\n\n| 1. Hauptsatz | Pos. 0 | 2. Hauptsatz |\n|---|---|---|\n| Leopold ist Schauspieler, | denn | er liebt das Theater. |\n| Beatriz mag ihren Job, | denn | sie kann kreativ sein. |\n\n**Zwei Bedeutungen von „denn“**: Modalpartikel in Fragen (*Was macht ihr **denn** hier?*) und Konnektor (*…, **denn** er liebt das Theater*).\n\n**Sätze verkürzen** (AB p. 101): Mit *und* / *oder* bei gleichem Subjekt, mit *aber* bei gleichem Subjekt und Verb kann man den 2. Satz verkürzen: *Wir gehen ins Theater oder (wir gehen) in die Oper.* Sätze mit **denn** kann man **nicht** verkürzen."
+    },
+    {
+      "key": "a1-l4-zeitangaben",
+      "title": "Monate, Jahreszeiten, Datum",
+      "page": 39,
+      "body_md": "**Jahreszeiten und Monate**: der Winter (Dezember, Januar, Februar) · der Frühling (März, April, Mai) · der Sommer (Juni, Juli, August) · der Herbst (September, Oktober, November). Monate, Tageszeiten und Jahreszeiten sind **maskulin** (Ausnahme: *die Nacht*).\n\n| Präposition | Beispiele |\n|---|---|\n| **im** + Jahreszeit / Monat | im Winter, im Juli |\n| **am** + Wochentag / Tageszeit / Datum | am Montag, am Vormittag, am 17. April |\n| **um** + Uhrzeit | um 10 Uhr |\n\n**Ordinalzahlen**: 1. der erste, 2. der zweite, 3. der dritte, 4. der vierte, 5. der fünfte, 6. der sechste, 7. der siebte, 8. der achte … 19. der neunzehnte (**-te**); ab 20. **-ste**: der zwanzigste, der einundzwanzigste, der dreißigste.\n\n**Datum**: *Wann hast du Geburtstag? – Am 15. (fünfzehnten) Februar.* · *am 2.8. = am zweiten Achten / am zweiten August* · *Frau Müller macht vom 4. April bis zum 6. April Urlaub.* (= vom vierten Vierten bis zum sechsten Vierten)"
+    },
+    {
+      "key": "a1-l4-berufe",
+      "title": "Berufsbezeichnungen: männlich, weiblich, Plural",
+      "page": 104,
+      "body_md": "Die weibliche Form endet meistens auf **-in** (Plural **-innen**): der Architekt → die Architektin, die Architektinnen; der Informatiker → die Informatikerin; der Koch → die Köchin (Umlaut!); der Arzt → die Ärztin; der Bauer → die Bäuerin.\n\nZusammensetzungen mit **-mann / -leute** heißen als weibliche Form **-frau / -frauen**: der Fachmann → die Fachfrau; der Kaufmann → die Kauffrau, die Kaufleute (M Pl.), die Kauffrauen (F Pl.).\n\nDas Grundwort ist der Beruf: der Wirt → die Landwirtin; der Händler → die Buchhändlerin.\n\n**Wer macht was?** Köche kochen Essen · Verkäufer verkaufen Kleidung · Autorinnen schreiben Texte · Automechaniker reparieren Autos · Künstlerinnen malen Bilder · Zahnärzte behandeln Patienten · Lehrer unterrichten Kinder · Wissenschaftlerinnen halten Vorträge.\n\n*Was sind Sie von Beruf? – Ich bin Webentwicklerin.* (ohne Artikel!)"
+    }
+  ],
+  "conjugations": [
+    {"german": "müssen", "ich": "muss", "du": "musst", "er_sie_es": "muss", "wir": "müssen", "ihr": "müsst", "sie_Sie": "müssen"},
+    {"german": "können", "ich": "kann", "du": "kannst", "er_sie_es": "kann", "wir": "können", "ihr": "könnt", "sie_Sie": "können"},
+    {"german": "dürfen", "ich": "darf", "du": "darfst", "er_sie_es": "darf", "wir": "dürfen", "ihr": "dürft", "sie_Sie": "dürfen"},
+    {"german": "wollen", "ich": "will", "du": "willst", "er_sie_es": "will", "wir": "wollen", "ihr": "wollt", "sie_Sie": "wollen"},
+    {"german": "halten", "ich": "halte", "du": "hältst", "er_sie_es": "hält", "wir": "halten", "ihr": "haltet", "sie_Sie": "halten"},
+    {"german": "verdienen", "ich": "verdiene", "du": "verdienst", "er_sie_es": "verdient", "wir": "verdienen", "ihr": "verdient", "sie_Sie": "verdienen"},
+    {"german": "unterrichten", "ich": "unterrichte", "du": "unterrichtest", "er_sie_es": "unterrichtet", "wir": "unterrichten", "ihr": "unterrichtet", "sie_Sie": "unterrichten"},
+    {"german": "reparieren", "ich": "repariere", "du": "reparierst", "er_sie_es": "repariert", "wir": "reparieren", "ihr": "repariert", "sie_Sie": "reparieren"}
+  ]
+}

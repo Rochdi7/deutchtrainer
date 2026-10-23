@@ -13,6 +13,7 @@ const props = defineProps({
     chart: Object,
     weakest: Array,
     recent: Array,
+    course: { type: Object, default: null },
 });
 
 const { t, dateLocale } = useI18n();
@@ -28,7 +29,7 @@ function practiceWeakest() {
     <AuthenticatedLayout>
         <div class="mx-auto max-w-6xl space-y-6 px-4 py-4 sm:space-y-8 sm:px-6 sm:py-6 lg:px-8">
             <!-- Hero / quick actions -->
-            <section class="card overflow-hidden bg-gradient-to-br from-brand-600 to-brand-800 p-5 text-white ring-0 sm:p-6">
+            <section class="overflow-hidden rounded-2xl bg-pop-primary p-5 text-white sm:p-6" style="box-shadow: 0 6px 0 0 #6243d6">
                 <div class="flex items-end justify-between gap-4">
                     <div>
                         <div class="text-sm/5 text-brand-100">{{ t('dash.due_today') }}</div>
@@ -36,17 +37,34 @@ function practiceWeakest() {
                         <div class="mt-1 text-sm text-brand-100">🔥 {{ global.streak }} · {{ t('dash.streak_sub') }} · {{ global.xp }} XP</div>
                     </div>
                     <div class="grid shrink-0 gap-2">
-                        <Link :href="route('quiz.global')" class="btn min-h-[52px] bg-white px-5 text-brand-700 hover:bg-brand-50">{{ t('dash.start_quiz') }}</Link>
-                        <Link :href="route('quiz.weak')" class="btn min-h-[44px] bg-white/15 text-white ring-1 ring-white/40 hover:bg-white/25">{{ t('dash.weak_words') }}</Link>
+                        <Link :href="route('quiz.global')" class="btn min-h-[52px] bg-white px-5 text-pop-primary" style="--btn-edge: #d1d1d1">{{ t('dash.start_quiz') }}</Link>
+                        <Link :href="route('quiz.weak')" class="btn min-h-[44px] border-2 border-white/50 bg-white/15 text-white hover:bg-white/25" style="--btn-edge: rgba(0,0,0,.2)">{{ t('dash.weak_words') }}</Link>
                     </div>
                 </div>
             </section>
 
+            <!-- A1 course entry -->
+            <section v-if="course" class="card flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+                <div class="min-w-0">
+                    <div class="text-xs font-semibold uppercase tracking-wide text-gray-500">{{ t('course.kicker') }}</div>
+                    <div class="text-lg font-semibold">{{ t('course.title', { level: course.level }) }} · {{ course.completion }} %</div>
+                    <div class="text-sm text-gray-500">
+                        {{ t('course.lessons_done', { done: course.lessons_completed, total: course.lessons_total }) }}
+                        <span v-if="course.current"> · {{ t('course.current') }}: {{ t('lek.lektion', { n: course.current.number }) }} – {{ course.current.title }}</span>
+                    </div>
+                    <div class="mt-2 h-2 max-w-md overflow-hidden rounded-full bg-gray-200 dark:bg-gray-800"><div class="h-full rounded-full bg-brand-500" :style="{ width: course.completion + '%' }"></div></div>
+                </div>
+                <div class="flex shrink-0 gap-2">
+                    <Link v-if="course.current" :href="route('lektionen.show', course.current.id)" class="btn-primary min-h-[48px]">▶ {{ t('course.resume') }}</Link>
+                    <Link :href="route('course.dashboard')" class="btn-secondary min-h-[48px]">{{ t('nav.course') }}</Link>
+                </div>
+            </section>
+
             <section class="grid grid-cols-2 gap-3 lg:grid-cols-4">
-                <StatCard :label="t('dash.total_words')" :value="global.total_words" />
-                <StatCard :label="t('dash.mastered')" :value="global.mastered" :sub="t('dash.mastered_sub')" accent="emerald" />
-                <StatCard :label="t('dash.streak')" :value="global.streak" :sub="t('dash.streak_sub')" accent="rose" />
-                <StatCard :label="t('dash.xp')" :value="global.xp" :sub="t('dash.sessions', { n: global.sessions })" accent="purple" />
+                <StatCard :label="t('dash.total_words')" :value="global.total_words" icon="📚" accent="blue" />
+                <StatCard :label="t('dash.mastered')" :value="global.mastered" :sub="t('dash.mastered_sub')" accent="emerald" icon="🏆" />
+                <StatCard :label="t('dash.streak')" :value="global.streak" :sub="t('dash.streak_sub')" accent="amber" icon="🔥" />
+                <StatCard :label="t('dash.xp')" :value="global.xp" :sub="t('dash.sessions', { n: global.sessions })" accent="purple" icon="⚡" />
             </section>
 
             <section>

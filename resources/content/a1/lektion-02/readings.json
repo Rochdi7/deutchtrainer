@@ -1,0 +1,44 @@
+{
+  "note": "Original A1 texts written for this app in the style of the textbook sections (KB p. 19 „Dinge kommen und gehen“, p. 21 „Patchworkfamilie“, p. 22 Restaurant-Anzeigen). No textbook text is reproduced.",
+  "readings": [
+    {
+      "key": "a1-l2-r1",
+      "title": "Früher und heute",
+      "page": 19,
+      "text_md": "Mein Großvater ist 78 Jahre alt. Früher hatte er einen Plattenspieler und viele Schallplatten. Er hatte auch eine Schreibmaschine, aber er hatte keinen Computer. Heute hat mein Großvater ein Smartphone und ein Tablet. Er liest E-Books und schreibt E-Mails. Mein Bruder Felix ist 16. Er hat kein Telefon mit Wählscheibe – er kennt das gar nicht! Er hat ein Handy, einen Laptop und einen mp3-Spieler. Musikkassetten findet er altmodisch. Ich finde: Die Technik kommt und geht, aber die Musik bleibt.",
+      "translation_md": "My grandfather is 78 years old. In the past he had a record player and many records. He also had a typewriter, but he had no computer. Today my grandfather has a smartphone and a tablet. He reads e-books and writes e-mails. My brother Felix is 16. He doesn't have a telephone with a dial – he doesn't even know it! He has a mobile phone, a laptop and an mp3 player. He finds music cassettes old-fashioned. I think: technology comes and goes, but the music stays.",
+      "questions": [
+        {"q": "Was hatte der Großvater früher?", "options": ["einen Computer", "einen Plattenspieler", "ein Tablet", "ein Handy"], "answer": "einen Plattenspieler", "explanation": "Im Text: „Früher hatte er einen Plattenspieler und viele Schallplatten.“"},
+        {"q": "Was hat der Großvater heute?", "options": ["eine Schreibmaschine", "Musikkassetten", "ein Smartphone und ein Tablet", "ein Telefon mit Wählscheibe"], "answer": "ein Smartphone und ein Tablet", "explanation": "„Heute hat mein Großvater ein Smartphone und ein Tablet.“"},
+        {"q": "Wie alt ist Felix?", "options": ["78", "16", "60", "18"], "answer": "16", "explanation": "„Mein Bruder Felix ist 16.“"},
+        {"q": "Wie findet Felix Musikkassetten?", "options": ["modern", "praktisch", "altmodisch", "teuer"], "answer": "altmodisch", "explanation": "„Musikkassetten findet er altmodisch.“"}
+      ]
+    },
+    {
+      "key": "a1-l2-r2",
+      "title": "Meine Familie",
+      "page": 21,
+      "text_md": "Ich heiße Lena und ich bin 24 Jahre alt. Meine Familie ist ziemlich groß. Meine Eltern sind geschieden. Meine Mutter Sabine ist Lehrerin und sie wohnt in Köln. Mein Vater Thomas ist Ingenieur, er lebt jetzt in Hamburg und er hat eine neue Partnerin. Ihr Name ist Irene. Irene hat zwei Kinder, Hanna und Fabian. Hanna ist 10 und Fabian ist 7. Wir sind also eine Patchworkfamilie. Ich habe auch einen Bruder. Er heißt Jan und er ist 20. Jan studiert Informatik in Berlin. Meine Großeltern Gisela und Klaus leben in Bonn. Sie sind schon sehr alt, aber sie sind noch fit. Oma Gisela hat ein Smartphone und sie schreibt mir jeden Tag!",
+      "translation_md": "My name is Lena and I am 24 years old. My family is quite big. My parents are divorced. My mother Sabine is a teacher and she lives in Cologne. My father Thomas is an engineer, he now lives in Hamburg and he has a new partner. Her name is Irene. Irene has two children, Hanna and Fabian. Hanna is 10 and Fabian is 7. So we are a blended family. I also have a brother. His name is Jan and he is 20. Jan studies computer science in Berlin. My grandparents Gisela and Klaus live in Bonn. They are already very old, but they are still fit. Grandma Gisela has a smartphone and she writes to me every day!",
+      "questions": [
+        {"q": "Lenas Eltern …", "options": ["sind verheiratet.", "sind geschieden.", "leben in Bonn.", "haben zwei Kinder, Hanna und Fabian."], "answer": "sind geschieden.", "explanation": "„Meine Eltern sind geschieden.“"},
+        {"q": "Wer ist Irene?", "options": ["Lenas Mutter", "Lenas Schwester", "die Partnerin von Lenas Vater", "Lenas Oma"], "answer": "die Partnerin von Lenas Vater", "explanation": "„Mein Vater … hat eine neue Partnerin. Ihr Name ist Irene.“"},
+        {"q": "Was macht Jan?", "options": ["Er ist Lehrer.", "Er studiert Informatik.", "Er wohnt in Bonn.", "Er ist 24."], "answer": "Er studiert Informatik.", "explanation": "„Jan studiert Informatik in Berlin.“"},
+        {"q": "Wer schreibt Lena jeden Tag?", "options": ["ihre Mutter", "ihr Bruder", "ihre Großmutter", "ihr Vater"], "answer": "ihre Großmutter", "explanation": "„Oma Gisela hat ein Smartphone und sie schreibt mir jeden Tag!“"}
+      ]
+    },
+    {
+      "key": "a1-l2-r3",
+      "title": "Restaurant „Zum Goldenen Löwen“",
+      "page": 22,
+      "text_md": "**Restaurant „Zum Goldenen Löwen“** – Gerichte aus Deutschland und Österreich\n\nÖffnungszeiten: Di – Fr 11.30 – 14.30 Uhr und 17.30 – 23.00 Uhr, Sa + So 12.00 – 23.00 Uhr. Montag Ruhetag.\n\nUnsere Speisekarte: Vorspeisen – Kartoffelsuppe (4,50 €), Tomatensalat (5,00 €). Hauptgerichte – Wiener Schnitzel mit Pommes frites und Salat (14,90 €), Zanderfilet mit Kartoffeln (16,50 €), Veggie-Burger (11,00 €). Desserts – Apfelstrudel (4,80 €), Eis mit Sahne (3,90 €). Getränke – Mineralwasser 0,5 l (2,80 €), Limonade (3,00 €), Bier 0,5 l (4,20 €), Rotwein 0,2 l (5,50 €).\n\nAm Donnerstag ist Suppentag: alle Suppen 3,00 €!",
+      "translation_md": "Restaurant “Zum Goldenen Löwen” – dishes from Germany and Austria. Opening hours: Tue – Fri 11:30 – 14:30 and 17:30 – 23:00, Sat + Sun 12:00 – 23:00. Closed on Mondays. Our menu: starters – potato soup (€4.50), tomato salad (€5.00). Main courses – Wiener schnitzel with French fries and salad (€14.90), pike-perch fillet with potatoes (€16.50), veggie burger (€11.00). Desserts – apple strudel (€4.80), ice cream with cream (€3.90). Drinks – mineral water 0.5 l (€2.80), lemonade (€3.00), beer 0.5 l (€4.20), red wine 0.2 l (€5.50). Thursday is soup day: all soups €3.00!",
+      "questions": [
+        {"q": "An welchem Tag ist das Restaurant geschlossen?", "options": ["am Montag", "am Dienstag", "am Samstag", "am Sonntag"], "answer": "am Montag", "explanation": "„Montag Ruhetag“ = am Montag ist geschlossen."},
+        {"q": "Um wie viel Uhr öffnet das Restaurant am Samstag?", "options": ["um 11.30 Uhr", "um 12.00 Uhr", "um 17.30 Uhr", "um 23.00 Uhr"], "answer": "um 12.00 Uhr", "explanation": "„Sa + So 12.00 – 23.00 Uhr“."},
+        {"q": "Was kostet ein Wiener Schnitzel?", "options": ["11,00 €", "14,90 €", "16,50 €", "4,80 €"], "answer": "14,90 €", "explanation": "„Wiener Schnitzel mit Pommes frites und Salat (14,90 €)“."},
+        {"q": "Was ist eine Nachspeise?", "options": ["die Kartoffelsuppe", "der Veggie-Burger", "der Apfelstrudel", "die Limonade"], "answer": "der Apfelstrudel", "explanation": "Der Apfelstrudel steht unter „Desserts“ (= Nachspeisen)."}
+      ]
+    }
+  ]
+}

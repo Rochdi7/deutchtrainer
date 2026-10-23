@@ -16,6 +16,7 @@ const { t } = useI18n();
                 <div v-if="l.question_informal" class="text-sm"><span class="text-gray-500">du:</span> {{ l.question_informal }}</div>
                 <div class="text-sm font-medium">→ {{ l.answer }}</div>
                 <ArabicText :text="l.arabic" tag="div" class="text-sm text-gray-600 dark:text-gray-300" />
+                <div v-if="l.english" class="text-xs text-gray-500">{{ l.english }}</div>
             </li>
         </ul>
         <!-- Desktop: table -->
@@ -27,6 +28,7 @@ const { t } = useI18n();
                     <th class="px-3 py-2">{{ t('lek.q_informal') }}</th>
                     <th class="px-3 py-2">{{ t('lek.answer') }}</th>
                     <th class="px-3 py-2 text-right">العربية</th>
+                    <th class="px-3 py-2">English</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
@@ -36,6 +38,7 @@ const { t } = useI18n();
                     <td class="px-3 py-2">{{ l.question_informal }}</td>
                     <td class="px-3 py-2">{{ l.answer }}</td>
                     <td class="px-3 py-2"><ArabicText :text="l.arabic" tag="div" /></td>
+                    <td class="px-3 py-2 text-xs text-gray-500">{{ l.english }}</td>
                 </tr>
             </tbody>
         </table>

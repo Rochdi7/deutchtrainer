@@ -1,0 +1,30 @@
+{
+  "note": "Original A1 texts in the style of KB p. 46 (Campus-Run Artikel), p. 44 (Flyer) and AB p. 111 (Individualsport oder Mannschaftssport).",
+  "readings": [
+    {
+      "key": "a1-l5-r1",
+      "title": "Beate Langer gewinnt den Campus-Run",
+      "page": 46,
+      "text_md": "Münster. Am 24. Juni sind fast 800 Leute beim Leonardo-Campus-Run gestartet. Die Siegerin heißt Beate Langer. Die Studentin hat die Strecke in 39 Minuten geschafft – ein neuer Streckenrekord!\n\n„Ich habe jeden Tag trainiert, oft am Morgen vor der Uni“, sagt Beate. „Das Wetter war optimal, nicht zu warm. Meine Freundin Judith hat mich motiviert, denn sie hat auch mitgemacht.“ Nach dem Lauf haben die beiden mit ihren Fans gefeiert. Judith hat Platz 3 geschafft.\n\nNicht alles hat geklappt: Der Student Tobias ist nach drei Kilometern gestürzt. „Ich habe leider nicht trainiert“, sagt er. „Nächstes Jahr mache ich es besser!“",
+      "translation_md": "Münster. On 24 June almost 800 people started in the Leonardo campus run. The winner is Beate Langer. The student completed the course in 39 minutes – a new course record! “I trained every day, often in the morning before university,” says Beate. “The weather was optimal, not too warm. My friend Judith motivated me, because she took part too.” After the run the two celebrated with their fans. Judith got 3rd place. Not everything worked out: the student Tobias fell after three kilometres. “Unfortunately I didn't train,” he says. “Next year I'll do better!”",
+      "questions": [
+        {"q": "Wie viele Leute sind gestartet?", "options": ["fast 800", "39", "24", "fast 300"], "answer": "fast 800", "explanation": "„sind fast 800 Leute … gestartet“"},
+        {"q": "Wie hat Beate trainiert?", "options": ["jeden Tag", "einmal pro Woche", "nur am Wochenende", "gar nicht"], "answer": "jeden Tag", "explanation": "„Ich habe jeden Tag trainiert“"},
+        {"q": "Wer hat Platz 3 geschafft?", "options": ["Beate", "Judith", "Tobias", "ein Fan"], "answer": "Judith", "explanation": "„Judith hat Platz 3 geschafft.“"},
+        {"q": "Was ist Tobias passiert?", "options": ["Er hat gewonnen.", "Er ist gestürzt.", "Er hat gefeiert.", "Er hat trainiert."], "answer": "Er ist gestürzt.", "explanation": "„Tobias ist nach drei Kilometern gestürzt.“"}
+      ]
+    },
+    {
+      "key": "a1-l5-r2",
+      "title": "Sport lieber allein oder in der Gruppe?",
+      "page": 111,
+      "text_md": "Viele Menschen wollen Sport treiben, und das Angebot ist groß. Manche Leute treiben lieber allein Sport, andere machen das lieber in einer Gruppe. Die Sporttrainerin Anna Löwe sagt: „Individualsport ist flexibel. Man kann zu Hause, im Park oder im Wald laufen und man muss kein Geld für ein Fitnessstudio bezahlen. Aber viele Menschen möchten soziale Kontakte. Beim Mannschaftssport kann man neue Leute kennenlernen und hat mehr Spaß. Ein Team ist auch gut für die Motivation, denn man bekommt Unterstützung von den Teamkollegen.“\n\nJede Person braucht die richtige Sportart: Wer den ganzen Tag allein im Büro sitzt, für den ist ein Teamsport gut. Wer einen stressigen Job hat und viel sprechen muss, für den ist Individualsport gut, denn er braucht Ruhe.",
+      "translation_md": "Many people want to do sport, and there is a lot on offer. Some people prefer to do sport alone, others prefer doing it in a group. The sports coach Anna Löwe says: “Individual sport is flexible. You can run at home, in the park or in the forest and you don't have to pay for a gym. But many people want social contacts. In team sports you can get to know new people and have more fun. A team is also good for motivation, because you get support from your team-mates.” Every person needs the right kind of sport: for someone who sits alone in the office all day, a team sport is good. For someone who has a stressful job and has to talk a lot, individual sport is good, because they need peace and quiet.",
+      "questions": [
+        {"q": "Was ist ein Vorteil von Individualsport?", "options": ["Man ist flexibel.", "Man hat soziale Kontakte.", "Man bekommt Unterstützung.", "Man lernt neue Leute kennen."], "answer": "Man ist flexibel.", "explanation": "„Individualsport ist flexibel.“"},
+        {"q": "Was ist ein Vorteil von Mannschaftssport?", "options": ["Man braucht kein Geld.", "Man kann neue Leute kennenlernen.", "Man braucht Ruhe.", "Man kann zu Hause trainieren."], "answer": "Man kann neue Leute kennenlernen.", "explanation": "„Beim Mannschaftssport kann man neue Leute kennenlernen“"},
+        {"q": "Für wen ist Teamsport gut?", "options": ["für Leute mit einem stressigen Job", "für Leute, die allein im Büro sitzen", "für Leute, die Ruhe brauchen", "für Trainer"], "answer": "für Leute, die allein im Büro sitzen", "explanation": "„Wer den ganzen Tag allein im Büro sitzt, für den ist ein Teamsport gut.“"}
+      ]
+    }
+  ]
+}

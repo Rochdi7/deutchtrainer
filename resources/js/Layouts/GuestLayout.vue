@@ -1,22 +1,39 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import DarkModeToggle from '@/Components/Trainer/DarkModeToggle.vue';
+import LanguageSwitcher from '@/Components/Trainer/LanguageSwitcher.vue';
 import { Link } from '@inertiajs/vue3';
+import { useI18n } from '@/i18n';
+
+defineProps({
+    title: { type: String, default: '' },
+    subtitle: { type: String, default: '' },
+});
+const { t } = useI18n();
 </script>
 
 <template>
-    <div
-        class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0 dark:bg-gray-900"
-    >
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="h-20 w-20 fill-current text-gray-500" />
+    <div class="flex min-h-screen flex-col bg-white dark:bg-gray-950">
+        <header class="mx-auto flex w-full max-w-md items-center justify-between px-4 pt-[max(1rem,env(safe-area-inset-top))] sm:max-w-lg">
+            <Link href="/" class="flex items-center gap-2 text-xl font-black text-pop-primary">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-pop-primary text-base text-white" style="box-shadow: 0 4px 0 0 #6243d6">DT</span>
+                DeutschTrainer
             </Link>
-        </div>
+            <div class="flex items-center gap-1.5">
+                <LanguageSwitcher />
+                <DarkModeToggle />
+            </div>
+        </header>
 
-        <div
-            class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg dark:bg-gray-800"
-        >
-            <slot />
-        </div>
+        <main class="mx-auto flex w-full max-w-md flex-1 flex-col justify-center px-4 py-8 sm:max-w-lg">
+            <div class="mb-6 text-center">
+                <div class="mx-auto mb-3 grid h-20 w-20 place-items-center rounded-3xl bg-brand-50 text-4xl dark:bg-brand-900/30">🇩🇪</div>
+                <h1 v-if="title" class="text-3xl">{{ title }}</h1>
+                <p v-if="subtitle" class="mt-1 font-semibold text-gray-500">{{ subtitle }}</p>
+            </div>
+            <div class="card p-5 sm:p-7">
+                <slot />
+            </div>
+            <p class="mt-6 text-center text-xs font-semibold text-gray-400">{{ t('auth.tagline') }}</p>
+        </main>
     </div>
 </template>

@@ -28,6 +28,10 @@ Logins created by the seeder (both admins):
 
 Registration is open; new users are not admins. Change the short password in **Profile** before exposing the app beyond localhost.
 
+## Design language
+
+Playful language-app look (inspired by popular mobile learning apps, no third-party assets): Nunito, a green primary (`brand-*` / `duo-*` colours in `tailwind.config.js`), chunky buttons with a solid bottom edge that presses down (`.btn-primary`, `.btn-secondary`, `.btn-blue`, `.btn-danger`), 2px outlined cards (`.card`), answer choice cards (`.option`, `.option-selected/-correct/-wrong`), token chips (`.chip`), glossy progress bars (`.progress`) and lesson-path nodes (`.path-node`) – all defined in `resources/css/app.css`. Desktop gets a left sidebar; phones get a streak · XP · due stat bar on top and a five-tab bar at the bottom (`AuthenticatedLayout.vue`, `BottomNav.vue`, `NavIcon.vue`). The course page (`/kurs/A1`) is a winding lesson path with one node per section; the exercise player uses select → **Prüfen** → coloured feedback bar → **Weiter**.
+
 ## UI language and mobile
 
 - **DE / EN switch** in the top bar. The choice is stored on the user (`users.locale`) and in the session, so it survives devices and logins. Page strings live in `resources/js/i18n/{de,en}.js`; server flash messages in `lang/{de,en}/messages.php`.
@@ -108,11 +112,52 @@ Progress (`ProgressService`): correct → level + 1 (max 5) with next review in 
 php artisan test
 ```
 
-Covers: QuizGenerator (no repeats, distractor validity and type, ratios, article/conjugation/dialog questions, weak/global modes), ProgressService (SM-2-lite), AnswerChecker (Umlaut/article tolerance), PluralExpander, the rule-based import on the real Lektion 1 PDF (reader row pairing, words, Länder table, conjugations, dialog, grammar notes, CLI import into the DB), import schema validation + Claude retry-once behaviour (Anthropic HTTP faked), persister dedup, the end-to-end quiz flow and admin gating. Tests use in-memory SQLite.
+Covers: QuizGenerator (no repeats, distractor validity and type, ratios, article/conjugation/dialog questions, weak/global modes), ProgressService (SM-2-lite), AnswerChecker (Umlaut/article tolerance), PluralExpander, the rule-based import on the real Lektion 1 PDF (reader row pairing, words, Länder table, conjugations, dialog, grammar notes, CLI import into the DB), import schema validation + Claude retry-once behaviour (Anthropic HTTP faked), persister dedup, the end-to-end quiz flow and admin gating, the A1 content files (all 8 lessons valid, every word has English + Arabic, every referenced image exists) and the A1 learner journey (seeder idempotency, course dashboard, lesson page, exercise set with feedback/retry, vocab session → spaced repetition, lesson test → completion, practice/revision/final sessions, engine checks for every item type). Tests use in-memory SQLite.
 
 ## Pages
 
 Dashboard (per-Lektion mastery, best score, completed badge; global totals, due today, daily streak, XP; 30-day chart; weakest 10 with "practice these"), Lektionen list, Lektion detail (words by category with inline add/edit/delete, flashcard flip mode, conjugation tables, grammar notes, dialog table), Quiz, per-word history page, Import (admin). Dark-mode toggle in the nav; Arabic is rendered RTL in Noto Naskh Arabic, German in Inter.
+
+## A1 course (DaF kompakt neu A1)
+
+A structured 8-lesson A1 course built from the table of contents and vocabulary lists of *DaF kompakt neu A1* (Klett). The textbook was read page by page; see `docs/a1-source-inventory.md` (page log), `docs/a1-curriculum-map.md` (lesson → pages/topics/grammar) and `docs/a1-implementation-plan.md`. Only the A1 level is implemented, but the schema is level-aware (`lektionen.level`, unique per level + number, `Lektion::level('A1')`), so A2/B1 can be added later as new content folders.
+
+### Content as files
+
+```
+resources/content/a1/lektion-0N/
+  meta.json       level, number, slug, title, subtitle, source_pages, objectives (de/en), revision_md
+  vocab.json      groups → items  ["die Handynummer, -n", "mobile number", "رقم الهاتف", {image, example_de, example_en, …}]
+  grammar.json    notes (markdown, de + en) and verb conjugations
+  dialog.json     lines (topic, question_formal, question_informal, answer, arabic, english)
+  readings.json   original A1 reading texts (markdown) + English translation + comprehension questions
+  exercises.json  20–45 exercises per lesson (mc, article, gap, order, match, translate, plural, conjugation, dialog, listen, write)
+```
+
+Textbook notation (`der Tisch, -e`, `(nur Sg.)`, `¨er`, `(Pl.)`) is parsed by `App\Services\Course\VocabEntryFactory`. The vocabulary lists and grammar topics follow the textbook; reading texts, dialogues, examples and exercises are **original** material written for this app (the textbook's texts, songs, poems, photos and illustrations are copyrighted and are not reproduced).
+
+```bash
+php artisan db:seed --class=A1CourseSeeder   # idempotent: upserts by (level, number) / (lektion, german, type) / exercise key
+php artisan course:images                     # copies Twemoji SVGs (CC-BY 4.0) into public/images/vocab/
+node scripts/vocab-icons.mjs                  # icons for words without an emoji (Fluent Emoji, Noto, OpenMoji, Tabler, Game-icons – all free)
+```
+
+Words without a suitable emoji get an icon from a free set via `resources/content/a1/icons-manual.json` (hand-reviewed, English phrase → `set:name`) plus exact-name matches; the script writes `resources/content/a1/icons.json` (overlay read by `ContentLoader`) and the SVGs. Licenses per set are listed in `public/images/vocab/ATTRIBUTION.md`.
+
+The seeder validates every lesson (`ContentLoader::validate`) before writing and never deletes user data. Vocabulary images are Twemoji SVGs selected per word (`image` option = Unicode hex); attribution in `public/images/vocab/ATTRIBUTION.md`. Words without a suitable emoji get an initial-letter tile (`VocabImage.vue`).
+
+### Pages and routes
+
+| Route | Page |
+|---|---|
+| `/kurs/A1` | Course dashboard: completion, current lesson + next section, lessons grid, recent activity, due words, final test |
+| `/lektionen/{id}` | Lesson with sections Lernziele · Wortschatz (image cards/list/flashcards/verbs, 11 practice modes, ★ difficult) · Grammatik · Sätze und Dialoge · Lesen · Übungen · Wiederholung · Lektionstest |
+| `/uebungen/{session}` | Exercise player: instant feedback with correct answer + explanation, retry wrong items, listening via browser TTS (`useSpeech`), writing tasks checked against a model answer + checklist |
+| `/ueben` | Practice by lesson / section / type; difficult words, wrong exercises, due words |
+| `/wiederholung` | Spaced-repetition queue, difficult words, wrong exercises, per-lesson summaries |
+| `POST /uebungen` | `kind` = set · vocab · test · practice · revision · final |
+
+Progress: `lesson_progress` (one row per user/lesson/section; set scores and test best/attempts in `data`), `exercise_sessions` / `exercise_attempts` (server-side solutions, never sent to the client), and the existing `user_word_progress` SM-2-lite schedule (vocabulary items feed it; `is_difficult` flag). A lesson counts as completed when every section is done and the lesson test reaches ≥ 80 %. The A1 final assessment is a cumulative 40-item self-test over all lessons.
 
 ## Deployment on shared hosting (Hostinger)
 

@@ -1,0 +1,43 @@
+{
+  "note": "Original A1 texts in the style of KB p. 58 (Webseite), AB p. 124 (Zeitungstext) and KB p. 61 (Mail von Max).",
+  "readings": [
+    {
+      "key": "a1-l7-r1",
+      "title": "Café Waschsalon – Webseite",
+      "page": 58,
+      "text_md": "**Café Waschsalon** – Waschsalon, Copyshop, Internetcafé, Kulturveranstaltungen\n\n**Unser Angebot**: waschen und trocknen · kopieren · WLAN (surfen, mailen, chatten) · kalte und warme Getränke, Snacks\n\n**Kommen Sie zu uns**: Essen Sie und trinken Sie Snacks, Säfte, Espresso, Milchkaffee und Tee. Treffen Sie Freunde im Internet und bei unseren Veranstaltungen (Konzerte, Lesungen, …). Am Sonntag ist geschlossen.\n\n**Preise**: Waschen 4,50 € · Trocknen 2,00 € · Kopie 0,10 €\n\n**Öffnungszeiten**: Mo – Sa 8.30 – 22.00 Uhr\n\n**Inhaberin**: Mara Langer, Josefstraße 135, 53111 Bonn",
+      "translation_md": "Café Waschsalon – launderette, copy shop, internet café, cultural events. Our offer: washing and drying · copying · Wi-Fi (surfing, e-mailing, chatting) · cold and hot drinks, snacks. Come to us: eat and drink snacks, juices, espresso, milky coffee and tea. Meet friends online and at our events (concerts, readings, …). Closed on Sundays. Prices: washing €4.50 · drying €2.00 · copy €0.10. Opening hours: Mon – Sat 8:30 – 22:00. Owner: Mara Langer, Josefstraße 135, 53111 Bonn",
+      "questions": [
+        {"q": "Richtig oder falsch? – Man kann im Café Waschsalon Kopien machen.", "options": ["richtig", "falsch"], "answer": "richtig", "explanation": "„Copyshop … kopieren“"},
+        {"q": "Richtig oder falsch? – Man kann sonntags waschen.", "options": ["falsch", "richtig"], "answer": "falsch", "explanation": "„Am Sonntag ist geschlossen.“"},
+        {"q": "Was kostet eine Kopie?", "options": ["0,10 €", "2,00 €", "4,50 €", "1,00 €"], "answer": "0,10 €", "explanation": "„Kopie 0,10 €“"},
+        {"q": "Wer ist Mara Langer?", "options": ["die Inhaberin", "eine Kundin", "die Kellnerin", "eine Sängerin"], "answer": "die Inhaberin", "explanation": "„Inhaberin: Mara Langer“"}
+      ]
+    },
+    {
+      "key": "a1-l7-r2",
+      "title": "Warum wäschst du im Waschsalon?",
+      "page": 124,
+      "text_md": "Viele Waschsalons haben heute Zusatzangebote für ihre Kunden. In Bonn kommen die Kunden auch sonntags; sie waschen, sehen fern und trinken Cocktails. In Jena legen abends DJs neben den Waschmaschinen auf. In Münster können Kunden Schinkentoast essen – und ihre Wäsche waschen. Der Doktorand Jan Eisenmann mag die Atmosphäre: „Ich wasche gern im Waschsalon, denn hier sitzen die Kunden manchmal bis in die Nacht zusammen und diskutieren über Politik und die Welt. Der Waschsalon ist mein Wohnzimmer. Und hier wasche ich nie allein.“",
+      "translation_md": "Many launderettes today have additional offers for their customers. In Bonn customers also come on Sundays; they wash, watch TV and drink cocktails. In Jena DJs play next to the washing machines in the evening. In Münster customers can eat ham toast – and wash their laundry. The doctoral student Jan Eisenmann likes the atmosphere: “I like washing at the launderette, because here the customers sometimes sit together until late at night and discuss politics and the world. The launderette is my living room. And here I never wash alone.”",
+      "questions": [
+        {"q": "Was machen die Kunden in Bonn sonntags?", "options": ["Sie waschen, sehen fern und trinken Cocktails.", "Sie essen Schinkentoast.", "Sie hören DJs.", "Sie kopieren."], "answer": "Sie waschen, sehen fern und trinken Cocktails.", "explanation": "„sie waschen, sehen fern und trinken Cocktails“"},
+        {"q": "Was gibt es in Jena?", "options": ["DJs neben den Waschmaschinen", "Schinkentoast", "Cocktails", "Konzerte"], "answer": "DJs neben den Waschmaschinen", "explanation": "„In Jena legen abends DJs neben den Waschmaschinen auf.“"},
+        {"q": "Warum wäscht Jan gern im Waschsalon?", "options": ["Er mag die Atmosphäre und wäscht nie allein.", "Es ist billig.", "Er hat keine Waschmaschine.", "Er mag Schinkentoast."], "answer": "Er mag die Atmosphäre und wäscht nie allein.", "explanation": "„Jan Eisenmann mag die Atmosphäre … Und hier wasche ich nie allein.“"}
+      ]
+    },
+    {
+      "key": "a1-l7-r3",
+      "title": "Mail von Max: Kommt bitte bald!",
+      "page": 61,
+      "text_md": "Liebe Julia, lieber Tim,\n\nganz schnell – ich muss gleich zur Arbeit. Danke für eure Mail. Ihr wollt mich besuchen? Super! Aber kommt schnell – ich habe Neuigkeiten … Geht es schon am Wochenende? Und ich habe eine Bitte: Könnt ihr wieder eure Gitarren mitbringen? Wisst ihr noch? Das letzte Mal hatten wir so viel Spaß! Ich will noch einen Bekannten einladen. Der macht auch Musik. Also wartet nicht so lange und seid herzlich gegrüßt\n\nMax",
+      "translation_md": "Dear Julia, dear Tim, very quickly – I have to go to work in a minute. Thanks for your mail. You want to visit me? Great! But come quickly – I have news … Does the weekend work already? And I have a request: can you bring your guitars again? Do you remember? Last time we had so much fun! I want to invite another acquaintance. He makes music too. So don't wait too long and best wishes, Max",
+      "questions": [
+        {"q": "Richtig oder falsch? – Max schreibt nur kurz, denn er hat keine Zeit.", "options": ["richtig", "falsch"], "answer": "richtig", "explanation": "„ganz schnell – ich muss gleich zur Arbeit“"},
+        {"q": "Richtig oder falsch? – Seine Freunde haben ihn angerufen.", "options": ["falsch", "richtig"], "answer": "falsch", "explanation": "„Danke für eure Mail“ – sie haben eine Mail geschrieben."},
+        {"q": "Was sollen Julia und Tim mitbringen?", "options": ["ihre Gitarren", "ihre Wäsche", "einen Bekannten", "Neuigkeiten"], "answer": "ihre Gitarren", "explanation": "„Könnt ihr wieder eure Gitarren mitbringen?“"},
+        {"q": "Wen möchte Max noch einladen?", "options": ["einen Bekannten", "eine Freundin", "seine Eltern", "Lena"], "answer": "einen Bekannten", "explanation": "„Ich will noch einen Bekannten einladen.“"}
+      ]
+    }
+  ]
+}

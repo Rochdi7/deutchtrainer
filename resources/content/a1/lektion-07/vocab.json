@@ -1,0 +1,1219 @@
+{
+  "source": "DaF kompakt neu A1, Alles auf einen Blick, Lektionswortschatz in Feldern, p. 64",
+  "groups": [
+    {
+      "category": "Kleidung",
+      "page": 64,
+      "items": [
+        [
+          "das Kleidungsstück, -e",
+          "piece of clothing",
+          "قطعة الملابس",
+          {
+            "img": "1f455"
+          }
+        ],
+        [
+          "die Jeans (Pl.)",
+          "jeans",
+          "الجينز",
+          {
+            "img": "1f456",
+            "ex": [
+              "Die Jeans ist lila!",
+              "The jeans are purple!"
+            ]
+          }
+        ],
+        [
+          "die Hose, -n",
+          "trousers",
+          "البنطال",
+          {
+            "img": "1f456",
+            "ex": [
+              "Meine Hose ist blau.",
+              "My trousers are blue."
+            ]
+          }
+        ],
+        [
+          "die Unterhose, -n",
+          "underpants",
+          "السروال الداخلي",
+          {
+            "img": "1fa72"
+          }
+        ],
+        [
+          "die Strumpfhose, -n",
+          "tights",
+          "الجوارب الطويلة (كولون)",
+          {
+            "img": "1f9e6"
+          }
+        ],
+        [
+          "das Sweatshirt, -s",
+          "sweatshirt",
+          "السويت شيرت",
+          {
+            "img": "1f455"
+          }
+        ],
+        [
+          "das T-Shirt, -s",
+          "T-shirt",
+          "التي شيرت",
+          {
+            "img": "1f455"
+          }
+        ],
+        [
+          "der Mantel, ¨",
+          "coat",
+          "المعطف",
+          {
+            "img": "1f9e5"
+          }
+        ],
+        [
+          "die Jacke, -n",
+          "jacket",
+          "السترة",
+          {
+            "img": "1f9e5",
+            "ex": [
+              "Die schwarze Jacke ist eingelaufen.",
+              "The black jacket has shrunk."
+            ]
+          }
+        ],
+        [
+          "die Weste, -n",
+          "waistcoat, vest",
+          "الصدرية",
+          {
+            "img": "1f9e5"
+          }
+        ],
+        [
+          "der Anzug, ¨e",
+          "suit",
+          "البدلة",
+          {
+            "img": "1f454"
+          }
+        ],
+        [
+          "der Jogginganzug, ¨e",
+          "tracksuit",
+          "بدلة الرياضة",
+          {
+            "img": "1f455"
+          }
+        ],
+        [
+          "der Schlafanzug, ¨e",
+          "pyjamas",
+          "البيجامة",
+          {
+            "img": "1f6cc"
+          }
+        ],
+        [
+          "der Badeanzug, ¨e",
+          "swimsuit",
+          "ثوب السباحة",
+          {
+            "img": "1fa71"
+          }
+        ],
+        [
+          "die Badehose, -n",
+          "swimming trunks",
+          "سروال السباحة",
+          {
+            "img": "1fa72"
+          }
+        ],
+        [
+          "das Hemd, -en",
+          "shirt",
+          "القميص",
+          {
+            "img": "1f454",
+            "ex": [
+              "Das weiße Hemd ist jetzt rosa.",
+              "The white shirt is pink now."
+            ]
+          }
+        ],
+        [
+          "das Nachthemd, -en",
+          "nightdress",
+          "قميص النوم",
+          {
+            "img": "1f6cc"
+          }
+        ],
+        [
+          "das Unterhemd, -en",
+          "vest, undershirt",
+          "القميص الداخلي",
+          {
+            "img": "1f3bd"
+          }
+        ],
+        [
+          "die Bluse, -n",
+          "blouse",
+          "البلوزة",
+          {
+            "img": "1f45a"
+          }
+        ],
+        [
+          "das Kleid, -er",
+          "dress",
+          "الفستان",
+          {
+            "img": "1f457"
+          }
+        ],
+        [
+          "der Rock, ¨e",
+          "skirt",
+          "التنورة",
+          {
+            "img": "1f45b"
+          }
+        ],
+        [
+          "die Socke, -n",
+          "sock",
+          "الجورب",
+          {
+            "img": "1f9e6"
+          }
+        ],
+        [
+          "der Strumpf, ¨e",
+          "stocking",
+          "الجورب الطويل",
+          {
+            "img": "1f9e6"
+          }
+        ],
+        [
+          "der Gürtel, -",
+          "belt",
+          "الحزام"
+        ],
+        [
+          "die Krawatte, -n",
+          "tie",
+          "ربطة العنق",
+          {
+            "img": "1f454"
+          }
+        ],
+        [
+          "der Handschuh, -e",
+          "glove",
+          "القفاز",
+          {
+            "img": "1f9e4"
+          }
+        ],
+        [
+          "der Schal, -s",
+          "scarf",
+          "الوشاح",
+          {
+            "img": "1f9e3"
+          }
+        ],
+        [
+          "der Hut, ¨e",
+          "hat",
+          "القبعة",
+          {
+            "img": "1f3a9"
+          }
+        ],
+        [
+          "die Mütze, -n",
+          "cap, beanie",
+          "الطاقية",
+          {
+            "img": "1f9e2"
+          }
+        ],
+        [
+          "die Tasche, -n",
+          "bag",
+          "الحقيبة",
+          {
+            "img": "1f45c"
+          }
+        ]
+      ]
+    },
+    {
+      "category": "Farben",
+      "type": "adjective",
+      "page": 64,
+      "items": [
+        [
+          "beige",
+          "beige",
+          "بيج",
+          {
+            "img": "1f7e8"
+          }
+        ],
+        [
+          "blau",
+          "blue",
+          "أزرق",
+          {
+            "img": "1f7e6",
+            "ex": [
+              "Meine Hose ist blau.",
+              "My trousers are blue."
+            ]
+          }
+        ],
+        [
+          "braun",
+          "brown",
+          "بني",
+          {
+            "img": "1f7eb"
+          }
+        ],
+        [
+          "gelb",
+          "yellow",
+          "أصفر",
+          {
+            "img": "1f7e8"
+          }
+        ],
+        [
+          "grau",
+          "grey",
+          "رمادي",
+          {
+            "img": "2b1c"
+          }
+        ],
+        [
+          "grün",
+          "green",
+          "أخضر",
+          {
+            "img": "1f7e9"
+          }
+        ],
+        [
+          "lila",
+          "purple",
+          "بنفسجي",
+          {
+            "img": "1f7ea"
+          }
+        ],
+        [
+          "orange",
+          "orange",
+          "برتقالي",
+          {
+            "img": "1f7e7"
+          }
+        ],
+        [
+          "rosa",
+          "pink",
+          "وردي",
+          {
+            "img": "1f338"
+          }
+        ],
+        [
+          "rot",
+          "red",
+          "أحمر",
+          {
+            "img": "1f7e5"
+          }
+        ],
+        [
+          "schwarz",
+          "black",
+          "أسود",
+          {
+            "img": "2b1b"
+          }
+        ],
+        [
+          "türkis",
+          "turquoise",
+          "فيروزي",
+          {
+            "img": "1f7e6"
+          }
+        ],
+        [
+          "weiß",
+          "white",
+          "أبيض",
+          {
+            "img": "2b1c"
+          }
+        ],
+        [
+          "hellblau",
+          "light blue",
+          "أزرق فاتح",
+          {
+            "img": "1f7e6",
+            "note": "hell- + Farbe: hellrot, hellgrün …"
+          }
+        ],
+        [
+          "dunkelblau",
+          "dark blue",
+          "أزرق داكن",
+          {
+            "img": "1f7e6",
+            "note": "dunkel- + Farbe: dunkelrot, dunkelgrün …"
+          }
+        ],
+        [
+          "bunt",
+          "colourful",
+          "ملوّن",
+          {
+            "img": "1f308"
+          }
+        ]
+      ]
+    },
+    {
+      "category": "Material",
+      "page": 64,
+      "items": [
+        [
+          "die Baumwolle (nur Sg.)",
+          "cotton",
+          "القطن"
+        ],
+        [
+          "das Leder (hier nur Sg.)",
+          "leather",
+          "الجلد"
+        ],
+        [
+          "das Polyester (hier nur Sg.)",
+          "polyester",
+          "البوليستر"
+        ],
+        [
+          "die Seide (hier nur Sg.)",
+          "silk",
+          "الحرير"
+        ],
+        [
+          "die Viskose (hier nur Sg.)",
+          "viscose",
+          "الفسكوز"
+        ],
+        [
+          "die Wolle (hier nur Sg.)",
+          "wool",
+          "الصوف",
+          {
+            "img": "1f9f6"
+          }
+        ]
+      ]
+    },
+    {
+      "category": "Waschen",
+      "page": 64,
+      "items": [
+        [
+          "die Wäsche",
+          "laundry, washing",
+          "الغسيل",
+          {
+            "img": "1f9fa"
+          }
+        ],
+        [
+          "die Wäscherei, -en",
+          "laundry (shop)",
+          "المغسلة"
+        ],
+        [
+          "der Waschkorb, ¨e",
+          "laundry basket",
+          "سلة الغسيل",
+          {
+            "img": "1f9fa"
+          }
+        ],
+        [
+          "die Waschmaschine, -n",
+          "washing machine",
+          "الغسالة",
+          {
+            "img": "1f9fc",
+            "ex": [
+              "Füllen Sie die Wäsche in die Waschmaschine.",
+              "Put the laundry into the washing machine."
+            ]
+          }
+        ],
+        [
+          "das Waschprogramm, -e",
+          "wash programme",
+          "برنامج الغسيل"
+        ],
+        [
+          "das Waschpulver, -",
+          "washing powder",
+          "مسحوق الغسيل",
+          {
+            "img": "1f9fc"
+          }
+        ],
+        [
+          "der Waschsalon, -s",
+          "launderette",
+          "صالون الغسيل",
+          {
+            "img": "1f9fc"
+          }
+        ],
+        [
+          "waschen",
+          "to wash",
+          "يغسل",
+          {
+            "type": "verb",
+            "ex": [
+              "Ich wasche gern im Waschsalon.",
+              "I like washing at the launderette."
+            ]
+          }
+        ],
+        [
+          "der Trockner, -",
+          "tumble dryer",
+          "المجفف"
+        ],
+        [
+          "trocknen",
+          "to dry",
+          "يجفف",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "die Anleitung, -en",
+          "instructions",
+          "التعليمات",
+          {
+            "img": "1f4cb"
+          }
+        ],
+        [
+          "der Automat, -en",
+          "machine, vending machine",
+          "الآلة الأوتوماتيكية"
+        ],
+        [
+          "der Kassenautomat, -en",
+          "payment machine",
+          "آلة الدفع"
+        ],
+        [
+          "anmachen (Maschine)",
+          "to switch on (the machine)",
+          "يشغّل (الآلة)",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "öffnen",
+          "to open",
+          "يفتح",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "schließen",
+          "to close",
+          "يغلق",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "sortieren",
+          "to sort",
+          "يفرز",
+          {
+            "type": "verb",
+            "ex": [
+              "Sortier die Wäsche!",
+              "Sort the laundry!"
+            ]
+          }
+        ],
+        [
+          "umdrehen",
+          "to turn over",
+          "يقلب",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "füllen in + A",
+          "to fill into",
+          "يملأ في",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "wählen (Programm)",
+          "to choose (a programme)",
+          "يختار (برنامجاً)",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "drücken (Start)",
+          "to press (start)",
+          "يضغط (زر البدء)",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "beenden",
+          "to finish, to end",
+          "ينهي",
+          {
+            "type": "verb"
+          }
+        ],
+        [
+          "einlaufen",
+          "to shrink",
+          "ينكمش",
+          {
+            "type": "verb",
+            "ex": [
+              "Pass auf, der Pulli läuft ein!",
+              "Careful, the sweater is shrinking!"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "category": "Literatur",
+      "page": 64,
+      "items": [
+        [
+          "die Erzählung, -en",
+          "story, narrative",
+          "القصة",
+          {
+            "img": "1f4d6"
+          }
+        ],
+        [
+          "das Hörspiel, -e",
+          "radio play",
+          "المسرحية الإذاعية"
+        ],
+        [
+          "der Roman, -e",
+          "novel",
+          "الرواية",
+          {
+            "img": "1f4d6"
+          }
+        ],
+        [
+          "das Theaterstück, -e",
+          "play (theatre)",
+          "المسرحية",
+          {
+            "img": "1f3ad"
+          }
+        ],
+        [
+          "die Lyrik (nur Sg.)",
+          "poetry",
+          "الشعر"
+        ],
+        [
+          "die Kinderlyrik",
+          "children's poetry",
+          "شعر الأطفال"
+        ],
+        [
+          "das Gedicht, -e",
+          "poem",
+          "القصيدة"
+        ],
+        [
+          "die Anthologie, -n",
+          "anthology",
+          "المختارات الأدبية"
+        ]
+      ]
+    },
+    {
+      "category": "Nomen",
+      "page": 64,
+      "items": [
+        [
+          "die Angst, ¨e",
+          "fear",
+          "الخوف",
+          {
+            "ex": [
+              "Hab keine Angst!",
+              "Don't be afraid!"
+            ]
+          }
+        ],
+        [
+          "die Anweisung, -en",
+          "instruction",
+          "التعليمة"
+        ],
+        [
+          "die Aufforderung, -en",
+          "request, demand",
+          "الطلب / الأمر"
+        ],
+        [
+          "der/die Bekannte, -n",
+          "acquaintance",
+          "المعرفة (شخص تعرفه)"
+        ],
+        [
+          "die Beschreibung, -en",
+          "description",
+          "الوصف"
+        ],
+        [
+          "die Bitte, -n",
+          "request",
+          "الرجاء / الطلب"
+        ],
+        [
+          "der Copyshop, -s",
+          "copy shop",
+          "محل النسخ",
+          {
+            "img": "1f5a8"
+          }
+        ],
+        [
+          "der Espresso, -s / -ssi",
+          "espresso",
+          "الإسبريسو",
+          {
+            "img": "2615"
+          }
+        ],
+        [
+          "der Tee, -s",
+          "tea",
+          "الشاي",
+          {
+            "img": "1f375"
+          }
+        ],
+        [
+          "der Schinkentoast, -s",
+          "ham toast",
+          "توست بالجبن ولحم الخنزير",
+          {
+            "img": "1f96a"
+          }
+        ],
+        [
+          "der Milchkaffee, -s",
+          "milky coffee",
+          "القهوة بالحليب",
+          {
+            "img": "2615"
+          }
+        ],
+        [
+          "der Schokoladenkuchen, -",
+          "chocolate cake",
+          "كعكة الشوكولاتة",
+          {
+            "img": "1f370"
+          }
+        ],
+        [
+          "der Inhaber, -",
+          "owner (male)",
+          "المالك"
+        ],
+        [
+          "die Inhaberin, -nen",
+          "owner (female)",
+          "المالكة"
+        ],
+        [
+          "die Kasse, -n",
+          "till, checkout",
+          "الصندوق (الكاشير)"
+        ],
+        [
+          "die Kopie, -n",
+          "copy",
+          "النسخة"
+        ],
+        [
+          "die Liste, -n",
+          "list",
+          "القائمة"
+        ],
+        [
+          "die Lösung, -en",
+          "solution",
+          "الحل"
+        ],
+        [
+          "die Neuigkeit, -en",
+          "news, novelty",
+          "الخبر الجديد"
+        ],
+        [
+          "die Notiz, -en",
+          "note",
+          "الملاحظة",
+          {
+            "img": "1f4dd"
+          }
+        ],
+        [
+          "das Paar, -e",
+          "pair",
+          "الزوج (اثنان)",
+          {
+            "note": "ein Paar Socken = zwei Socken; ein paar = einige"
+          }
+        ],
+        [
+          "der Platz (hier nur Sg.)",
+          "space, room",
+          "المكان / المساحة",
+          {
+            "note": "(keinen) Platz haben"
+          }
+        ],
+        [
+          "die Situation, -en",
+          "situation",
+          "الموقف"
+        ],
+        [
+          "der Snack, -s",
+          "snack",
+          "الوجبة الخفيفة",
+          {
+            "img": "1f96a"
+          }
+        ],
+        [
+          "die Tür, -en",
+          "door",
+          "الباب",
+          {
+            "img": "1f6aa"
+          }
+        ],
+        [
+          "die Veranstaltung, -en",
+          "event",
+          "الفعالية"
+        ],
+        [
+          "die Vermutung, -en",
+          "assumption, guess",
+          "التخمين"
+        ],
+        [
+          "der Vorschlag, ¨e",
+          "suggestion",
+          "الاقتراح"
+        ],
+        [
+          "die Wegbeschreibung, -en",
+          "directions",
+          "وصف الطريق",
+          {
+            "img": "1f5fa"
+          }
+        ],
+        [
+          "der Wunsch, ¨e",
+          "wish",
+          "الأمنية"
+        ]
+      ]
+    },
+    {
+      "category": "Verben",
+      "type": "verb",
+      "page": 64,
+      "items": [
+        [
+          "anprobieren",
+          "to try on",
+          "يقيس (ملابس)",
+          {
+            "ex": [
+              "Probier mal das Hemd an!",
+              "Try the shirt on!"
+            ]
+          }
+        ],
+        [
+          "anstoßen",
+          "to bump into; to clink glasses",
+          "يصطدم بـ / يشرب نخب"
+        ],
+        [
+          "aufpassen",
+          "to pay attention, to be careful",
+          "ينتبه",
+          {
+            "ex": [
+              "Pass auf!",
+              "Watch out!"
+            ]
+          }
+        ],
+        [
+          "ausführen",
+          "to carry out",
+          "ينفذ"
+        ],
+        [
+          "bedeuten",
+          "to mean",
+          "يعني",
+          {
+            "ex": [
+              "Was bedeutet „spät“?",
+              "What does “spät” mean?"
+            ]
+          }
+        ],
+        [
+          "bringen",
+          "to bring",
+          "يُحضر"
+        ],
+        [
+          "klicken",
+          "to click",
+          "ينقر"
+        ],
+        [
+          "eingeben",
+          "to enter, to type in",
+          "يُدخل (بيانات)"
+        ],
+        [
+          "einladen",
+          "to invite",
+          "يدعو",
+          {
+            "ex": [
+              "Lade ihn ein!",
+              "Invite him!"
+            ]
+          }
+        ],
+        [
+          "entschuldigen",
+          "to excuse",
+          "يعتذر / يعذر",
+          {
+            "ex": [
+              "Entschuldigen Sie, können Sie mir helfen?",
+              "Excuse me, can you help me?"
+            ]
+          }
+        ],
+        [
+          "festhalten",
+          "to hold on to",
+          "يمسك بإحكام"
+        ],
+        [
+          "helfen",
+          "to help",
+          "يساعد",
+          {
+            "ex": [
+              "Können Sie mir bitte helfen?",
+              "Can you please help me?"
+            ]
+          }
+        ],
+        [
+          "holen",
+          "to fetch, to get",
+          "يُحضر / يجلب"
+        ],
+        [
+          "kopieren",
+          "to copy",
+          "ينسخ"
+        ],
+        [
+          "lächeln",
+          "to smile",
+          "يبتسم"
+        ],
+        [
+          "mailen",
+          "to e-mail",
+          "يرسل بريداً إلكترونياً"
+        ],
+        [
+          "nehmen",
+          "to take",
+          "يأخذ"
+        ],
+        [
+          "mitnehmen",
+          "to take along",
+          "يأخذ معه"
+        ],
+        [
+          "sagen",
+          "to say",
+          "يقول"
+        ],
+        [
+          "träumen",
+          "to dream",
+          "يحلم"
+        ],
+        [
+          "vermuten",
+          "to suppose, to assume",
+          "يفترض"
+        ],
+        [
+          "versuchen",
+          "to try",
+          "يحاول"
+        ],
+        [
+          "warten",
+          "to wait",
+          "ينتظر",
+          {
+            "ex": [
+              "Warte mal einen Moment!",
+              "Wait a moment!"
+            ]
+          }
+        ],
+        [
+          "sollen",
+          "should, shall (suggestions: Sollen wir …?)",
+          "ينبغي / هل علينا…؟",
+          {
+            "note": "Vorschläge: Sollen wir einen Kaffee trinken? Soll ich helfen? (AaeB S. 65)",
+            "page": 65
+          }
+        ]
+      ]
+    },
+    {
+      "category": "Adjektive",
+      "type": "adjective",
+      "page": 64,
+      "items": [
+        [
+          "fertig",
+          "finished, ready",
+          "جاهز / منتهٍ"
+        ],
+        [
+          "freundlich",
+          "friendly",
+          "ودود"
+        ],
+        [
+          "herzlich",
+          "warm, cordial",
+          "ودّي / قلبي"
+        ],
+        [
+          "höflich",
+          "polite",
+          "مهذب"
+        ],
+        [
+          "klasse",
+          "great (colloquial)",
+          "رائع"
+        ],
+        [
+          "kulturell",
+          "cultural",
+          "ثقافي"
+        ],
+        [
+          "kurz",
+          "short",
+          "قصير"
+        ],
+        [
+          "langsam",
+          "slow",
+          "بطيء"
+        ],
+        [
+          "nass",
+          "wet",
+          "مبلّل"
+        ],
+        [
+          "passend",
+          "suitable, matching",
+          "مناسب"
+        ],
+        [
+          "professionell",
+          "professional",
+          "محترف"
+        ],
+        [
+          "sauber",
+          "clean",
+          "نظيف"
+        ],
+        [
+          "vorsichtig",
+          "careful",
+          "حذر",
+          {
+            "ex": [
+              "Sei vorsichtig!",
+              "Be careful!"
+            ]
+          }
+        ],
+        [
+          "wirklich",
+          "real",
+          "حقيقي"
+        ]
+      ]
+    },
+    {
+      "category": "Adverbien",
+      "type": "adverb",
+      "page": 64,
+      "items": [
+        [
+          "nie",
+          "never",
+          "أبداً"
+        ],
+        [
+          "später",
+          "later",
+          "لاحقاً"
+        ]
+      ]
+    },
+    {
+      "category": "Partikeln",
+      "type": "particle",
+      "page": 64,
+      "items": [
+        [
+          "mal",
+          "(softening particle in suggestions)",
+          "(أداة تلطيف)",
+          {
+            "ex": [
+              "Schau mal hier!",
+              "Have a look here!"
+            ]
+          }
+        ],
+        [
+          "doch",
+          "(emphasising particle in suggestions)",
+          "(أداة تأكيد)",
+          {
+            "ex": [
+              "Gehen wir doch ins Kino!",
+              "Let's go to the cinema!"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "category": "Präpositionen",
+      "type": "preposition",
+      "page": 64,
+      "items": [
+        [
+          "bis (bald)",
+          "until, see you (soon)",
+          "إلى (قريباً)"
+        ]
+      ]
+    },
+    {
+      "category": "Pronomen / Artikel",
+      "type": "particle",
+      "page": 64,
+      "items": [
+        [
+          "alles",
+          "everything",
+          "كل شيء"
+        ],
+        [
+          "ein paar",
+          "a few",
+          "بضعة"
+        ]
+      ]
+    }
+  ]
+}
