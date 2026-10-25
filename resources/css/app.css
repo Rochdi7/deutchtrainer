@@ -131,6 +131,46 @@
     .option-key {
         @apply hidden h-8 w-8 shrink-0 place-items-center rounded-lg border-2 border-gray-200 text-xs font-extrabold text-gray-400 sm:grid dark:border-gray-700;
     }
+    /* article colour coding: der blue · die red · das green */
+    .article-der {
+        @apply border-pop-blue/50 text-pop-blue-dark dark:text-blue-300;
+    }
+    .article-die {
+        @apply border-pop-red/50 text-pop-red-dark dark:text-red-300;
+    }
+    .article-das {
+        @apply border-pop-green/50 text-pop-green-dark dark:text-emerald-300;
+    }
+
+    /* ---- quiz tools: lifeline chips and round icon buttons */
+    .tool-chip {
+        @apply inline-flex min-h-[40px] items-center gap-1.5 rounded-xl border-2 border-gray-200 bg-white px-3 text-sm font-extrabold text-gray-600 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800;
+        box-shadow: 0 3px 0 0 #e4e4e7;
+    }
+    .dark .tool-chip {
+        box-shadow: 0 3px 0 0 #374151;
+    }
+    .tool-chip:not(:disabled):active {
+        transform: translateY(3px);
+        box-shadow: none;
+    }
+    .tool-chip-on {
+        @apply border-pop-yellow bg-yellow-50 text-pop-yellow-dark dark:bg-yellow-950/40;
+    }
+    .tool-btn {
+        @apply grid h-10 w-10 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-gray-100 dark:hover:bg-gray-800;
+    }
+
+    /* ---- result tiles: coloured header strip + big number */
+    .stat-tile {
+        @apply overflow-hidden rounded-2xl border-2 text-center;
+    }
+    .stat-tile > div {
+        @apply px-2 py-1 text-[11px] font-black uppercase tracking-widest text-white;
+    }
+    .stat-tile > span {
+        @apply block py-3 text-2xl font-black tabular-nums;
+    }
 
     /* ---- token chips (word order / spelling) */
     .chip {
@@ -183,6 +223,25 @@
     .path-node:active {
         transform: translateY(7px);
         box-shadow: none;
+    }
+    /* ---- big tappable launch tiles (practice hub) */
+    .launch-tile {
+        @apply relative flex flex-col items-start gap-1 overflow-hidden rounded-2xl p-4 text-left text-white transition-transform duration-100 disabled:cursor-not-allowed disabled:opacity-50;
+        background: var(--tile-bg);
+        box-shadow: 0 5px 0 0 var(--tile-edge);
+    }
+    .launch-tile:not(:disabled):active {
+        transform: translateY(5px);
+        box-shadow: none;
+    }
+    .launch-tile:not(:disabled):hover {
+        filter: brightness(1.05);
+    }
+    .select-card {
+        @apply relative flex w-full flex-col gap-1.5 rounded-2xl border-2 border-gray-200 bg-white p-3 text-left transition hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800;
+    }
+    .select-card-on {
+        @apply border-pop-primary bg-brand-50 dark:bg-brand-900/30;
     }
     .path-node-locked {
         --node-bg: #e4e4e7;

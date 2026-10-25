@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import SectionIcon from '@/Components/Trainer/SectionIcon.vue';
+import DailyGoalCard from '@/Components/Trainer/DailyGoalCard.vue';
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import { useI18n } from '@/i18n';
 
@@ -50,6 +51,7 @@ function startFinal() {
         <div class="mx-auto flex max-w-6xl gap-8 px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
             <!-- PATH -->
             <div class="min-w-0 flex-1">
+                <DailyGoalCard class="mb-4 lg:hidden" />
                 <p class="mb-3 text-center text-xs font-bold text-gray-400 lg:text-left">{{ t('course.path_hint') }}</p>
 
                 <section v-for="(l, i) in course.lessons" :key="l.id" class="mb-10">
@@ -108,6 +110,8 @@ function startFinal() {
 
             <!-- RIGHT RAIL -->
             <aside class="hidden w-80 shrink-0 space-y-4 lg:block">
+                <DailyGoalCard />
+
                 <div class="card p-5">
                     <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('course.title', { level: course.level }) }}</div>
                     <div class="mt-1 text-4xl font-black text-pop-primary">{{ course.completion }} %</div>

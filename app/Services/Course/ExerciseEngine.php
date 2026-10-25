@@ -26,7 +26,10 @@ use Illuminate\Support\Str;
 class ExerciseEngine
 {
     /** Generated vocabulary modes. */
-    public const VOCAB_MODES = ['image_word', 'word_image', 'de_en', 'en_de', 'ar_de', 'typing', 'article', 'plural', 'match', 'sentence', 'spelling'];
+    public const VOCAB_MODES = ['image_word', 'word_image', 'de_en', 'en_de', 'ar_de', 'typing', 'article', 'plural', 'match', 'sentence', 'spelling', 'speak', 'speak_sentence'];
+
+    /** Spoken answers scoring at least this (0–100, see AnswerChecker::spokenScore) count as correct. */
+    public const SPEAK_PASS_SCORE = 80;
 
     public function __construct(
         private readonly AnswerChecker $checker,
@@ -150,6 +153,31 @@ class ExerciseEngine
         }
 
         return $this->createSession($user, 'revision', collect($items)->shuffle()->values()->all(), null, null, 'Wiederholung');
+    }
+
+    /**
+     * Pronunciation drill: say words (and a few example sentences) out loud; the browser's speech
+     * recognition transcribes them and check() scores the transcript.
+     */
+    public function speaking(User $user, array $filters): ExerciseSession
+    {
+        $count = max(5, min(40, (int) ($filters['count'] ?? 12)));
+        $ids = collect($filters['lektion_ids'] ?? []);
+        if ($ids->isEmpty()) {
+            $ids = LessonProgress::where('user_id', $user->id)->pluck('lektion_id')->unique();
+        }
+        if ($ids->isEmpty()) {
+            $ids = Lektion::level($filters['level'] ?? 'A1')->orderBy('sort')->limit(1)->pluck('id');
+        }
+
+        $words = Word::whereIn('lektion_id', $ids)->inRandomOrder()->limit(150)->get();
+        $sentences = (int) floor($count / 4);
+        $items = array_merge(
+            $this->vocabItems($words, ['speak'], $count - $sentences),
+            $this->vocabItems($words, ['speak_sentence'], $sentences),
+        );
+
+        return $this->createSession($user, 'practice', collect($items)->shuffle()->values()->all(), null, 'vocab', 'Aussprache');
     }
 
     /** Cumulative A1 practice test (not an official exam). */
@@ -316,7 +344,8 @@ class ExerciseEngine
             'sentence' => $w->example_de !== null && preg_match('/\b'.preg_quote($w->german, '/').'\b/u', $w->example_de) === 1 && ! str_contains($w->german, ' '),
             'spelling' => mb_strlen($w->german) >= 4 && ! str_contains($w->german, ' '),
             'de_en', 'en_de', 'typing' => $w->english !== null,
-            'ar_de' => true,
+            'ar_de', 'speak' => true,
+            'speak_sentence' => $w->example_de !== null && mb_strlen($w->example_de) <= 80,
             'match' => $w->english !== null && $pool->count() >= 4,
             default => false,
         };
@@ -376,6 +405,10 @@ class ExerciseEngine
                 shuffle($letters);
 
                 return $base + ['type' => 'order', 'vocab_mode' => $mode, 'prompt' => $w->english.($w->article ? ' ('.$w->article.')' : ''), 'data' => ['tokens' => $letters, 'join' => '', 'image' => $w->image], 'solution' => ['answer' => $w->german, 'accept' => [$w->german]]];
+            case 'speak':
+                return $base + ['type' => 'speak', 'vocab_mode' => $mode, 'prompt' => $w->display, 'data' => ['text' => $w->display, 'image' => $w->image, 'translation' => $w->english], 'solution' => ['answer' => $w->display, 'accept' => array_values(array_unique([$w->display, $w->german]))]];
+            case 'speak_sentence':
+                return $base + ['type' => 'speak', 'vocab_mode' => $mode, 'prompt' => $w->example_de, 'data' => ['text' => $w->example_de, 'translation' => $w->example_en], 'solution' => ['answer' => $w->example_de, 'accept' => [$w->example_de]]];
             case 'match':
                 $others = $pool->filter(fn (Word $o) => $o->id !== $w->id && $o->english)->shuffle()->take(3);
                 $pairs = $others->map(fn (Word $o) => [$o->display, $o->english])->push([$w->display, $w->english])->values()->all();
@@ -405,7 +438,7 @@ class ExerciseEngine
     // ------------------------------------------------------------------ checking
 
     /**
-     * @param  mixed  $given  string | string[][] (match) | array{text:string, self_ok:bool} (write)
+     * @param  mixed  $given  string | string[][] (match) | array{text:string, self_ok:bool} (write) | array{transcripts:string[], self_ok?:bool} (speak)
      * @return array{correct: bool, answer: mixed, explanation: ?string, translation: ?string, model_answer?: string, checklist?: array}
      */
     public function check(array $item, mixed $given): array
@@ -413,6 +446,8 @@ class ExerciseEngine
         $s = $item['solution'];
         $type = $item['type'];
         $correct = false;
+        $heard = null;
+        $score = null;
 
         switch ($type) {
             case 'mc':
@@ -446,6 +481,25 @@ class ExerciseEngine
                 $correct = is_array($given) && count($given) === count($pairs)
                     && collect($given)->every(fn ($p) => is_array($p) && collect($pairs)->contains(fn ($x) => $x[0] === ($p[0] ?? null) && $x[1] === ($p[1] ?? null)));
                 break;
+            case 'speak':
+                // Recogniser alternatives are scored against every accepted form; without speech
+                // recognition (e.g. Firefox) the learner self-checks against the TTS model.
+                $transcripts = is_array($given) ? array_filter(array_map('strval', (array) ($given['transcripts'] ?? [])), fn ($t) => trim($t) !== '') : [];
+                if ($transcripts === []) {
+                    $correct = is_array($given) && ! empty($given['self_ok']);
+                    break;
+                }
+                $score = -1;
+                foreach (array_slice($transcripts, 0, 5) as $t) {
+                    foreach ($s['accept'] ?? [$s['answer']] as $a) {
+                        $sc = $this->checker->spokenScore($t, (string) $a);
+                        if ($sc > $score) {
+                            [$score, $heard] = [$sc, $t];
+                        }
+                    }
+                }
+                $correct = $score >= self::SPEAK_PASS_SCORE;
+                break;
             case 'write':
                 $correct = is_array($given) && ! empty($given['self_ok']) && trim((string) ($given['text'] ?? '')) !== '';
                 break;
@@ -467,6 +521,8 @@ class ExerciseEngine
             'transcript' => $s['transcript'] ?? null,
             'model_answer' => $s['model_answer'] ?? null,
             'checklist' => $s['checklist'] ?? null,
+            'heard' => $heard,
+            'score' => $score,
         ];
     }
 

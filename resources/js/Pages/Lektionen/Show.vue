@@ -94,7 +94,7 @@ const learnedWords = computed(() => props.words.filter((w) => w.level >= 1).leng
 const modeLabels = {
     image_word: 'vocab.mode_image_word', word_image: 'vocab.mode_word_image', en_de: 'vocab.mode_en_de', de_en: 'vocab.mode_de_en',
     typing: 'vocab.mode_typing', article: 'vocab.mode_article', plural: 'vocab.mode_plural', sentence: 'vocab.mode_sentence',
-    spelling: 'vocab.mode_spelling', match: 'vocab.mode_match', mixed: 'vocab.mode_mixed',
+    spelling: 'vocab.mode_spelling', match: 'vocab.mode_match', speak: 'vocab.mode_speak', mixed: 'vocab.mode_mixed',
 };
 function startVocab(mode) {
     router.post(route('exercises.start'), { kind: 'vocab', lektion_id: props.lektion.id, mode, count: mode === 'mixed' ? 16 : 12 });

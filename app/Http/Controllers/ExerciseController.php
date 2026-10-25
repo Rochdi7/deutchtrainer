@@ -8,6 +8,7 @@ use App\Models\ExerciseSession;
 use App\Models\Lektion;
 use App\Services\Course\CourseProgressService;
 use App\Services\Course\ExerciseEngine;
+use App\Services\StatsService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class ExerciseController extends Controller
     public function start(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'kind' => ['required', 'in:set,vocab,test,practice,revision,final'],
+            'kind' => ['required', 'in:set,vocab,test,practice,revision,final,speak'],
             'lektion_id' => ['nullable', 'integer', 'exists:lektionen,id'],
             'section' => ['nullable', 'string', 'max:32'],
             'mode' => ['nullable', 'string', 'max:32'],
@@ -50,6 +51,7 @@ class ExerciseController extends Controller
             'practice' => $this->engine->practice($user, $data),
             'revision' => $this->engine->revision($user, $data['count'] ?? 20),
             'final' => $this->engine->finalAssessment($user),
+            'speak' => $this->engine->speaking($user, $data),
         };
 
         if ($session->total === 0) {
@@ -120,7 +122,7 @@ class ExerciseController extends Controller
         ]);
     }
 
-    public function finish(Request $request, ExerciseSession $session): JsonResponse
+    public function finish(Request $request, ExerciseSession $session, StatsService $stats): JsonResponse
     {
         abort_unless($session->user_id === $request->user()->id, 403);
 
@@ -152,6 +154,7 @@ class ExerciseController extends Controller
             'mode' => $session->mode,
             'wrong' => $wrong,
             'lektion_id' => $session->lektion_id,
+            'daily' => $stats->daily($request->user()),
         ]);
     }
 

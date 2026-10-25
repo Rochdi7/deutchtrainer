@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserWordProgress;
 use App\Models\Word;
 use App\Services\Course\CourseProgressService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -21,7 +22,7 @@ class RevisionController extends Controller
     }
 
     /** Mark / unmark a word as difficult (adds it to the revision queue). */
-    public function toggleDifficult(Request $request, Word $word): RedirectResponse
+    public function toggleDifficult(Request $request, Word $word): RedirectResponse|JsonResponse
     {
         $p = UserWordProgress::firstOrNew(['user_id' => $request->user()->id, 'word_id' => $word->id]);
         $p->is_difficult = ! $p->is_difficult;
@@ -30,6 +31,6 @@ class RevisionController extends Controller
         }
         $p->save();
 
-        return back();
+        return $request->wantsJson() ? response()->json(['is_difficult' => $p->is_difficult]) : back();
     }
 }

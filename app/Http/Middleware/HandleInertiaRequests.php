@@ -23,8 +23,9 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => $request->user()?->only(['id', 'name', 'email', 'is_admin', 'locale']),
+                'user' => $request->user()?->only(['id', 'name', 'email', 'is_admin', 'locale', 'daily_goal', 'reminders_enabled', 'reminder_hour', 'timezone']),
             ],
+            'push' => ['vapid_public_key' => config('services.webpush.public_key')],
             // Streak / XP / due words for the top stat bar (cheap: four small queries).
             'stats' => fn () => $request->user() ? app(StatsService::class)->headline($request->user()) : null,
             'locale' => app()->getLocale(),

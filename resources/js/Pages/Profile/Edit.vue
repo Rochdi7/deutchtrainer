@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
+import LearningSettingsForm from './Partials/LearningSettingsForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import { Head, Link, usePage } from '@inertiajs/vue3';
@@ -37,6 +38,10 @@ const initials = computed(() => (user.value?.name || '?').split(' ').map((p) => 
                 </div>
                 <Link :href="route('dashboard')" class="btn-secondary btn-sm">📊 {{ t('nav.stats') }}</Link>
             </section>
+
+            <div class="card p-5 sm:p-7">
+                <LearningSettingsForm />
+            </div>
 
             <div class="card p-5 sm:p-7">
                 <UpdateProfileInformationForm :must-verify-email="mustVerifyEmail" :status="status" />

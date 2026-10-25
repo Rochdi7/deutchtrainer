@@ -59,10 +59,14 @@ export default {
             keyframes: {
                 bob: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
                 pop: { '0%': { transform: 'scale(.9)', opacity: 0 }, '100%': { transform: 'scale(1)', opacity: 1 } },
+                shake: { '0%, 100%': { transform: 'translateX(0)' }, '20%, 60%': { transform: 'translateX(-6px)' }, '40%, 80%': { transform: 'translateX(6px)' } },
+                rise: { '0%': { transform: 'translate(-50%, 8px) scale(.9)', opacity: 0 }, '20%': { transform: 'translate(-50%, 0) scale(1)', opacity: 1 }, '80%': { opacity: 1 }, '100%': { transform: 'translate(-50%, -16px)', opacity: 0 } },
             },
             animation: {
                 bob: 'bob 1.4s ease-in-out infinite',
                 pop: 'pop .18s ease-out',
+                shake: 'shake .35s ease-in-out',
+                rise: 'rise 1.6s ease-out forwards',
             },
         },
     },

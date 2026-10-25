@@ -5,13 +5,19 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ArabicText from '@/Components/Trainer/ArabicText.vue';
 import MarkdownNote from '@/Components/Trainer/MarkdownNote.vue';
 import VocabImage from '@/Components/Trainer/VocabImage.vue';
-import { Head, Link, router } from '@inertiajs/vue3';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import { useI18n } from '@/i18n';
 import { useSpeech } from '@/composables/useSpeech';
+import { useSpeechRecognition } from '@/composables/useSpeechRecognition';
+import { playSound } from '@/composables/useSounds';
 
 const props = defineProps({ session: Object, items: Array, answered: Array, passThreshold: Number });
 const { t, dateLocale } = useI18n();
 const speech = useSpeech();
+const rec = useSpeechRecognition();
+// XP earned today when the page loaded, to detect the moment the daily goal is reached.
+const todayAtStart = usePage().props.stats?.today ?? 0;
+const goalReached = ref(false);
 
 // Resume: skip items already answered in this session.
 const answeredIds = new Set(props.answered.map((a) => a.item_id));
@@ -39,6 +45,7 @@ const writeText = ref('');
 const showModel = ref(false);
 const showPassage = ref(true);
 const showTranslation = ref(false);
+const heard = ref('');
 
 watch(current, () => reset(), { immediate: true });
 function reset() {
@@ -50,8 +57,10 @@ function reset() {
     writeText.value = '';
     showModel.value = false;
     showTranslation.value = false;
+    heard.value = '';
+    rec.stop();
     feedback.value = null;
-    if (current.value?.type === 'listen' && speech.supported.value) setTimeout(() => speech.speak(current.value.data.text), 350);
+    if (['listen', 'speak'].includes(current.value?.type) && speech.supported.value) setTimeout(() => speech.speak(current.value.data.text), 350);
 }
 
 const orderRemaining = computed(() => (current.value?.data?.tokens || []).map((tk, i) => ({ tk, i })).filter(({ i }) => !orderPicked.value.includes(i)));
@@ -101,6 +110,7 @@ async function submit(answer) {
         const { data } = await axios.post(route('exercises.answer', props.session.id), { item_id: current.value.id, answer });
         feedback.value = data;
         correctCount.value = data.session.correct;
+        playSound(data.correct ? 'correct' : 'wrong');
         if (navigator.vibrate) navigator.vibrate(data.correct ? 30 : [60, 40, 60]);
     } catch (e) {
         feedback.value = { correct: false, answer: '?', error: e.response?.data?.message || t('quiz.save_error') };
@@ -111,6 +121,21 @@ async function submit(answer) {
 function submitWrite(ok) {
     submit({ text: writeText.value, self_ok: ok });
 }
+/** Speaking drill: record once, send every recogniser alternative; the server scores them. */
+async function toggleMic() {
+    if (feedback.value || busy.value) return;
+    if (rec.listening.value) return rec.stop();
+    speech.stop();
+    playSound('mic');
+    const transcripts = await rec.listen('de-DE');
+    playSound('micOff');
+    if (!transcripts.length) return; // nothing understood: rec.error explains, the learner can try again
+    heard.value = transcripts[0];
+    await submit({ transcripts });
+}
+function skipSpeak(selfOk = false) {
+    submit({ transcripts: [], self_ok: selfOk });
+}
 async function next() {
     if (!feedback.value) return;
     index.value++;
@@ -120,6 +145,11 @@ async function next() {
 async function finish() {
     const { data } = await axios.post(route('exercises.finish', props.session.id));
     result.value = data;
+    playSound('complete');
+    if (data.daily && todayAtStart < data.daily.goal && data.daily.today >= data.daily.goal) {
+        goalReached.value = true;
+        setTimeout(() => playSound('goal'), 700);
+    }
 }
 function retryWrong() {
     router.post(route('exercises.retry', props.session.id));
@@ -134,6 +164,11 @@ function onKey(e) {
         return;
     }
     if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if (e.key === ' ' && current.value?.type === 'speak' && rec.supported.value && !feedback.value) {
+        e.preventDefault();
+        toggleMic();
+        return;
+    }
     const n = parseInt(e.key, 10);
     const opts = current.value?.data?.options || [];
     if (!feedback.value && hasOptions.value && n >= 1 && n <= opts.length) selected.value = opts[n - 1];
@@ -200,6 +235,17 @@ const orderTokens = computed(() => (current.value?.data?.tokens || []).map((tk, 
                 </div>
             </div>
             <div class="mt-3 text-center text-sm font-bold text-gray-500">{{ t('quiz.of', { a: result.correct, b: result.total }) }}</div>
+            <div v-if="goalReached" class="mt-4 animate-pop rounded-2xl border-2 border-pop-green bg-brand-50 p-4 text-center dark:bg-brand-900/30">
+                <div class="text-4xl">🏆</div>
+                <div class="mt-1 text-lg font-black text-pop-green">{{ t('goal.reached_title') }}</div>
+                <div class="text-sm font-bold text-gray-500">{{ t('goal.reached_sub', { goal: result.daily.goal }) }}</div>
+            </div>
+            <div v-else-if="result.daily" class="mt-4">
+                <div class="mb-1 flex justify-between text-xs font-extrabold uppercase tracking-wide text-gray-400">
+                    <span>🎯 {{ t('goal.title') }}</span><span class="tabular-nums">{{ result.daily.today }} / {{ result.daily.goal }} XP</span>
+                </div>
+                <div class="progress !h-3"><span :style="{ width: Math.min(100, Math.round((result.daily.today * 100) / result.daily.goal)) + '%' }"></span></div>
+            </div>
             <div v-if="['test', 'final'].includes(session.mode)" class="mt-3 text-center">
                 <span v-if="result.passed" class="badge bg-brand-100 px-3 py-1 text-brand-800">{{ t('quiz.passed', { pct: passThreshold }) }}</span>
                 <span v-else class="badge bg-orange-100 px-3 py-1 text-orange-800">{{ t('quiz.not_passed', { pct: passThreshold }) }}</span>
@@ -265,7 +311,7 @@ const orderTokens = computed(() => (current.value?.data?.tokens || []).map((tk, 
                             <button v-if="speech.supported.value && current.type !== 'listen' && current.data.prompt_lang !== 'ar' && !['en_de', 'typing', 'de_en'].includes(current.vocab_mode || '')" type="button" class="ms-1 align-middle text-lg text-pop-blue" :aria-label="t('ex.listen')" @click="speech.speak(current.prompt)">🔊</button>
                         </h1>
                         <div v-if="current.data.hint" class="mt-1 text-sm font-bold text-gray-400">{{ hintText(current.data.hint) }}</div>
-                        <p v-if="current.data.translation && ['order', 'gap', 'conjugation'].includes(current.type)" class="mt-1 text-sm text-gray-400">{{ current.data.translation }}</p>
+                        <p v-if="current.data.translation && ['order', 'gap', 'conjugation', 'speak'].includes(current.type)" class="mt-1 text-sm text-gray-400">{{ current.data.translation }}</p>
                     </div>
                 </div>
 
@@ -331,6 +377,36 @@ const orderTokens = computed(() => (current.value?.data?.tokens || []).map((tk, 
                     </div>
                 </div>
 
+                <!-- speak -->
+                <div v-else-if="current.type === 'speak'" class="mt-8 flex flex-col items-center gap-3 text-center">
+                    <template v-if="rec.supported.value">
+                        <button
+                            type="button"
+                            data-no-sound
+                            class="grid h-24 w-24 place-items-center rounded-full text-5xl text-white transition active:scale-95 disabled:opacity-50"
+                            :class="rec.listening.value ? 'animate-pulse bg-pop-red ring-8 ring-red-200 dark:ring-red-900' : 'bg-pop-primary'"
+                            :style="{ boxShadow: rec.listening.value ? 'none' : '0 5px 0 0 #6243d6' }"
+                            :disabled="!!feedback || busy"
+                            :aria-label="rec.listening.value ? t('speak.stop') : t('speak.tap_to_speak')"
+                            @click="toggleMic"
+                        >
+                            🎤
+                        </button>
+                        <p class="text-sm font-bold text-gray-500">{{ rec.listening.value ? t('speak.listening') : feedback ? '' : t('speak.tap_to_speak') }}</p>
+                        <p v-if="rec.error.value && !feedback" class="max-w-sm rounded-xl bg-yellow-50 px-3 py-2 text-sm font-semibold text-yellow-900 dark:bg-yellow-950/40 dark:text-yellow-200">
+                            {{ ['not-allowed', 'service-not-allowed'].includes(rec.error.value) ? t('speak.err_permission') : rec.error.value === 'network' ? t('speak.err_network') : t('speak.err_nothing') }}
+                        </p>
+                        <button v-if="speech.supported.value" type="button" class="btn-secondary btn-sm" @click="speech.speak(current.data.text, 0.7)">🐢 {{ t('speak.slow') }}</button>
+                    </template>
+                    <div v-else class="max-w-md space-y-3">
+                        <p class="rounded-2xl border-2 border-pop-yellow bg-yellow-50 p-3 text-sm font-semibold text-yellow-900 dark:bg-yellow-950/40 dark:text-yellow-200">{{ t('speak.unsupported') }}</p>
+                        <div v-if="!feedback" class="grid grid-cols-2 gap-2">
+                            <button type="button" class="btn-secondary" @click="skipSpeak(false)">{{ t('speak.self_no') }}</button>
+                            <button type="button" class="btn-primary" @click="skipSpeak(true)">{{ t('speak.self_ok') }}</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- text input -->
                 <form v-else-if="isTextInput" class="mt-6" @submit.prevent="check">
                     <input ref="inputEl" v-model="typed" class="input min-h-[60px] text-xl" :placeholder="current.type === 'translate' && current.data.direction === 'de-en' ? t('ex.type_english') : t('quiz.type_placeholder')" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" :disabled="!!feedback" />
@@ -343,6 +419,7 @@ const orderTokens = computed(() => (current.value?.data?.tokens || []).map((tk, 
                     <template v-if="!feedback">
                         <span class="hidden text-sm font-bold text-gray-400 sm:block">{{ hasOptions ? t('ex.select_hint') : '' }}</span>
                         <button v-if="current.type === 'write' && !showModel" type="button" class="btn-primary w-full sm:w-auto sm:min-w-[180px]" :disabled="writeText.trim().length < 10" @click="showModel = true">{{ t('ex.compare') }}</button>
+                        <button v-else-if="current.type === 'speak'" type="button" class="btn-ghost w-full sm:w-auto" :disabled="busy || rec.listening.value" @click="skipSpeak(false)">{{ t('speak.skip') }}</button>
                         <button v-else-if="current.type !== 'write'" type="button" class="btn-primary w-full sm:w-auto sm:min-w-[180px]" :disabled="!canCheck" @click="check">{{ t('ex.check') }}</button>
                     </template>
                     <template v-else>
@@ -354,6 +431,7 @@ const orderTokens = computed(() => (current.value?.data?.tokens || []).map((tk, 
                                 <div v-if="feedback.explanation" class="mt-0.5">💡 {{ feedback.explanation }}</div>
                                 <div v-if="feedback.translation" class="mt-0.5 opacity-80">{{ feedback.translation }}</div>
                                 <div v-if="feedback.transcript" class="mt-0.5 opacity-80">🎧 {{ feedback.transcript }}</div>
+                                <div v-if="feedback.heard" class="mt-0.5">🎤 {{ t('speak.you_said') }} „{{ feedback.heard }}“ · {{ feedback.score }} %</div>
                                 <div v-if="current.type === 'write' && feedback.checklist" class="mt-0.5"><span class="font-bold">{{ t('ex.checklist') }}:</span> {{ feedback.checklist.join(' · ') }}</div>
                                 <div v-if="current.word" class="mt-0.5 opacity-80">{{ current.word.display }} · {{ current.word.english }} · <ArabicText :text="current.word.arabic" class="font-bold" /><span v-if="current.word.plural && current.type !== 'plural'"> · Pl. {{ current.word.plural }}</span></div>
                                 <div v-if="feedback.progress" class="mt-0.5 text-xs opacity-70">{{ t('quiz.next_review', { level: feedback.progress.level, date: new Date(feedback.progress.next_review_at).toLocaleDateString(dateLocale) }) }}</div>

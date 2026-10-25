@@ -68,6 +68,72 @@ class AnswerChecker
         return $g !== '' && $g === $norm($expected);
     }
 
+    /**
+     * Speech-recognition transcript vs. target word or sentence, 0–100.
+     * Recognisers often drop or swap the article and spell numbers as digits, so the score is the best of
+     * the whole phrase and the phrase without its article, by character similarity (words) or word overlap (sentences).
+     */
+    public function spokenScore(?string $heard, string $expected): int
+    {
+        $norm = fn (string $s): string => preg_replace('/\s+/u', ' ', trim(str_replace(
+            ['ä', 'ö', 'ü', 'ß'], ['ae', 'oe', 'ue', 'ss'],
+            preg_replace('/[^\p{L}\p{N}\s]+/u', ' ', mb_strtolower(preg_replace('/\([^)]*\)/u', ' ', $s))),
+        )));
+        $stripArticle = fn (string $s): string => preg_replace('/^(der|die|das|ein|eine|einen|dem|den)\s+/u', '', $s);
+
+        $h = $norm((string) $heard);
+        if ($h === '') {
+            return 0;
+        }
+
+        $best = 0;
+        foreach (preg_split('/\s*\/\s*/', $expected) as $variant) {
+            $e = $norm($variant);
+            if ($e === '') {
+                continue;
+            }
+            foreach ([[$h, $e], [$stripArticle($h), $stripArticle($e)]] as [$a, $b]) {
+                if ($a === $b || preg_match('/(^| )'.preg_quote($b, '/').'( |$)/u', $a)) {
+                    return 100;
+                }
+                $best = max($best, str_contains($b, ' ') ? $this->wordOverlap($a, $b) : $this->charSimilarity($a, $b));
+            }
+        }
+
+        return $best;
+    }
+
+    /** A one-letter slip in a short word is usually another word (Fisch / Tisch), so those stay below the pass mark. */
+    private function charSimilarity(string $a, string $b): int
+    {
+        $max = max(strlen($a), strlen($b));
+        if ($max === 0) {
+            return 0;
+        }
+        $score = (int) round((1 - levenshtein($a, $b) / $max) * 100);
+
+        return $max <= 5 && $a !== $b ? min($score, 75) : $score;
+    }
+
+    /** Share of expected words that were heard (each word counted once, near-misses of 1 letter allowed). */
+    private function wordOverlap(string $heard, string $expected): int
+    {
+        $pool = explode(' ', $heard);
+        $want = explode(' ', $expected);
+        $hit = 0;
+        foreach ($want as $w) {
+            foreach ($pool as $i => $p) {
+                if ($p === $w || (strlen($w) > 3 && levenshtein($p, $w) <= 1)) {
+                    $hit++;
+                    unset($pool[$i]);
+                    break;
+                }
+            }
+        }
+
+        return (int) round($hit * 100 / count($want));
+    }
+
     /** Exact match for multiple-choice options (after trimming). */
     public function optionMatches(?string $given, string $expected): bool
     {

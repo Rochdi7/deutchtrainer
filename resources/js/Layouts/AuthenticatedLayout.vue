@@ -6,6 +6,8 @@ import LanguageSwitcher from '@/Components/Trainer/LanguageSwitcher.vue';
 import BottomNav from '@/Components/Trainer/BottomNav.vue';
 import NavIcon from '@/Components/Trainer/NavIcon.vue';
 import InstallBanner from '@/Components/Trainer/InstallBanner.vue';
+import DailyGoalRing from '@/Components/Trainer/DailyGoalRing.vue';
+import SoundToggle from '@/Components/Trainer/SoundToggle.vue';
 import { Link, usePage } from '@inertiajs/vue3';
 import { useI18n } from '@/i18n';
 
@@ -16,7 +18,7 @@ defineProps({
 
 const { t } = useI18n();
 const page = usePage();
-const stats = computed(() => page.props.stats || { streak: 0, xp: 0, due: 0 });
+const stats = computed(() => page.props.stats || { streak: 0, xp: 0, due: 0, today: 0, goal: 20 });
 const user = computed(() => page.props.auth.user);
 
 const nav = computed(() => [
@@ -55,7 +57,10 @@ const nav = computed(() => [
             <div class="mt-4 space-y-3 border-t-2 border-gray-100 pt-4 dark:border-gray-800">
                 <div class="flex items-center justify-between gap-2 px-1">
                     <LanguageSwitcher />
-                    <DarkModeToggle />
+                    <div class="flex">
+                        <SoundToggle />
+                        <DarkModeToggle />
+                    </div>
                 </div>
                 <div class="truncate px-2 text-xs font-bold text-gray-500">{{ user?.name }}</div>
                 <Link :href="route('logout')" method="post" as="button" class="btn-ghost btn-sm w-full justify-start px-2 normal-case tracking-normal">{{ t('nav.logout') }}</Link>
@@ -70,9 +75,11 @@ const nav = computed(() => [
                         <span class="flex items-center gap-1 text-pop-orange" :title="t('dash.streak')"><span class="text-xl" :class="{ grayscale: !stats.streak }">🔥</span>{{ stats.streak }}</span>
                         <span class="flex items-center gap-1 text-pop-yellow-dark" :title="t('dash.xp')"><span class="text-xl">⚡</span>{{ stats.xp }}</span>
                         <Link :href="route('revision.index')" class="flex items-center gap-1 text-pop-blue" :title="t('dash.due_today')"><span class="text-xl">📚</span>{{ stats.due }}</Link>
+                        <Link :href="route('profile.edit') + '#goal'" class="flex items-center gap-1 text-pop-primary" :title="t('goal.title')"><DailyGoalRing :today="stats.today" :goal="stats.goal" :size="28" :stroke="3" /><span class="tabular-nums">{{ stats.today }}/{{ stats.goal }}</span></Link>
                     </div>
                     <div class="flex items-center gap-1.5">
                         <LanguageSwitcher />
+                        <SoundToggle class="hidden sm:inline-flex" />
                         <DarkModeToggle />
                     </div>
                 </div>
@@ -84,6 +91,7 @@ const nav = computed(() => [
                     <span class="flex items-center gap-1.5 text-pop-orange"><span class="text-2xl" :class="{ grayscale: !stats.streak }">🔥</span>{{ stats.streak }} <span class="font-bold text-gray-400">{{ t('stats.streak') }}</span></span>
                     <span class="flex items-center gap-1.5 text-pop-yellow-dark"><span class="text-2xl">⚡</span>{{ stats.xp }} <span class="font-bold text-gray-400">{{ t('stats.xp') }}</span></span>
                     <Link :href="route('revision.index')" class="flex items-center gap-1.5 text-pop-blue"><span class="text-2xl">📚</span>{{ stats.due }} <span class="font-bold text-gray-400">{{ t('stats.due') }}</span></Link>
+                    <Link :href="route('profile.edit') + '#goal'" class="flex items-center gap-1.5 text-pop-primary" :title="t('goal.title')"><DailyGoalRing :today="stats.today" :goal="stats.goal" :size="32" />{{ stats.today }}/{{ stats.goal }} <span class="font-bold text-gray-400">{{ t('goal.xp_today') }}</span></Link>
                 </div>
             </div>
 

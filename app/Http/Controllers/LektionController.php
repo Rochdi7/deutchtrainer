@@ -85,7 +85,7 @@ class LektionController extends Controller
             'progress' => $progress->lessonProgress($user, $lektion),
             'bestScore' => $best,
             'completed' => ($progress->lessonProgress($user, $lektion)['test']['completed'] ?? false) || ($best !== null && $best >= 80),
-            'vocabModes' => ['image_word', 'word_image', 'en_de', 'de_en', 'typing', 'article', 'plural', 'sentence', 'spelling', 'match', 'mixed'],
+            'vocabModes' => ['image_word', 'word_image', 'en_de', 'de_en', 'typing', 'article', 'plural', 'sentence', 'spelling', 'match', 'speak', 'mixed'],
         ]);
     }
 }

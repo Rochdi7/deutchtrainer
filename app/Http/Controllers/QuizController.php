@@ -8,6 +8,7 @@ use App\Models\QuizSession;
 use App\Services\Quiz\AnswerChecker;
 use App\Services\Quiz\ProgressService;
 use App\Services\Quiz\QuizGenerator;
+use App\Services\StatsService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -76,6 +77,8 @@ class QuizController extends Controller
                 'word_id' => $a->word_id,
             ]),
             'passThreshold' => (int) (QuizSession::PASS_THRESHOLD * 100),
+            'difficult' => $request->user()->wordProgress()->where('is_difficult', true)
+                ->whereIn('word_id', collect($session->questions)->pluck('word_id')->filter())->pluck('word_id'),
         ]);
     }
 
@@ -88,6 +91,7 @@ class QuizController extends Controller
         $data = $request->validate([
             'question_id' => ['required', 'string'],
             'answer' => ['nullable', 'string', 'max:255'],
+            'hinted' => ['nullable', 'boolean'],
         ]);
 
         $question = collect($session->questions)->firstWhere('id', $data['question_id']);
@@ -116,8 +120,10 @@ class QuizController extends Controller
             $session->increment('correct');
         }
 
+        // A correct answer found with a hint still scores, but doesn't level the word up;
+        // a wrong one resets it as usual.
         $progress = null;
-        if ($question['word_id']) {
+        if ($question['word_id'] && ! ($correct && ! empty($data['hinted']))) {
             $progress = $this->progress->record($request->user(), $question['word_id'], $correct);
         }
 
@@ -130,7 +136,36 @@ class QuizController extends Controller
         ]);
     }
 
-    public function finish(Request $request, QuizSession $session): JsonResponse
+    /**
+     * Ajax lifelines (solutions never reach the browser, so hints are computed here):
+     * fifty – two wrong options to hide; letter – the first `n` letters of the answer (article included for free).
+     */
+    public function hint(Request $request, QuizSession $session): JsonResponse
+    {
+        abort_unless($session->user_id === $request->user()->id, 403);
+        $data = $request->validate([
+            'question_id' => ['required', 'string'],
+            'kind' => ['required', 'in:fifty,letter'],
+            'n' => ['nullable', 'integer', 'min:1', 'max:40'],
+        ]);
+        $question = collect($session->questions)->firstWhere('id', $data['question_id']);
+        abort_if(! $question, 404, 'Unknown question.');
+
+        if ($data['kind'] === 'fifty') {
+            abort_if(count($question['options'] ?? []) < 3, 422, 'No options to remove.');
+            $wrong = collect($question['options'])->reject(fn ($o) => $o === $question['answer'])->shuffle();
+
+            return response()->json(['remove' => $wrong->take(max(1, count($question['options']) - 2))->values()]);
+        }
+
+        $answer = (string) $question['answer'];
+        $article = preg_match('/^(der|die|das)\s+/u', $answer, $m) ? $m[0] : '';
+        $n = min((int) ($data['n'] ?? 1), max(1, mb_strlen($answer) - mb_strlen($article) - 1));
+
+        return response()->json(['prefix' => $article.mb_substr($answer, mb_strlen($article), $n), 'length' => mb_strlen($answer)]);
+    }
+
+    public function finish(Request $request, QuizSession $session, StatsService $stats): JsonResponse
     {
         abort_unless($session->user_id === $request->user()->id, 403);
 
@@ -155,6 +190,7 @@ class QuizController extends Controller
             'total' => $session->total,
             'passed' => $session->isPassed(),
             'wrong' => $wrong,
+            'daily' => $stats->daily($request->user()),
         ]);
     }
 

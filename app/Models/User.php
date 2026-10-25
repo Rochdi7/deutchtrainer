@@ -13,7 +13,9 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'email', 'password', 'is_admin', 'locale'];
+    public const DAILY_GOALS = [10, 20, 30, 50];
+
+    protected $fillable = ['name', 'email', 'password', 'is_admin', 'locale', 'daily_goal', 'reminders_enabled', 'reminder_hour', 'timezone', 'last_reminded_on'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -23,7 +25,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'is_admin' => 'boolean',
+            'daily_goal' => 'integer',
+            'reminders_enabled' => 'boolean',
+            'reminder_hour' => 'integer',
+            'last_reminded_on' => 'date',
         ];
+    }
+
+    /** The learner's own timezone (set from the browser), falling back to the app's. */
+    public function timezoneName(): string
+    {
+        return $this->timezone ?: config('app.timezone');
+    }
+
+    public function pushSubscriptions(): HasMany
+    {
+        return $this->hasMany(PushSubscription::class);
     }
 
     public function quizSessions(): HasMany

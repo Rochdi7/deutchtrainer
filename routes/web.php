@@ -6,6 +6,7 @@ use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\LearningSettingsController;
 use App\Http\Controllers\LektionController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProfileController;
@@ -48,7 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/quiz/words', [QuizController::class, 'words'])->name('quiz.words');
     Route::get('/quiz/{session}', [QuizController::class, 'show'])->name('quiz.show');
     Route::post('/quiz/{session}/answer', [QuizController::class, 'answer'])->name('quiz.answer');
-    Route::post('/quiz/{session}/finish', [QuizController::class, 'finish'])->name('quiz.finish');
+    Route::post('/quiz/{session}/hint', [QuizController::class, 'hint'])->name('quiz.hint');
+    Route::post('/quiz/{session}/finish',[QuizController::class, 'finish'])->name('quiz.finish');
     Route::post('/quiz/{session}/retry-wrong', [QuizController::class, 'retryWrong'])->name('quiz.retry');
 
     Route::middleware('admin')->prefix('import')->name('import.')->group(function () {
@@ -61,6 +63,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{preview}/retry', [ImportController::class, 'retry'])->name('retry');
         Route::delete('/{preview}', [ImportController::class, 'destroy'])->name('destroy');
     });
+
+    Route::patch('/settings/learning', [LearningSettingsController::class, 'update'])->name('settings.learning');
+    Route::post('/push/subscribe', [LearningSettingsController::class, 'subscribe'])->name('push.subscribe');
+    Route::delete('/push/subscribe', [LearningSettingsController::class, 'unsubscribe'])->name('push.unsubscribe');
+    Route::post('/push/test', [LearningSettingsController::class, 'test'])->middleware('throttle:6,1')->name('push.test');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

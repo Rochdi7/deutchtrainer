@@ -85,7 +85,28 @@ class StatsService
             'streak' => $this->dailyStreak($user),
             'xp' => $this->xp($user),
             'due' => UserWordProgress::where('user_id', $user->id)->where('next_review_at', '<=', now()->endOfDay())->count(),
+            ...$this->daily($user),
         ];
+    }
+
+    /** Daily goal: XP earned today (in the learner's timezone) against their target. */
+    public function daily(User $user): array
+    {
+        $goal = (int) ($user->daily_goal ?: 20);
+        $today = $this->xpToday($user);
+
+        return ['today' => $today, 'goal' => $goal, 'goal_met' => $today >= $goal];
+    }
+
+    public function xpToday(User $user): int
+    {
+        $tz = $user->timezoneName();
+        $from = now($tz)->startOfDay()->utc();
+        $to = now($tz)->endOfDay()->utc();
+
+        return QuizAnswer::whereHas('session', fn ($q) => $q->where('user_id', $user->id))
+            ->where('is_correct', true)->whereBetween('answered_at', [$from, $to])->count()
+            + ExerciseAttempt::where('user_id', $user->id)->where('is_correct', true)->whereBetween('answered_at', [$from, $to])->count();
     }
 
     /** Consecutive days (ending today or yesterday) with at least one quiz or exercise session. */
