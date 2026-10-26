@@ -15,7 +15,7 @@ const { t } = useI18n();
     <div class="flex min-h-screen flex-col bg-white dark:bg-gray-950">
         <header class="mx-auto flex w-full max-w-md items-center justify-between px-4 pt-[max(1rem,env(safe-area-inset-top))] sm:max-w-lg">
             <Link href="/" class="flex items-center gap-2 text-xl font-black text-pop-primary">
-                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-pop-primary text-base text-white" style="box-shadow: 0 4px 0 0 #6243d6">DT</span>
+                <img src="/icons/icon-192.png" alt="" class="h-10 w-10" />
                 DeutschTrainer
             </Link>
             <div class="flex items-center gap-1.5">
@@ -26,7 +26,7 @@ const { t } = useI18n();
 
         <main class="mx-auto flex w-full max-w-md flex-1 flex-col justify-center px-4 py-8 sm:max-w-lg">
             <div class="mb-6 text-center">
-                <div class="mx-auto mb-3 grid h-20 w-20 place-items-center rounded-3xl bg-brand-50 text-4xl dark:bg-brand-900/30">🇩🇪</div>
+                <img src="/icons/icon-192.png" alt="DeutschTrainer" class="mx-auto mb-3 h-20 w-20" />
                 <h1 v-if="title" class="text-3xl">{{ title }}</h1>
                 <p v-if="subtitle" class="mt-1 font-semibold text-gray-500">{{ subtitle }}</p>
             </div>

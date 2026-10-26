@@ -38,7 +38,7 @@ const nav = computed(() => [
         <!-- Desktop sidebar -->
         <aside v-if="!focus" class="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-64 lg:shrink-0 lg:flex-col lg:border-r-2 lg:border-gray-200 lg:bg-white lg:px-4 lg:py-6 dark:lg:border-gray-800 dark:lg:bg-gray-900">
             <Link :href="route('course.dashboard')" class="mb-6 flex items-center gap-2 px-2 text-2xl font-black tracking-tight text-pop-primary">
-                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-pop-primary text-lg text-white" style="box-shadow: 0 4px 0 0 #6243d6">DT</span>
+                <img src="/icons/icon-192.png" alt="" class="h-10 w-10" />
                 DeutschTrainer
             </Link>
             <nav class="flex flex-1 flex-col gap-1">
