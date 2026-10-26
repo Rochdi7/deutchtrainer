@@ -51,7 +51,7 @@ onBeforeUnmount(() => window.removeEventListener('beforeinstallprompt', onPrompt
 <template>
     <div v-if="visible" class="mx-auto mt-3 max-w-6xl px-4 sm:px-6 lg:hidden">
         <div class="flex items-center gap-3 rounded-2xl border-2 border-indigo-200 bg-indigo-50 p-3 dark:border-indigo-900 dark:bg-indigo-950/40">
-            <img src="/icons/icon-192.png" alt="" class="h-12 w-12 rounded-xl" />
+            <img src="/assets/deutschtrainer-logo.png" alt="" class="h-12 w-12" />
             <div class="min-w-0 flex-1 text-sm">
                 <div class="font-black">{{ t('pwa.title') }}</div>
                 <div class="text-xs font-semibold text-gray-500">{{ ios ? t('pwa.ios_hint') : t('pwa.sub') }}</div>

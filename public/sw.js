@@ -1,7 +1,7 @@
 // Minimal service worker: makes the app installable and keeps the app shell
 // (fonts, built assets, icons) available from cache. Pages are always fetched
 // from the network so quiz data is never stale.
-const CACHE = 'deutschtrainer-static-v2';
+const CACHE = 'deutschtrainer-static-v3';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();

@@ -1,3 +1,3 @@
 <template>
-    <img src="/icons/icon-192.png" alt="DeutschTrainer" />
+    <img src="/assets/deutschtrainer-logo.png" alt="DeutschTrainer" />
 </template>
