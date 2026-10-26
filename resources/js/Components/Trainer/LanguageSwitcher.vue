@@ -1,9 +1,19 @@
 <script setup>
+import { computed } from 'vue';
 import { router, usePage } from '@inertiajs/vue3';
 import { useI18n, LOCALE_NAMES } from '@/i18n';
 
+defineProps({
+    /** Single flag button that cycles to the next locale (tight mobile top bar). */
+    compact: { type: Boolean, default: false },
+});
+
 const page = usePage();
 const { locale, t } = useI18n();
+const next = computed(() => {
+    const all = page.props.locales;
+    return all[(all.indexOf(locale.value) + 1) % all.length];
+});
 
 // Twemoji flag SVGs (CC-BY 4.0) already shipped under public/images/vocab.
 const flags = { de: '/images/vocab/1f1e9-1f1ea.svg', en: '/images/vocab/1f1ec-1f1e7.svg' };
@@ -15,7 +25,17 @@ function set(code) {
 </script>
 
 <template>
-    <div class="inline-flex gap-1 rounded-2xl border-2 border-gray-200 bg-white p-1 dark:border-gray-700 dark:bg-gray-900" role="group" :aria-label="t('nav.language')">
+    <button
+        v-if="compact"
+        type="button"
+        @click="set(next)"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800"
+        :title="LOCALE_NAMES[next]"
+        :aria-label="`${t('nav.language')}: ${LOCALE_NAMES[next]}`"
+    >
+        <img :src="flags[locale]" :alt="LOCALE_NAMES[locale]" class="h-6 w-6 rounded-sm" />
+    </button>
+    <div v-else class="inline-flex gap-1 rounded-2xl border-2 border-gray-200 bg-white p-1 dark:border-gray-700 dark:bg-gray-900" role="group" :aria-label="t('nav.language')">
         <button
             v-for="code in page.props.locales"
             :key="code"

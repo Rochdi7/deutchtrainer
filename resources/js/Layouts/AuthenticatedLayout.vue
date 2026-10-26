@@ -70,15 +70,16 @@ const nav = computed(() => [
         <div class="min-w-0 flex-1">
             <!-- Mobile / tablet top bar: streak · XP · due -->
             <header v-if="!focus" class="sticky top-0 z-30 border-b-2 border-gray-200 bg-white/95 pt-[env(safe-area-inset-top)] backdrop-blur dark:border-gray-800 dark:bg-gray-900/95 lg:hidden">
-                <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
-                    <div class="flex items-center gap-3 text-sm font-extrabold">
-                        <span class="flex items-center gap-1 text-pop-orange" :title="t('dash.streak')"><span class="text-xl" :class="{ grayscale: !stats.streak }">🔥</span>{{ stats.streak }}</span>
-                        <span class="flex items-center gap-1 text-pop-yellow-dark" :title="t('dash.xp')"><span class="text-xl">⚡</span>{{ stats.xp }}</span>
-                        <Link :href="route('revision.index')" class="flex items-center gap-1 text-pop-blue" :title="t('dash.due_today')"><span class="text-xl">📚</span>{{ stats.due }}</Link>
-                        <Link :href="route('profile.edit') + '#goal'" class="flex items-center gap-1 text-pop-primary" :title="t('goal.title')"><DailyGoalRing :today="stats.today" :goal="stats.goal" :size="28" :stroke="3" /><span class="tabular-nums">{{ stats.today }}/{{ stats.goal }}</span></Link>
+                <div class="mx-auto flex h-14 max-w-6xl items-center gap-2 px-3 sm:gap-4 sm:px-6">
+                    <div class="flex min-w-0 flex-1 items-center justify-between gap-2 text-sm font-extrabold tabular-nums sm:justify-start sm:gap-5">
+                        <span class="flex items-center gap-1 text-pop-orange" :title="t('dash.streak')"><span class="text-lg leading-none" :class="{ grayscale: !stats.streak }">🔥</span>{{ stats.streak }}</span>
+                        <span class="flex items-center gap-1 text-pop-yellow-dark" :title="t('dash.xp')"><span class="text-lg leading-none">⚡</span>{{ stats.xp }}</span>
+                        <Link :href="route('revision.index')" class="flex items-center gap-1 text-pop-blue" :title="t('dash.due_today')"><span class="text-lg leading-none">📚</span>{{ stats.due }}</Link>
+                        <Link :href="route('profile.edit') + '#goal'" class="flex items-center gap-1 text-pop-primary" :title="t('goal.title')"><DailyGoalRing :today="stats.today" :goal="stats.goal" :size="26" :stroke="3" />{{ stats.today }}/{{ stats.goal }}</Link>
                     </div>
-                    <div class="flex items-center gap-1.5">
-                        <LanguageSwitcher />
+                    <div class="flex shrink-0 items-center border-l-2 border-gray-100 pl-1 dark:border-gray-800 sm:gap-1.5 sm:border-0 sm:pl-0">
+                        <LanguageSwitcher compact class="sm:hidden" />
+                        <LanguageSwitcher class="hidden sm:inline-flex" />
                         <SoundToggle class="hidden sm:inline-flex" />
                         <DarkModeToggle />
                     </div>
