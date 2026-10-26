@@ -11,8 +11,11 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-mobile-web-app-title" content="DeutschTrainer">
         <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="icon" href="/favicon.ico" sizes="48x48">
+        <link rel="icon" href="/icons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="/icons/favicon-16x16.png" sizes="16x16" type="image/png">
         <link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png">
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180">
 
         <title inertia>{{ config('app.name', 'DeutschTrainer') }}</title>
 
