@@ -140,7 +140,8 @@ function toggleTranslation(id, lang) {
 }
 
 // ---------- writing (topics with their model answers to read and learn)
-const showGrammar = ref(true);
+const grammarMode = ref('all'); // all | cases | off
+const showLegend = ref(false);
 const grammarLegend = [
     { g: 'n', tag: 'Nom.', de: 'Nominativ – Subjekt (wer? was?)', ar: 'الفاعل – حالة الرفع' },
     { g: 'a', tag: 'Akk.', de: 'Akkusativ – Objekt (wen? was?)', ar: 'المفعول به – حالة النصب' },
@@ -427,12 +428,19 @@ const sets = computed(() => props.sets.map((s) => ({ ...s, best: props.progress.
             <!-- SCHREIBEN -->
             <section v-if="tab === 'writing'" class="space-y-4">
                 <p class="text-sm text-gray-500">{{ t('lek.writing_intro') }}</p>
-                <div v-if="writingTasks.some((w) => w.data.model_tagged)" class="card p-4 sm:p-5">
+                <div v-if="writingTasks.some((w) => w.data.model_tagged)" class="card p-3 sm:p-5">
                     <div class="flex flex-wrap items-center justify-between gap-2">
-                        <h2 class="font-semibold">🏷️ {{ t('lek.grammar_labels') }}</h2>
-                        <button type="button" class="btn-secondary btn-sm" :class="{ 'pill-active': showGrammar }" @click="showGrammar = !showGrammar">{{ showGrammar ? t('lek.grammar_labels_hide') : t('lek.grammar_labels_show') }}</button>
+                        <h2 class="text-sm font-semibold sm:text-base">🏷️ {{ t('lek.grammar_labels') }}</h2>
+                        <div class="flex gap-1 rounded-2xl border-2 border-gray-200 bg-white p-0.5 dark:border-gray-700 dark:bg-gray-900">
+                            <button v-for="m in ['all', 'cases', 'off']" :key="m" type="button" class="pill !min-h-[32px] !px-2.5 text-xs" :class="{ 'pill-active': grammarMode === m }" @click="grammarMode = m">{{ t('lek.grammar_mode_' + m) }}</button>
+                        </div>
                     </div>
-                    <template v-if="showGrammar">
+                    <!-- colour key: one row of chips, always visible -->
+                    <div v-if="grammarMode !== 'off'" class="mt-2 flex flex-wrap gap-1">
+                        <span v-for="l in grammarLegend" :key="l.g" class="rounded px-1.5 text-[11px] font-bold leading-5" :class="GROUPS[l.g].label">{{ l.tag }}</span>
+                        <button type="button" class="ms-auto text-xs font-semibold text-brand-600 hover:underline dark:text-brand-400" @click="showLegend = !showLegend">{{ showLegend ? t('lek.grammar_legend_hide') : t('lek.grammar_legend_show') }}</button>
+                    </div>
+                    <template v-if="grammarMode !== 'off' && showLegend">
                         <ul class="mt-3 grid gap-2 text-sm sm:grid-cols-2">
                             <li v-for="l in grammarLegend" :key="l.g" class="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                                 <span class="whitespace-nowrap rounded px-1.5 text-[11px] font-bold leading-5" :class="GROUPS[l.g].label">{{ l.tag }}</span>
@@ -480,7 +488,7 @@ const sets = computed(() => props.sets.map((s) => ({ ...s, best: props.progress.
                             <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.model_answer') }}<span v-if="w.data.words"> · {{ writingTarget(w) }}</span></div>
                             <button v-if="speech.supported.value" type="button" class="btn-secondary !min-h-[36px] !px-3 text-xs" @click="speech.speak(w.data.model_answer.replace(/\n/g, ' '))">🔊 {{ t('ex.listen') }}</button>
                         </div>
-                        <GrammarText v-if="showGrammar && w.data.model_tagged" :source="w.data.model_tagged" class="mt-2 text-[15px] font-semibold" />
+                        <GrammarText v-if="grammarMode !== 'off' && w.data.model_tagged" :source="w.data.model_tagged" :mode="grammarMode" class="mt-2 text-[15px] font-semibold" />
                         <div v-else class="mt-2 whitespace-pre-line text-[15px] font-semibold leading-relaxed">{{ w.data.model_answer }}</div>
                         <template v-if="w.data.checklist?.length">
                             <div class="mt-3 text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.checklist') }}</div>
