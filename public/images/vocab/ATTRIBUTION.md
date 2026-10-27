@@ -11,6 +11,7 @@ textbook *DaF kompakt neu A1* (Klett); its illustrations and photos are copyrigh
 | `openmoji-*.svg` | OpenMoji | CC BY-SA 4.0 | https://openmoji.org · npm `@iconify-json/openmoji` |
 | `tabler-*.svg` | Tabler Icons | MIT | https://tabler.io/icons · npm `@iconify-json/tabler` |
 | `game-icons-*.svg` | Game-icons.net | CC BY 3.0 | https://game-icons.net · npm `@iconify-json/game-icons` |
+| `prep-*.svg` | Box-and-ball preposition diagrams drawn for this project | same as this repository | `public/images/vocab/prep-*.svg` |
 
 Licenses: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ ·
 CC BY 3.0 https://creativecommons.org/licenses/by/3.0/ · MIT https://opensource.org/licenses/MIT · Apache 2.0 https://www.apache.org/licenses/LICENSE-2.0

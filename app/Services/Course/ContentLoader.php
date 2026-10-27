@@ -71,6 +71,13 @@ class ContentLoader
             }
         }
 
+        $extraWords = $extras['words'] ?? [];
+        foreach ($extraWords as $german => $extra) {
+            if (! isset($extra['img']) && isset($icons[$german])) {
+                $extraWords[$german]['img'] = $icons[$german];
+            }
+        }
+
         $lines = [];
         foreach ($dialog['lines'] ?? [] as $i => $line) {
             $lines[] = $line + ['sort' => 100 + $i];
@@ -80,7 +87,7 @@ class ContentLoader
             'dir' => $dir,
             'meta' => $meta,
             'words' => $words,
-            'extras' => $extras['words'] ?? [],
+            'extras' => $extraWords,
             'grammar' => array_map(fn ($n) => $n + ['body_ar_md' => $arabic['grammar'][$n['key']] ?? null], $grammar['notes'] ?? []),
             'conjugations' => $grammar['conjugations'] ?? [],
             'dialog' => $lines,

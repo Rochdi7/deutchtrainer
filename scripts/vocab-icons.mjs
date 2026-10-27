@@ -68,6 +68,8 @@ function findLoose(word) {
 }
 
 function iconExists(ref) {
+    // refs without a set are hand-drawn SVGs already in public/images/vocab (e.g. "prep-auf")
+    if (!ref.includes(':')) return fs.existsSync(path.join(OUT, `${ref}.svg`));
     const [set, name] = ref.split(':');
     const j = sets[set];
     return !!j && (!!j.icons[name] || !!j.aliases?.[name]);
@@ -88,6 +90,54 @@ const overlay = fs.existsSync(OVERLAY) ? JSON.parse(fs.readFileSync(OVERLAY, 'ut
 const stats = { words: 0, hadImage: 0, matched: 0, manual: 0, unmatched: 0, bySet: {} };
 const report = [];
 
+function assign(dir, key, en, img) {
+    stats.words++;
+    if (img) {
+        stats.hadImage++;
+        return;
+    }
+    let ref = null;
+    if (Object.prototype.hasOwnProperty.call(MANUAL, en)) {
+        ref = MANUAL[en];
+        if (ref && !iconExists(ref)) {
+            console.warn(`invalid manual icon for "${en}": ${ref}`);
+            stats.invalid = (stats.invalid || 0) + 1;
+            ref = null;
+        }
+        if (ref) stats.manual++;
+    } else {
+        const kws = keywords(en);
+        for (const k of kws) {
+            ref = find(k);
+            if (ref) break;
+        }
+        // Loose (substring) matching is only used when explicitly allowed: it produced too many
+        // false friends ("counter" -> geiger-counter). Exact phrase / head-noun matches only.
+        if (!ref && process.argv.includes('--loose')) {
+            for (const k of kws) {
+                if (k.length < 4 || k.includes('-')) continue;
+                ref = findLoose(k);
+                if (ref) break;
+            }
+        }
+    }
+    if (!ref) {
+        stats.unmatched++;
+        delete overlay[dir][key];
+        report.push(`${dir}\t${key}\t${en}\t-`);
+        return;
+    }
+    stats.matched++;
+    const set = ref.includes(':') ? ref.split(':')[0] : 'custom';
+    stats.bySet[set] = (stats.bySet[set] || 0) + 1;
+    overlay[dir][key] = ref;
+    report.push(`${dir}\t${key}\t${en}\t${ref}`);
+    if (!dry) {
+        const file = path.join(OUT, `${ref.replace(':', '-')}.svg`);
+        if (!fs.existsSync(file)) fs.writeFileSync(file, svgFor(ref));
+    }
+}
+
 for (const dir of fs.readdirSync(CONTENT).filter((d) => d.startsWith('lektion-')).sort()) {
     if (only && dir !== only) continue;
     const vocab = JSON.parse(fs.readFileSync(path.join(CONTENT, dir, 'vocab.json'), 'utf8'));
@@ -95,54 +145,17 @@ for (const dir of fs.readdirSync(CONTENT).filter((d) => d.startsWith('lektion-')
     for (const group of vocab.groups || []) {
         for (const item of group.items || []) {
             const [raw, en] = item;
-            const opt = item[3] || {};
-            stats.words++;
-            if (opt.img) {
-                stats.hadImage++;
-                continue;
-            }
             // key = "article german" without the plural suffix, same as ContentLoader builds it
             const key = raw.replace(/,\s*.*$/, '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
-            let ref = null;
-            if (Object.prototype.hasOwnProperty.call(MANUAL, en)) {
-                ref = MANUAL[en];
-                if (ref && !iconExists(ref)) {
-                    console.warn(`invalid manual icon for "${en}": ${ref}`);
-                    stats.invalid = (stats.invalid || 0) + 1;
-                    ref = null;
-                }
-                if (ref) stats.manual++;
-            } else {
-                const kws = keywords(en);
-                for (const k of kws) {
-                    ref = find(k);
-                    if (ref) break;
-                }
-                // Loose (substring) matching is only used when explicitly allowed: it produced too many
-                // false friends ("counter" -> geiger-counter). Exact phrase / head-noun matches only.
-                if (!ref && process.argv.includes('--loose')) {
-                    for (const k of kws) {
-                        if (k.length < 4 || k.includes('-')) continue;
-                        ref = findLoose(k);
-                        if (ref) break;
-                    }
-                }
-            }
-            if (!ref) {
-                stats.unmatched++;
-                delete overlay[dir][key];
-                report.push(`${dir}\t${key}\t${en}\t-`);
-                continue;
-            }
-            stats.matched++;
-            const set = ref.split(':')[0];
-            stats.bySet[set] = (stats.bySet[set] || 0) + 1;
-            overlay[dir][key] = ref;
-            report.push(`${dir}\t${key}\t${en}\t${ref}`);
-            if (!dry) {
-                const file = path.join(OUT, `${ref.replace(':', '-')}.svg`);
-                if (!fs.existsSync(file)) fs.writeFileSync(file, svgFor(ref));
-            }
+            assign(dir, key, en, (item[3] || {}).img);
+        }
+    }
+    // extras.json (Lektion 1): words seeded elsewhere, keyed by their German form as-is
+    const extrasFile = path.join(CONTENT, dir, 'extras.json');
+    if (fs.existsSync(extrasFile)) {
+        const extras = JSON.parse(fs.readFileSync(extrasFile, 'utf8'));
+        for (const [german, x] of Object.entries(extras.words || {})) {
+            if (x.en) assign(dir, german, x.en, x.img);
         }
     }
 }
