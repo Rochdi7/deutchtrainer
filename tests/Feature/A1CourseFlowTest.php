@@ -72,6 +72,8 @@ class A1CourseFlowTest extends TestCase
                 ->has('grammarNotes')
                 ->has('dialogLines')
                 ->has('readings')
+                ->has('writingTasks', 4)
+                ->where('writingTasks.1.data.title', 'Ich stelle mich vor')
                 ->has('sections')
                 ->has('sets')
                 ->has('vocabModes'));
@@ -168,7 +170,13 @@ class A1CourseFlowTest extends TestCase
     {
         $lektion = Lektion::level('A1')->where('number', 1)->firstOrFail();
 
-        foreach (['objectives', 'vocab', 'grammar', 'dialog', 'reading', 'exercises', 'revision'] as $section) {
+        // writing drafts are saved without completing the section
+        $this->actingAs($this->user)->post(route('course.section', [$lektion, 'writing']), ['data' => ['texts' => ['a1-l1-w1' => 'Ich heiße Sara.']], 'complete' => false])->assertRedirect();
+        $writing = LessonProgress::where('user_id', $this->user->id)->where('lektion_id', $lektion->id)->where('section', 'writing')->first();
+        $this->assertNull($writing->completed_at);
+        $this->assertSame('Ich heiße Sara.', $writing->data['texts']['a1-l1-w1']);
+
+        foreach (['objectives', 'vocab', 'grammar', 'dialog', 'reading', 'writing', 'exercises', 'revision'] as $section) {
             $this->actingAs($this->user)->post(route('course.section', [$lektion, $section]))->assertRedirect();
         }
         $this->actingAs($this->user)->post(route('course.section', [$lektion, 'nonsense']))->assertNotFound();

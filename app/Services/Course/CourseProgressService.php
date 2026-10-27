@@ -32,6 +32,7 @@ class CourseProgressService
             ['key' => 'grammar', 'label' => 'Grammatik', 'always' => $lektion->grammarNotes()->exists()],
             ['key' => 'dialog', 'label' => 'Sätze und Dialoge', 'always' => $lektion->dialogLines()->exists()],
             ['key' => 'reading', 'label' => 'Lesen', 'always' => $lektion->readings()->exists()],
+            ['key' => 'writing', 'label' => 'Schreiben', 'always' => $has('writing')],
             ['key' => 'exercises', 'label' => 'Übungen', 'always' => $exerciseSections !== []],
             ['key' => 'revision', 'label' => 'Wiederholung', 'always' => (bool) $lektion->revision_md],
             ['key' => 'test', 'label' => 'Lektionstest', 'always' => $exerciseSections !== []],

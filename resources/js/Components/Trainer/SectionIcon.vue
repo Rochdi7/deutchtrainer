@@ -27,6 +27,11 @@ defineProps({ name: { type: String, required: true } });
             <path d="M16 9c-2-2-5-3-10-3v18c5 0 8 1 10 3 2-2 5-3 10-3V6c-5 0-8 1-10 3Z" />
             <path d="M16 9v18" />
         </template>
+        <template v-else-if="name === 'writing'">
+            <path d="M19 26H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4" />
+            <path d="M10 10h7M10 14h5" />
+            <path d="m15 25 1-4 9-9 3 3-9 9-4 1Z" />
+        </template>
         <template v-else-if="name === 'exercises'">
             <path d="m7 25 1-5L21 7l4 4L12 24l-5 1Z" />
             <path d="m18 10 4 4" />

@@ -25,6 +25,7 @@ const props = defineProps({
     dialogLines: Array,
     grammarNotes: Array,
     readings: Array,
+    writingTasks: Array,
     sections: Array,
     sets: Array,
     progress: Object,
@@ -37,7 +38,7 @@ const { t, locale } = useI18n();
 const speech = useSpeech();
 
 // ---------- sections / tabs
-const sectionIcons = { objectives: '🎯', vocab: '🖼️', grammar: '📐', dialog: '💬', reading: '📖', exercises: '✏️', revision: '🔁', test: '🏁' };
+const sectionIcons = { objectives: '🎯', vocab: '🖼️', grammar: '📐', dialog: '💬', reading: '📖', writing: '✍️', exercises: '✏️', revision: '🔁', test: '🏁' };
 const initial = (() => {
     try {
         const hash = window.location.hash.replace('#', '');
@@ -135,6 +136,28 @@ const openTranslation = ref({}); // reading id -> 'en' | 'ar' | null
 const showAr = ref({ objectives: true, grammar: false, revision: false });
 function toggleTranslation(id, lang) {
     openTranslation.value[id] = openTranslation.value[id] === lang ? null : lang;
+}
+
+// ---------- writing (drafts are stored in lesson_progress.data.texts of the 'writing' section)
+const savedTexts = computed(() => props.progress.writing?.data?.texts || {});
+const texts = ref({ ...savedTexts.value });
+const openModel = ref({}); // task id -> bool
+const savingWriting = ref(false);
+const writingDirty = computed(() => props.writingTasks.some((w) => (texts.value[w.key] || '') !== (savedTexts.value[w.key] || '')));
+function wordCount(s) {
+    return (s || '').trim().split(/\s+/).filter(Boolean).length;
+}
+function writingTarget(w) {
+    // "40–60" / "ca. 30" are word counts; "Formular", "6 Fragen" … are shown as they are
+    return /^(ca\. )?\d+(–\d+)?$/.test(w.data.words || '') ? t('lek.writing_target', { n: w.data.words }) : w.data.words;
+}
+function saveWriting(complete = false) {
+    savingWriting.value = true;
+    router.post(
+        route('course.section', [props.lektion.id, 'writing']),
+        { data: { texts: texts.value }, complete },
+        { preserveScroll: true, preserveState: true, onFinish: () => (savingWriting.value = false) },
+    );
 }
 
 const typeBadge = {
@@ -394,6 +417,66 @@ const sets = computed(() => props.sets.map((s) => ({ ...s, best: props.progress.
                 <div class="card flex flex-wrap items-center justify-between gap-3 p-4">
                     <span class="text-sm text-gray-600 dark:text-gray-300">{{ t('lek.reading_questions', { n: readings.reduce((a, r) => a + (r.questions?.length || 0), 0) }) }}</span>
                     <button type="button" class="btn-primary" @click="startSet('reading')">📖 {{ t('lek.practice_reading') }}</button>
+                </div>
+            </section>
+
+            <!-- SCHREIBEN -->
+            <section v-if="tab === 'writing'" class="space-y-4">
+                <p class="text-sm text-gray-500">{{ t('lek.writing_intro') }}</p>
+                <article v-for="(w, i) in writingTasks" :key="w.id" class="card p-4 sm:p-6">
+                    <div class="flex flex-wrap items-start justify-between gap-2">
+                        <div class="min-w-0">
+                            <div class="text-xs font-semibold uppercase tracking-wide text-gray-500">✍️ {{ i + 1 }}<span v-if="w.data.text_type"> · {{ w.data.text_type }}</span></div>
+                            <h2 class="text-lg font-semibold">{{ w.data.title || t('sec.writing') + ' ' + (i + 1) }}</h2>
+                        </div>
+                        <div class="flex gap-2">
+                            <button v-if="w.data.translation" type="button" class="btn-secondary btn-sm" :class="{ 'pill-active': openTranslation['w' + w.id] === 'en' }" @click="toggleTranslation('w' + w.id, 'en')">🇬🇧 EN</button>
+                            <button v-if="w.data.translation_ar" type="button" class="btn-secondary btn-sm" :class="{ 'pill-active': openTranslation['w' + w.id] === 'ar' }" @click="toggleTranslation('w' + w.id, 'ar')">{{ t('lek.arabic') }}</button>
+                        </div>
+                    </div>
+                    <p class="mt-2 whitespace-pre-line">{{ w.prompt }}</p>
+                    <div v-if="openTranslation['w' + w.id] === 'en'" class="card-flat mt-3 p-3 text-sm text-gray-600 dark:text-gray-300">{{ w.data.translation }}</div>
+                    <div v-if="openTranslation['w' + w.id] === 'ar'" class="ar card-flat mt-3 p-4 text-[15px]" dir="rtl">{{ w.data.translation_ar }}</div>
+
+                    <div v-if="w.data.points?.length || w.data.phrases?.length" class="mt-3 grid gap-3 sm:grid-cols-2">
+                        <div v-if="w.data.points?.length" class="card-flat p-3">
+                            <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('lek.writing_points') }}</div>
+                            <ul class="mt-1 list-disc space-y-0.5 ps-5 text-sm">
+                                <li v-for="p in w.data.points" :key="p">{{ p }}</li>
+                            </ul>
+                        </div>
+                        <div v-if="w.data.phrases?.length" class="card-flat p-3">
+                            <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('lek.writing_phrases') }}</div>
+                            <ul class="mt-1 space-y-0.5 text-sm italic">
+                                <li v-for="p in w.data.phrases" :key="p">{{ p }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <textarea v-model="texts[w.key]" rows="7" class="input mt-3 text-base" :placeholder="t('ex.write_placeholder')"></textarea>
+                    <div class="mt-2 flex flex-wrap items-center justify-between gap-2">
+                        <span class="text-xs text-gray-500">{{ t('lek.writing_count', { n: wordCount(texts[w.key]) }) }}<span v-if="w.data.words"> · {{ writingTarget(w) }}</span></span>
+                        <button type="button" class="btn-secondary btn-sm" :class="{ 'pill-active': openModel[w.id] }" @click="openModel[w.id] = !openModel[w.id]">{{ openModel[w.id] ? t('lek.hide_model') : t('lek.show_model') }}</button>
+                    </div>
+                    <div v-if="openModel[w.id]" class="card-flat mt-3 p-4">
+                        <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.model_answer') }}</div>
+                        <div class="mt-1 whitespace-pre-line text-sm font-semibold">{{ w.data.model_answer }}</div>
+                        <template v-if="w.data.checklist?.length">
+                            <div class="mt-3 text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.checklist') }}</div>
+                            <ul class="mt-1 space-y-1 text-sm">
+                                <li v-for="c in w.data.checklist" :key="c" class="flex gap-2"><span class="text-gray-400">☐</span>{{ c }}</li>
+                            </ul>
+                        </template>
+                    </div>
+                    <div v-if="w.source_page" class="mt-2 text-[11px] text-gray-400">{{ t('lek.source') }}: S. {{ w.source_page }}</div>
+                </article>
+                <p v-if="!writingTasks.length" class="text-gray-500">{{ t('lek.no_writing') }}</p>
+                <div class="card flex flex-wrap items-center justify-between gap-3 p-4">
+                    <span class="text-sm text-gray-600 dark:text-gray-300">{{ writingDirty ? t('lek.writing_unsaved') : t('lek.writing_saved') }}</span>
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" class="btn-secondary" :disabled="!writingDirty || savingWriting" @click="saveWriting()">💾 {{ t('lek.writing_save') }}</button>
+                        <button type="button" class="btn-primary" @click="saveWriting(true); nextSection()">{{ t('lek.section_done') }} →</button>
+                    </div>
                 </div>
             </section>
 

@@ -80,6 +80,7 @@ class LektionController extends Controller
             'dialogLines' => $lektion->dialogLines,
             'grammarNotes' => $lektion->grammarNotes,
             'readings' => $lektion->readings->map->only(['id', 'key', 'title', 'text_md', 'translation_md', 'translation_ar_md', 'questions', 'source_page']),
+            'writingTasks' => $lektion->exercises()->where('type', 'write')->orderBy('sort')->get(['id', 'key', 'prompt', 'data', 'source_page']),
             'sections' => $progress->sections($lektion),
             'sets' => $progress->exerciseSets($lektion),
             'progress' => $progress->lessonProgress($user, $lektion),
