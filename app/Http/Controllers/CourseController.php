@@ -25,20 +25,12 @@ class CourseController extends Controller
         ]);
     }
 
-    /**
-     * Mark a lesson section as viewed / completed (objectives, grammar, dialog, writing, revision, vocab).
-     * With complete=false only the data is stored (e.g. the learner's writing drafts).
-     */
+    /** Mark a lesson section as viewed / completed (objectives, grammar, dialog, writing, revision, vocab). */
     public function markSection(Request $request, Lektion $lektion, string $section): RedirectResponse
     {
         abort_unless(in_array($section, LessonProgress::SECTIONS, true), 404);
-        $data = $request->validate([
-            'data' => ['nullable', 'array'],
-            'data.texts' => ['sometimes', 'array', 'max:50'],
-            'data.texts.*' => ['nullable', 'string', 'max:5000'],
-            'complete' => ['sometimes', 'boolean'],
-        ])['data'] ?? [];
-        $this->progress->markSection($request->user(), $lektion, $section, $data, $request->boolean('complete', true));
+        $data = $request->validate(['data' => ['nullable', 'array']])['data'] ?? [];
+        $this->progress->markSection($request->user(), $lektion, $section, $data);
 
         return back();
     }

@@ -13,6 +13,9 @@ use RuntimeException;
  */
 class ContentLoader
 {
+    /** Grammar tags of tagged model answers; labels and colours in resources/js/grammarTags.js. */
+    public const GRAMMAR_TAGS = ['n', 'a', 'd', 'pp', 'ip', 'rp', 'poss', 'neg', 'q', 'p', 'v', 'mv', 'hv', 'inf', 'part', 'vs', 'imp', 'k', 't', 'adj', 'adv', 'ni', 'gr'];
+
     public function __construct(private readonly VocabEntryFactory $factory) {}
 
     public function basePath(string $level = 'A1'): string
@@ -208,6 +211,18 @@ class ContentLoader
                 $joined = $this->normalizeOrder(implode(' ', $d['tokens']));
                 if ($joined !== $this->normalizeOrder($d['answer'])) {
                     $errors[] = "$label: exercise $k: tokens do not form the answer";
+                }
+            }
+            if (isset($d['model_tagged'])) {
+                // [words|tags] markup must reproduce the model answer and only use known tags
+                preg_match_all('/\[([^\]|]+)\|([^\]]+)\]/u', $d['model_tagged'], $chunks, PREG_SET_ORDER);
+                if (preg_replace('/\[([^\]|]+)\|([^\]]+)\]/u', '$1', $d['model_tagged']) !== ($d['model_answer'] ?? null)) {
+                    $errors[] = "$label: exercise $k: model_tagged does not match model_answer";
+                }
+                foreach ($chunks as $c) {
+                    foreach (array_diff(explode(' ', $c[2]), self::GRAMMAR_TAGS) as $tag) {
+                        $errors[] = "$label: exercise $k: unknown grammar tag $tag ({$c[1]})";
+                    }
                 }
             }
             if ($e['type'] === 'match' && count($d['pairs'] ?? []) < 3) {

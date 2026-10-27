@@ -10,6 +10,7 @@ import DialogTable from '@/Components/Trainer/DialogTable.vue';
 import MarkdownNote from '@/Components/Trainer/MarkdownNote.vue';
 import WordForm from '@/Components/Trainer/WordForm.vue';
 import VocabImage from '@/Components/Trainer/VocabImage.vue';
+import GrammarText, { GROUPS } from '@/Components/Trainer/GrammarText.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { useI18n } from '@/i18n';
 import { useSpeech } from '@/composables/useSpeech';
@@ -138,26 +139,29 @@ function toggleTranslation(id, lang) {
     openTranslation.value[id] = openTranslation.value[id] === lang ? null : lang;
 }
 
-// ---------- writing (drafts are stored in lesson_progress.data.texts of the 'writing' section)
-const savedTexts = computed(() => props.progress.writing?.data?.texts || {});
-const texts = ref({ ...savedTexts.value });
-const openModel = ref({}); // task id -> bool
-const savingWriting = ref(false);
-const writingDirty = computed(() => props.writingTasks.some((w) => (texts.value[w.key] || '') !== (savedTexts.value[w.key] || '')));
-function wordCount(s) {
-    return (s || '').trim().split(/\s+/).filter(Boolean).length;
-}
+// ---------- writing (topics with their model answers to read and learn)
+const showGrammar = ref(true);
+const grammarLegend = [
+    { g: 'n', tag: 'Nom.', de: 'Nominativ – Subjekt (wer? was?)', ar: 'الفاعل – حالة الرفع' },
+    { g: 'a', tag: 'Akk.', de: 'Akkusativ – Objekt (wen? was?)', ar: 'المفعول به – حالة النصب' },
+    { g: 'd', tag: 'Dat.', de: 'Dativ – wem? / nach Präpositionen', ar: 'حالة الجر – بعد حروف الجر' },
+    { g: 'verb', tag: 'Verb', de: 'Verb, Modalverb, Hilfsverb, Infinitiv, Partizip II, Vorsilbe, Imperativ', ar: 'الفعل وأشكاله' },
+    { g: 'k', tag: 'Konnektor', de: 'und, aber, oder, denn', ar: 'أدوات الربط' },
+    { g: 't', tag: 'Zeit', de: 'Zeitangabe (am Montag, um 8 Uhr)', ar: 'ظرف الزمان' },
+    { g: 'q', tag: 'W-Wort', de: 'Fragewort (wie, wo, was …)', ar: 'أداة الاستفهام' },
+    { g: 'other', tag: 'Adjektiv', de: 'Adjektiv, Adverb, Negation, Gruß', ar: 'الصفة، الظرف، النفي، التحية' },
+];
+const grammarAbbr = [
+    { tag: 'Pers.-Pron.', de: 'Personalpronomen: ich, du, er, sie, mich, dir …', ar: 'ضمير شخصي' },
+    { tag: 'Poss.-Art.', de: 'Possessivartikel: mein, dein, sein, ihr …', ar: 'أداة الملكية' },
+    { tag: 'Neg.-Art.', de: 'Negativartikel: kein, keine, keinen', ar: 'أداة النفي' },
+    { tag: 'Refl.-Pron.', de: 'Reflexivpronomen: uns, sich …', ar: 'ضمير انعكاسي' },
+    { tag: 'Indef.-Pron.', de: 'Indefinitpronomen: man', ar: 'ضمير غير محدد' },
+    { tag: 'Präp.', de: 'Präposition: in, aus, mit, für …', ar: 'حرف جر' },
+];
 function writingTarget(w) {
     // "40–60" / "ca. 30" are word counts; "Formular", "6 Fragen" … are shown as they are
     return /^(ca\. )?\d+(–\d+)?$/.test(w.data.words || '') ? t('lek.writing_target', { n: w.data.words }) : w.data.words;
-}
-function saveWriting(complete = false) {
-    savingWriting.value = true;
-    router.post(
-        route('course.section', [props.lektion.id, 'writing']),
-        { data: { texts: texts.value }, complete },
-        { preserveScroll: true, preserveState: true, onFinish: () => (savingWriting.value = false) },
-    );
 }
 
 const typeBadge = {
@@ -423,6 +427,24 @@ const sets = computed(() => props.sets.map((s) => ({ ...s, best: props.progress.
             <!-- SCHREIBEN -->
             <section v-if="tab === 'writing'" class="space-y-4">
                 <p class="text-sm text-gray-500">{{ t('lek.writing_intro') }}</p>
+                <div v-if="writingTasks.some((w) => w.data.model_tagged)" class="card p-4 sm:p-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h2 class="font-semibold">🏷️ {{ t('lek.grammar_labels') }}</h2>
+                        <button type="button" class="btn-secondary btn-sm" :class="{ 'pill-active': showGrammar }" @click="showGrammar = !showGrammar">{{ showGrammar ? t('lek.grammar_labels_hide') : t('lek.grammar_labels_show') }}</button>
+                    </div>
+                    <template v-if="showGrammar">
+                        <ul class="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+                            <li v-for="l in grammarLegend" :key="l.g" class="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                                <span class="whitespace-nowrap rounded px-1.5 text-[11px] font-bold leading-5" :class="GROUPS[l.g].label">{{ l.tag }}</span>
+                                <span>{{ l.de }}</span>
+                                <bdi class="ar text-gray-500 dark:text-gray-400">{{ l.ar }}</bdi>
+                            </li>
+                        </ul>
+                        <ul class="mt-3 grid gap-1 border-t border-gray-100 pt-3 text-xs text-gray-600 dark:border-gray-800 dark:text-gray-300 sm:grid-cols-2">
+                            <li v-for="l in grammarAbbr" :key="l.tag"><strong>{{ l.tag }}</strong> = {{ l.de }} · <bdi class="ar">{{ l.ar }}</bdi></li>
+                        </ul>
+                    </template>
+                </div>
                 <article v-for="(w, i) in writingTasks" :key="w.id" class="card p-4 sm:p-6">
                     <div class="flex flex-wrap items-start justify-between gap-2">
                         <div class="min-w-0">
@@ -453,14 +475,13 @@ const sets = computed(() => props.sets.map((s) => ({ ...s, best: props.progress.
                         </div>
                     </div>
 
-                    <textarea v-model="texts[w.key]" rows="7" class="input mt-3 text-base" :placeholder="t('ex.write_placeholder')"></textarea>
-                    <div class="mt-2 flex flex-wrap items-center justify-between gap-2">
-                        <span class="text-xs text-gray-500">{{ t('lek.writing_count', { n: wordCount(texts[w.key]) }) }}<span v-if="w.data.words"> · {{ writingTarget(w) }}</span></span>
-                        <button type="button" class="btn-secondary btn-sm" :class="{ 'pill-active': openModel[w.id] }" @click="openModel[w.id] = !openModel[w.id]">{{ openModel[w.id] ? t('lek.hide_model') : t('lek.show_model') }}</button>
-                    </div>
-                    <div v-if="openModel[w.id]" class="card-flat mt-3 p-4">
-                        <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.model_answer') }}</div>
-                        <div class="mt-1 whitespace-pre-line text-sm font-semibold">{{ w.data.model_answer }}</div>
+                    <div class="card-flat mt-3 p-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.model_answer') }}<span v-if="w.data.words"> · {{ writingTarget(w) }}</span></div>
+                            <button v-if="speech.supported.value" type="button" class="btn-secondary !min-h-[36px] !px-3 text-xs" @click="speech.speak(w.data.model_answer.replace(/\n/g, ' '))">🔊 {{ t('ex.listen') }}</button>
+                        </div>
+                        <GrammarText v-if="showGrammar && w.data.model_tagged" :source="w.data.model_tagged" class="mt-2 text-[15px] font-semibold" />
+                        <div v-else class="mt-2 whitespace-pre-line text-[15px] font-semibold leading-relaxed">{{ w.data.model_answer }}</div>
                         <template v-if="w.data.checklist?.length">
                             <div class="mt-3 text-xs font-extrabold uppercase tracking-wide text-gray-400">{{ t('ex.checklist') }}</div>
                             <ul class="mt-1 space-y-1 text-sm">
@@ -472,11 +493,8 @@ const sets = computed(() => props.sets.map((s) => ({ ...s, best: props.progress.
                 </article>
                 <p v-if="!writingTasks.length" class="text-gray-500">{{ t('lek.no_writing') }}</p>
                 <div class="card flex flex-wrap items-center justify-between gap-3 p-4">
-                    <span class="text-sm text-gray-600 dark:text-gray-300">{{ writingDirty ? t('lek.writing_unsaved') : t('lek.writing_saved') }}</span>
-                    <div class="flex flex-wrap gap-2">
-                        <button type="button" class="btn-secondary" :disabled="!writingDirty || savingWriting" @click="saveWriting()">💾 {{ t('lek.writing_save') }}</button>
-                        <button type="button" class="btn-primary" @click="saveWriting(true); nextSection()">{{ t('lek.section_done') }} →</button>
-                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-300">{{ t('lek.writing_tasks', { n: writingTasks.length }) }}</span>
+                    <button type="button" class="btn-primary" @click="markAndNext('writing')">{{ t('lek.section_done') }} →</button>
                 </div>
             </section>
 
