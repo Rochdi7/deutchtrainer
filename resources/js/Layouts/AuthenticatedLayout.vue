@@ -31,6 +31,8 @@ const nav = computed(() => [
     { label: 'nav.profile', route: 'profile.edit', match: 'profile.*', icon: 'user' },
     ...(user.value?.is_admin ? [{ label: 'nav.import', route: 'import.index', match: 'import.*', icon: 'upload' }] : []),
 ]);
+// Level shown on a Grammatik-aktiv page (overview or unit), for the A1/A2/B1 sub-links.
+const gaLevel = computed(() => (route().current('grammatik.*') ? (page.props.level || page.props.unit?.level || '').toLowerCase() : null));
 </script>
 
 <template>
@@ -53,6 +55,30 @@ const nav = computed(() => [
                     <NavIcon :name="n.icon" class="h-8 w-8" />
                     {{ t(n.label) }}
                 </Link>
+
+                <!-- Grammatik aktiv: separate module (admin-only, book content) -->
+                <div v-if="user?.is_admin" class="mt-3 border-t-2 border-gray-100 pt-3 dark:border-gray-800">
+                    <Link
+                        :href="route('grammatik.index')"
+                        class="flex min-h-[52px] items-center gap-3 rounded-2xl border-2 px-3 text-sm font-extrabold uppercase tracking-wide transition"
+                        :class="route().current('grammatik.*') ? 'border-pink-200 bg-pink-50 text-[#c2185b] dark:border-pink-900 dark:bg-pink-900/30 dark:text-pink-200' : 'border-transparent text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'"
+                        :aria-current="route().current('grammatik.*') ? 'page' : undefined"
+                    >
+                        <NavIcon name="grammar" class="h-8 w-8" />
+                        {{ t('nav.grammatik') }}
+                    </Link>
+                    <div class="mt-1 flex gap-1 pl-14">
+                        <Link
+                            v-for="lv in ['a1', 'a2', 'b1']"
+                            :key="lv"
+                            :href="route('grammatik.index', lv)"
+                            class="rounded-lg px-2 py-1 text-xs font-black uppercase transition"
+                            :class="gaLevel === lv ?'bg-pink-100 text-[#c2185b] dark:bg-pink-900/40 dark:text-pink-200' : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'"
+                        >
+                            {{ lv }}
+                        </Link>
+                    </div>
+                </div>
             </nav>
             <div class="mt-4 space-y-3 border-t-2 border-gray-100 pt-4 dark:border-gray-800">
                 <div class="flex items-center justify-between gap-2 px-1">

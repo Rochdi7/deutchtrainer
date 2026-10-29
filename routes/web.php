@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\GrammatikController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\ImportController;
@@ -52,6 +53,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/quiz/{session}/hint', [QuizController::class, 'hint'])->name('quiz.hint');
     Route::post('/quiz/{session}/finish',[QuizController::class, 'finish'])->name('quiz.finish');
     Route::post('/quiz/{session}/retry-wrong', [QuizController::class, 'retryWrong'])->name('quiz.retry');
+
+    // Grammatik aktiv A1–B1: transcribed from the book, so admin-only (content is not in git)
+    Route::middleware('admin')->prefix('grammatik')->name('grammatik.')->group(function () {
+        Route::get('/einheit/{unit}', [GrammatikController::class, 'show'])->whereNumber('unit')->name('show');
+        Route::post('/einheit/{unit}/{exercise}', [GrammatikController::class, 'result'])->whereNumber('unit')->name('result');
+        Route::get('/bild/{file}', [GrammatikController::class, 'image'])->name('image');
+        Route::get('/{level?}', [GrammatikController::class, 'index'])->whereIn('level', ['a1', 'a2', 'b1', 'A1', 'A2', 'B1'])->name('index');
+    });
 
     Route::middleware('admin')->prefix('import')->name('import.')->group(function () {
         Route::get('/', [ImportController::class, 'index'])->name('index');

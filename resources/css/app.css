@@ -299,3 +299,9 @@
 .prose-md code {
     @apply rounded bg-gray-100 px-1 py-0.5 text-[0.9em] dark:bg-gray-800;
 }
+.prose-md ol {
+    @apply my-2 list-decimal ps-5;
+}
+.prose-md blockquote {
+    @apply my-3 rounded-xl border-s-4 border-pop-yellow bg-yellow-50 px-3 py-1 dark:bg-yellow-900/20;
+}

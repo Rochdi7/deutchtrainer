@@ -4,8 +4,10 @@ import de from './de';
 import en from './en';
 import courseDe from './course.de';
 import courseEn from './course.en';
+import grammatikDe from './grammatik.de';
+import grammatikEn from './grammatik.en';
 
-const dictionaries = { de: { ...de, ...courseDe }, en: { ...en, ...courseEn } };
+const dictionaries = { de: { ...de, ...courseDe, ...grammatikDe }, en: { ...en, ...courseEn, ...grammatikEn } };
 
 export const LOCALE_NAMES = { de: 'Deutsch', en: 'English' };
 

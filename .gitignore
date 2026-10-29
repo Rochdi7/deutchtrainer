@@ -25,3 +25,7 @@ Thumbs.db
 
 # copyrighted textbook scan (132 MB) – local only
 /book/
+
+# Grammatik aktiv scan – local only; its transcription lives in storage/app/grammatik-aktiv (ignored)
+/grammatik-aktiv-*.pdf
+/grammatik-aktiv.tar.gz

@@ -39,6 +39,13 @@ defineProps({ name: { type: String, required: true } });
             <circle cx="16" cy="11" r="6" fill="#fb8c4b" />
             <path d="M5 28a11 11 0 0 1 22 0Z" fill="#fdb380" />
         </template>
+        <template v-else-if="name === 'grammar'">
+            <rect x="5" y="4" width="20" height="24" rx="3" fill="#c2185b" />
+            <rect x="5" y="4" width="4" height="24" rx="2" fill="#9c1249" />
+            <path d="M13 11h8M13 15h8M13 19h5" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+            <circle cx="24" cy="24" r="5" fill="#22b8cf" />
+            <path d="m21.8 24 1.6 1.6 2.9-3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </template>
         <template v-else-if="name === 'upload'">
             <rect x="5" y="19" width="22" height="8" rx="2" fill="#a1a1aa" />
             <path d="M16 5v12M11 10l5-5 5 5" stroke="#3f3f46" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />

@@ -1,17 +1,20 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { computed } from 'vue';
+import { Link, usePage } from '@inertiajs/vue3';
 import NavIcon from '@/Components/Trainer/NavIcon.vue';
 import { useI18n } from '@/i18n';
 
 const { t } = useI18n();
+const page = usePage();
 
-const items = [
+const items = computed(() => [
     { key: 'learn', route: 'course.dashboard', match: 'course.*', label: 'nav.learn', icon: 'learn' },
     { key: 'lektionen', route: 'lektionen.index', match: 'lektionen.*', label: 'nav.lektionen', icon: 'book' },
     { key: 'practice', route: 'practice.index', match: 'practice.*', label: 'nav.practice', icon: 'target' },
     { key: 'revision', route: 'revision.index', match: 'revision.*', label: 'nav.revision', icon: 'repeat' },
+    ...(page.props.auth.user?.is_admin ? [{ key: 'grammatik', route: 'grammatik.index', match: 'grammatik.*', label: 'nav.grammatik_short', icon: 'grammar' }] : []),
     { key: 'stats', route: 'dashboard', match: 'dashboard', label: 'nav.stats', icon: 'chart' },
-];
+]);
 </script>
 
 <template>
@@ -19,7 +22,7 @@ const items = [
         class="fixed inset-x-0 bottom-0 z-40 border-t-2 border-gray-200 bg-white pb-[env(safe-area-inset-bottom)] dark:border-gray-800 dark:bg-gray-900 lg:hidden"
         aria-label="Hauptnavigation"
     >
-        <ul class="mx-auto grid max-w-lg grid-cols-5 px-1">
+        <ul class="mx-auto grid max-w-lg px-1" :class="items.length > 5 ? 'grid-cols-6' : 'grid-cols-5'">
             <li v-for="item in items" :key="item.key">
                 <Link
                     :href="route(item.route)"
